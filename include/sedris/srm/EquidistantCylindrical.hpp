@@ -1,50 +1,49 @@
 
-#ifndef __TransverseMercator_H__
-#define __TransverseMercator_H__
+#ifndef __EquidistantCylindrical_H__
+#define __EquidistantCylindrical_H__
 
-#include "BaseSRF.h"
-#include "Coord.h"
-#include "Exception.h"
+#include "BaseSRF.hpp"
+#include "Coord.hpp"
+#include "Exception.hpp"
 
 namespace srm
 {
-/** SRF_TransverseMercator class declaration.
+/** SRF_EquidistantCylindrical class declaration.
     SRFs are allocated by the API, and when no longer needed they should be
     released by calling the release() method.
     @author David Shen
     @see BaseSRF_MapProjection
  */
-class SRF_TransverseMercator: public BaseSRF_MapProjection
+class SRF_EquidistantCylindrical: public BaseSRF_MapProjection
 {
 public:
    /** Constructor by SRF parameter structure
        @exception This method throws srm::Exception
     */
-    static SRF_TransverseMercator* create(      SRM_ORM_Code orm,
-                                                SRM_RT_Code  rt,
-                                          const SRM_TM_Parameters &params);
+    static SRF_EquidistantCylindrical* create(      SRM_ORM_Code orm,
+                                                    SRM_RT_Code  rt,
+                                              const SRM_EC_Parameters &params);
 
-   /** Constructor by individual SRF parameters
+    /** Constructor by individual SRF parameters
+        @exception This method throws srm::Exception
+    */
+    static SRF_EquidistantCylindrical* create(
+                                              SRM_ORM_Code   orm,
+                                              SRM_RT_Code    rt,
+                                              SRM_Long_Float origin_longitude,
+                                              SRM_Long_Float central_scale,
+                                              SRM_Long_Float false_easting,
+                                              SRM_Long_Float false_northing
+                                              );
+
+   /** SRF_EquidistantCylindrical constructor by SRF parameter structure
        @exception This method throws srm::Exception
     */
-    static SRF_TransverseMercator* create(
-                                          SRM_ORM_Code orm,
-                                          SRM_RT_Code  rt,
-                                          SRM_Long_Float origin_longitude,
-                                          SRM_Long_Float origin_latitude,
-                                          SRM_Long_Float central_scale,
-                                          SRM_Long_Float false_easting,
-                                          SRM_Long_Float false_northing
-                                         );
-
-   /** SRF_TransverseMercator constructor by SRF parameter structure
-       @exception This method throws srm::Exception
-    */
-    static SRF_TransverseMercator* create( SRM_SRF_Parameters_Info srf_params )
+    static SRF_EquidistantCylindrical* create( SRM_SRF_Parameters_Info srf_params )
     {
-        return create( srf_params.value.srf_template.orm_code,
-                       srf_params.rt_code,
-                       srf_params.value.srf_template.parameters.tm_srf_parameters );
+          return create( srf_params.value.srf_template.orm_code,
+                         srf_params.rt_code,
+                         srf_params.value.srf_template.parameters.ec_srf_parameters );
     }
 
    /** Returns a 3D coordinate object
@@ -61,17 +60,12 @@ public:
    /** Returns a reference to the SRF parameter structure
        @exception This method throws srm::Exception
     */
-    const SRM_TM_Parameters &getSRFParameters() const;
+    const SRM_EC_Parameters &getSRFParameters() const;
 
    /** Returns the origin_longitude SRF parameter value
        @exception This method throws srm::Exception
     */
     SRM_Long_Float get_origin_longitude() const;
-
-   /** Returns the origin_latitude SRF parameter value
-       @exception This method throws srm::Exception
-    */
-    SRM_Long_Float get_origin_latitude() const;
 
    /** Returns the central_scale SRF parameter value
        @exception This method throws srm::Exception
@@ -96,33 +90,23 @@ public:
     */
     virtual SRF_ClassType getClassType() const
     {
-        return BaseSRF::SRF_TYP_TM;
+        return BaseSRF::SRF_TYP_EC;
     }
 
-   /** Returns true if the SRF parameters are equal
-       @note This method is deprecated.  Use the equality operator.
+    /** Returns true if the SRF parameters are equal
+        @note This method is deprecated.  Use the equality operator instead.
     */
-    bool isEqual( const SRF_TransverseMercator &srf ) const;
+    bool isEqual( const SRF_EquidistantCylindrical &srf ) const;
 
    /** The equality operator
        @note This operator returns true if the SRFs have identical parameter values.
     */
-    bool operator==( const SRF_TransverseMercator &rhs ) const;
+    bool operator==( const SRF_EquidistantCylindrical &rhs ) const;
 
    /** Returns a copy of this SRF object
        @exception This method throws srm::Exception
     */
-    SRF_TransverseMercator* makeCopy() const;
-
-   /** Changes a coordinate's values to this SRF (optimized implementation).
-       @note The destination coordinate must have been created using this SRF.
-       @param src_coord in: the source coordinate in some other SRF
-       @param des_coord in/out: the destination coordinate in this SRF
-       @return validity code for the destination coordinate
-       @exception This method throws srm::Exception
-    */
-    virtual SRM_Coordinate_Valid_Region changeCoordinate3DSRF( const Coord3D &src_coord,
-                                                               Coord3D &des_coord );
+    SRF_EquidistantCylindrical* makeCopy() const;
 
    /** Returns char* of parameter names and their values
        @exception This method throws srm::Exception
@@ -130,41 +114,38 @@ public:
     const char* toString();
 
 protected:
-    friend class BaseSRF;
-    friend class BaseSRF_3D;
-    friend class BaseSRF_WithEllipsoidalHeight;
-    SRF_TransverseMercator( void *impl ); ///< No stack allocation
-    SRF_TransverseMercator &operator =( const SRF_TransverseMercator & ) { return *this; } ///< No copy constructor
-    virtual ~SRF_TransverseMercator(); ///< Use release()
+    SRF_EquidistantCylindrical( void *impl ) : BaseSRF_MapProjection(impl) {} ///< No stack allocation
+    SRF_EquidistantCylindrical &operator =( const SRF_EquidistantCylindrical & ) { return *this; } ///< No copy constructor
+    virtual ~SRF_EquidistantCylindrical() {} ///< Use release()
 };
 
 
-inline bool SRF_TransverseMercator::isA( SRF_ClassType type ) const
+inline bool SRF_EquidistantCylindrical::isA( SRF_ClassType type ) const
 {
-    if (type == BaseSRF::SRF_TYP_TM)
+    if (type == BaseSRF::SRF_TYP_EC)
         return true;
     else
         return BaseSRF_MapProjection::isA(type);
 };
 
 
-/// Shorthand version for SRF_TransverseMercator
-typedef SRF_TransverseMercator SRF_TM;
+/// Shorthand version for SRF_EquidistantCylindrical
+typedef SRF_EquidistantCylindrical SRF_EC;
 
 
-/** A Coord3D for SRF_TransverseMercator.
+/** A Coord3D for SRF_EquidistantCylindrical.
     @author David Shen
-    @see SRF_TransverseMercator
+    @see SRF_EquidistantCylindrical
  */
-class Coord3D_TransverseMercator: public Coord3D
+class Coord3D_EquidistantCylindrical: public Coord3D
 {
 public:
    /** Constructor
     */
-    Coord3D_TransverseMercator(SRF_TransverseMercator *srf,
-                               SRM_Long_Float easting = 0.0,
-                               SRM_Long_Float northing = 0.0,
-                               SRM_Long_Float ellipsoidal_height = 0.0 )
+    Coord3D_EquidistantCylindrical( SRF_EquidistantCylindrical *srf,
+                                    SRM_Long_Float easting = 0.0,
+                                    SRM_Long_Float northing = 0.0,
+                                    SRM_Long_Float ellipsoidal_height = 0.0 )
     : Coord3D(srf)
     {
         setComponentValues(easting, northing, ellipsoidal_height);
@@ -172,7 +153,7 @@ public:
 
    /** Copy constructor
     */
-    Coord3D_TransverseMercator( const Coord3D_TransverseMercator &coord )
+    Coord3D_EquidistantCylindrical( const Coord3D_EquidistantCylindrical &coord )
     : Coord3D(coord._srf)
     {
         setComponentValues( coord._values[0], coord._values[1], coord._values[2] );
@@ -183,7 +164,7 @@ public:
        @note This method is deprecated.  Use the assignment operator.
        @exception This method throws srm::Exception
     */
-    void copyTo( Coord3D_TransverseMercator &coord ) const
+    void copyTo( Coord3D_EquidistantCylindrical &coord ) const
     {
         if (coord._srf != _srf)
             throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
@@ -194,10 +175,9 @@ public:
     }
 
    /** Returns true if the coordinate component values are identical
-       @note The coordinates must be associated with the same SRF instance.
        @note This method is deprecated.  Use the equality operator.
     */
-    bool isEqual( const Coord3D_TransverseMercator &coord ) const
+    bool isEqual( const Coord3D_EquidistantCylindrical &coord ) const
     {
         return (_srf == coord._srf &&
                 _values[0] == coord._values[0] &&
@@ -264,69 +244,69 @@ public:
     */
     virtual Coord_ClassType getClassType() const
     {
-        return Coord::COORD_TYP_TM;
+        return Coord::COORD_TYP_EC;
     }
 
    /** The equality operator
     */
-    bool operator==( const Coord3D_TransverseMercator &rhs ) const;
+    bool operator==( const Coord3D_EquidistantCylindrical &rhs ) const;
 
    /** Returns true if the coordinates are associated with SRFs with identical parameters.
        @note This method should be used to evaluate coordinate compatibility before
              calling the coordinate assignment operator to avoid raising runtime exception
              when operating on incompatible coordinates.
     */
-    bool isCompatibleWith( const Coord3D_TransverseMercator &rhs ) const
+    bool isCompatibleWith( const Coord3D_EquidistantCylindrical &rhs ) const
     {
-        return ((*(SRF_TransverseMercator*)(this->_srf)) == (*(SRF_TransverseMercator*)(rhs._srf)));
+        return ((*(SRF_EquidistantCylindrical*)(this->_srf)) == (*(SRF_EquidistantCylindrical*)(rhs._srf)));
     }
 
    /** The assignment operator
        @note This operator will check whether the coordinates are compatible.
        @exception This method throws srm::Exception
     */
-    Coord3D_TransverseMercator &operator= ( const Coord3D_TransverseMercator &rhs )
+    Coord3D_EquidistantCylindrical &operator= ( const Coord3D_EquidistantCylindrical &rhs )
     {
-        if((*(SRF_TransverseMercator*)(this->_srf)) == (*(SRF_TransverseMercator*)(rhs._srf)))
-          {
+        if((*(SRF_EquidistantCylindrical*)(this->_srf)) == (*(SRF_EquidistantCylindrical*)(rhs._srf)))
+        {
             _values[0] = rhs._values[0];
             _values[1] = rhs._values[1];
             _values[2] = rhs._values[2];
-          }
+        }
         else
-          throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
-                          "Coord3D_TransverseMercator op=: incompatible rhs coordinate");
+            throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
+                            "Coord3D_EquidistantCylindrical op=: incompatible rhs coordinate");
 
         return *this;
     }
 };
 
 
-inline bool Coord3D_TransverseMercator::isA( Coord_ClassType type ) const
+inline bool Coord3D_EquidistantCylindrical::isA( Coord_ClassType type ) const
 {
-    if (type == Coord::COORD_TYP_TM)
+    if (type == Coord::COORD_TYP_EC)
         return true;
     else
         return Coord3D::isA(type);
 };
 
 
-/// Shorthand version for Coord3D_TransverseMercator
-typedef Coord3D_TransverseMercator Coord3D_TM;
+/// Shorthand version for Coord3D_EquidistantCylindrical
+typedef Coord3D_EquidistantCylindrical Coord3D_EC;
 
 
-/** A CoordSurf for SRF_TransverseMercator.
+/** A CoordSurf for SRF_EquidistantCylindrical.
     @author David Shen
-    @see SRF_TransverseMercator
+    @see SRF_EquidistantCylindrical
  */
-class CoordSurf_TransverseMercator: public CoordSurf
+class CoordSurf_EquidistantCylindrical: public CoordSurf
 {
 public:
    /** Constructor
     */
-    CoordSurf_TransverseMercator(SRF_TransverseMercator *srf,
-                                 SRM_Long_Float easting = 0.0,
-                                 SRM_Long_Float northing = 0.0 )
+    CoordSurf_EquidistantCylindrical(SRF_EquidistantCylindrical *srf,
+                                     SRM_Long_Float easting = 0.0,
+                                     SRM_Long_Float northing = 0.0 )
     : CoordSurf(srf)
     {
         setComponentValues(easting, northing);
@@ -334,7 +314,7 @@ public:
 
    /** Copy constructor
     */
-    CoordSurf_TransverseMercator( const CoordSurf_TransverseMercator &coord )
+    CoordSurf_EquidistantCylindrical( const CoordSurf_EquidistantCylindrical &coord )
     : CoordSurf(coord._srf)
     {
         setComponentValues( coord._values[0], coord._values[1] );
@@ -345,7 +325,7 @@ public:
        @note This method is deprecated.  Use the assignment operator.
        @exception This method throws srm::Exception
     */
-    void copyTo( CoordSurf_TransverseMercator &coord ) const
+    void copyTo( CoordSurf_EquidistantCylindrical &coord ) const
     {
         if (coord._srf != _srf)
             throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
@@ -355,10 +335,9 @@ public:
     }
 
    /** Returns true if the coordinate component values are identical
-       @note The coordinates must be associated with the same SRF instance.
        @note This method is deprecated.  Use the equality operator.
     */
-    bool isEqual( const CoordSurf_TransverseMercator &coord ) const
+    bool isEqual( const CoordSurf_EquidistantCylindrical &coord ) const
     {
         return (_srf == coord._srf &&
                 _values[0] == coord._values[0] &&
@@ -409,55 +388,55 @@ public:
     */
     virtual Coord_ClassType getClassType() const
     {
-        return Coord::COORD_TYP_SURF_TM;
+        return Coord::COORD_TYP_SURF_EC;
     }
 
    /** The equality operator
     */
-    bool operator==( const CoordSurf_TransverseMercator &rhs ) const;
+    bool operator==( const CoordSurf_EquidistantCylindrical &rhs ) const;
 
    /** Returns true if the coordinates are associated with SRFs with identical parameters.
        @note This method should be used to evaluate coordinate compatibility before
              calling the coordinate assignment operator to avoid raising runtime exception
              when operating on incompatible coordinates.
     */
-    bool isCompatibleWith( const CoordSurf_TransverseMercator &rhs ) const
+    bool isCompatibleWith( const CoordSurf_EquidistantCylindrical &rhs ) const
     {
-        return ((*(SRF_TransverseMercator*)(this->_srf)) == (*(SRF_TransverseMercator*)(rhs._srf)));
+        return ((*(SRF_EquidistantCylindrical*)(this->_srf)) == (*(SRF_EquidistantCylindrical*)(rhs._srf)));
     }
 
    /** The assignment operator
        @note This operator will check whether the coordinates are compatible.
        @exception This method throws srm::Exception
     */
-    CoordSurf_TransverseMercator &operator= ( const CoordSurf_TransverseMercator &rhs )
+    CoordSurf_EquidistantCylindrical &operator= ( const CoordSurf_EquidistantCylindrical &rhs )
     {
-        if((*(SRF_TransverseMercator*)(this->_srf)) == (*(SRF_TransverseMercator*)(rhs._srf)))
+        if((*(SRF_EquidistantCylindrical*)(this->_srf)) == (*(SRF_EquidistantCylindrical*)(rhs._srf)))
         {
             _values[0] = rhs._values[0];
             _values[1] = rhs._values[1];
         }
         else
             throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
-                            "CoordSurf_TransverseMercator op=: incompatible rhs coordinate");
+                            "CoordSurf_EquidistantCylindrical op=: incompatible rhs coordinate");
 
         return *this;
     }
 };
 
 
-inline bool CoordSurf_TransverseMercator::isA( Coord_ClassType type ) const
+inline bool CoordSurf_EquidistantCylindrical::isA( Coord_ClassType type ) const
 {
-    if (type == Coord::COORD_TYP_SURF_TM)
+    if (type == Coord::COORD_TYP_SURF_EC)
         return true;
     else
         return CoordSurf::isA(type);
 };
 
 
-/// Shorthand version for CoordSurf_TransverseMercator
-typedef CoordSurf_TransverseMercator CoordSurf_TM;
+/// Shorthand version for CoordSurf_EquidistantCylindrical
+typedef CoordSurf_EquidistantCylindrical CoordSurf_EC;
 
 } // namespace srm
 
-#endif // _TransverseMercator_h
+#endif // _EquidistantCylindrical_h

@@ -1,6 +1,6 @@
 
-#include "Celestiomagnetic.h"
-#include "Exception.h"
+#include "Celestiomagnetic.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

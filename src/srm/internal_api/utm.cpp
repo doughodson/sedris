@@ -61,7 +61,7 @@
 
 #include "tranmerc.h" // Is used to convert transverse mercator coordinates
 #include "utm.h"      // Defines the function prototypes for the utm module.
-#include "Exception.h"
+#include "Exception.hpp"
 
 
 /***************************************************************************/

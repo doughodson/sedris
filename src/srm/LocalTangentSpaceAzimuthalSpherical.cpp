@@ -1,6 +1,6 @@
 
-#include "LocalTangentSpaceAzimuthalSpherical.h"
-#include "Exception.h"
+#include "LocalTangentSpaceAzimuthalSpherical.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

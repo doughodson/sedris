@@ -2,9 +2,9 @@
 #ifndef __LocalTangentSpaceEuclidean_H__
 #define __LocalTangentSpaceEuclidean_H__
 
-#include "BaseSRF.h"
-#include "Coord.h"
-#include "Exception.h"
+#include "BaseSRF.hpp"
+#include "Coord.hpp"
+#include "Exception.hpp"
 
 namespace srm
 {

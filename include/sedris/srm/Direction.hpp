@@ -2,8 +2,8 @@
 #ifndef __Direction_H__
 #define __Direction_H__
 
-#include "BaseSRF.h" ///< For SRF clone() and release() methods.
-#include "Exception.h"
+#include "BaseSRF.hpp" ///< For SRF clone() and release() methods.
+#include "Exception.hpp"
 
 namespace srm
 {

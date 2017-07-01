@@ -1,6 +1,6 @@
 
-#include "ObliqueMercatorSpherical.h"
-#include "Exception.h"
+#include "ObliqueMercatorSpherical.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

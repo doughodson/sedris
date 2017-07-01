@@ -1,6 +1,6 @@
 
-#include "SolarMagneticDipole.h"
-#include "Exception.h"
+#include "SolarMagneticDipole.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

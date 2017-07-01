@@ -1,8 +1,8 @@
 
-#include "srf_all.h"
-#include "Direction.h"
-#include "Orientation.h"
-#include "Exception.h"
+#include "srf_all.hpp"
+#include "Direction.hpp"
+#include "Orientation.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

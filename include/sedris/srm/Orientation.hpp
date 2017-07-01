@@ -2,7 +2,7 @@
 #ifndef __Orientation_H__
 #define __Orientation_H__
 
-#include "Exception.h"
+#include "Exception.hpp"
 
 namespace srm
 {

@@ -1,9 +1,9 @@
 
 #include "internal_api/impl_public.h"
 
-#include "srf_all.h"
-#include "Direction.h"
-#include "Exception.h"
+#include "srf_all.hpp"
+#include "Direction.hpp"
+#include "Exception.hpp"
 #include "impl_cpp_misc.h"
 #include <math.h>
 #include <float.h>

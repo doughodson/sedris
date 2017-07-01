@@ -27,8 +27,8 @@
 #include "internal_api/impl_public.h"
 #include "srf_impl/orm_rd_struct.h"
 
-#include "srf_all.h"
-#include "Exception.h"
+#include "srf_all.hpp"
+#include "Exception.hpp"
 #include "impl_cpp_misc.h"
 
 // global variable - controls whether SRF cache is used to speed

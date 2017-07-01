@@ -1,6 +1,6 @@
 
-#include "Planetodetic.h"
-#include "Exception.h"
+#include "Planetodetic.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

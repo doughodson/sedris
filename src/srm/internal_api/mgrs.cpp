@@ -89,7 +89,7 @@
 #include "ups.h"        // ups.h    - Universal Polar Stereographic (UPS) projection
 #include "utm.h"        // utm.h    - Universal Transverse Mercator (UTM) projection
 #include "mgrs.h"       // mgrs.h   - function prototype error checking
-#include "Exception.h"
+#include "Exception.hpp"
 
 #if defined(_WIN32)
 #pragma warning(disable : 4996)

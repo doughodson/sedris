@@ -92,11 +92,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "srm_types.h"
-#include "srf_all.h"
-#include "Coord.h"
-#include "Exception.h"
-#include "Orientation.h"
-#include "Direction.h"
+#include "srf_all.hpp"
+#include "Coord.hpp"
+#include "Exception.hpp"
+#include "Orientation.hpp"
+#include "Direction.hpp"
 
 using namespace srm;
 

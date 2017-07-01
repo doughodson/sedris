@@ -1,6 +1,6 @@
 
-#include "HeliosphericEarthEquatorial.h"
-#include "Exception.h"
+#include "HeliosphericEarthEquatorial.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

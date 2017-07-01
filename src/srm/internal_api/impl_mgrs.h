@@ -2,7 +2,7 @@
 #ifndef _IMPL_MGRS_H
 #define _IMPL_MGRS_H
 
-#include "Coord.h"
+#include "Coord.hpp"
 #include "impl_status.h"
 
 Impl_Status impl_get_MGRS( void* src_srf,

@@ -2,7 +2,7 @@
 #ifndef _CPP_Impl_Misc_h
 #define _CPP_Impl_Misc_h
 
-#include "BaseSRF.h"
+#include "BaseSRF.hpp"
 #include "srm_types.h"
 #include "internal_api/impl_public.h"
 #include "srf_impl/orm_rd_struct.h"

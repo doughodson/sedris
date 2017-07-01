@@ -1,6 +1,6 @@
 
-#include "HeliosphericEarthEcliptic.h"
-#include "Exception.h"
+#include "HeliosphericEarthEcliptic.hpp"
+#include "Exception.hpp"
 #include "internal_api/impl_public.h"
 #include "impl_cpp_misc.h"
 

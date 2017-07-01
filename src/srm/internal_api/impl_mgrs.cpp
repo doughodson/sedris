@@ -5,8 +5,8 @@
 #include "../srf_impl/orm_rd_struct.h"
 
 #include "impl_mgrs.h"
-#include "BaseSRF.h"
-#include "srf_all.h"
+#include "BaseSRF.hpp"
+#include "srf_all.hpp"
 #include "mgrs.h"
 #include "srm_types.h"
 #include "impl_alloc.h"

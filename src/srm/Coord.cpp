@@ -1,10 +1,11 @@
 
-#include "Coord.h"
-#include "Exception.h"
-#include "internal_api/impl_mgrs.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "Coord.hpp"
+#include "Exception.hpp"
+#include "internal_api/impl_mgrs.h"
 
 using namespace srm;
 

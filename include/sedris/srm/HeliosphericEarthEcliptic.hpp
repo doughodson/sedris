@@ -1,32 +1,32 @@
 
-#ifndef __SolarEquatorial_H__
-#define __SolarEquatorial_H__
+#ifndef __HeliosphericEarthEcliptic_H__
+#define __HeliosphericEarthEcliptic_H__
 
-#include "BaseSRF.h"
-#include "Coord.h"
-#include "Exception.h"
+#include "BaseSRF.hpp"
+#include "Coord.hpp"
+#include "Exception.hpp"
 
 namespace srm
 {
-/** SRF_SolarEquatorial class declaration.
+/** SRF_HeliosphericEarthEcliptic class declaration.
     SRFs are allocated by the API, and when no longer needed they should be
     released by calling the release() method.
     @author David Shen
     @see BaseSRF_3D
  */
-class SRF_SolarEquatorial: public BaseSRF_3D
+class SRF_HeliosphericEarthEcliptic: public BaseSRF_3D
 {
 public:
-   /** SRF_SolarEquatorial only constructor by ORM code
+   /** SRF_HeliosphericEarthEcliptic only constructor by ORM code
        @exception This method throws srm::Exception
     */
-    static SRF_SolarEquatorial* create( SRM_ORM_Code orm,
-                                        SRM_RT_Code  rt );
+    static SRF_HeliosphericEarthEcliptic* create( SRM_ORM_Code orm,
+                                                  SRM_RT_Code  rt );
 
-    /** SRF_SolarEquatorial constructor by ORM parameters
-        @exception This method throws srm::Exception
+   /** SRF_HeliosphericEarthEcliptic constructor by ORM parameters
+       @exception This method throws srm::Exception
     */
-    static SRF_SolarEquatorial* create( SRM_SRF_Parameters_Info srf_params )
+    static SRF_HeliosphericEarthEcliptic* create( SRM_SRF_Parameters_Info srf_params )
     {
         return create( srf_params.value.srf_template.orm_code, srf_params.rt_code );
     }
@@ -45,62 +45,63 @@ public:
     */
     virtual SRF_ClassType getClassType() const
     {
-        return BaseSRF::SRF_TYP_SEQ;
+        return BaseSRF::SRF_TYP_HEEC;
     }
 
-   /** Returns true if the SRF parameters are equal
-       @note This method is deprecated.  Use the equality operator instead.
+    /** Returns true if the SRF parameters are equal
+        @note This method is deprecated.  Use the equality operator instead.
     */
-    bool isEqual( const SRF_SolarEquatorial &srf ) const;
+    bool isEqual( const SRF_HeliosphericEarthEcliptic &srf ) const;
 
-   /** The equality operator
-       @note This operator returns true if the SRFs have identical parameter values.
+    /** The equality operator
+        @note This operator returns true if the SRFs have identical parameter values.
     */
-    bool operator==( const SRF_SolarEquatorial &rhs ) const;
+    bool operator==( const SRF_HeliosphericEarthEcliptic &rhs ) const;
 
-   /** Returns a copy of this SRF object
-       @exception This method throws srm::Exception
+    /** Returns a copy of this SRF object
+        @exception This method throws srm::Exception
     */
-    SRF_SolarEquatorial* makeCopy() const;
+    SRF_HeliosphericEarthEcliptic* makeCopy() const;
 
-   /** Returns char* of parameter names and their values
-       @exception This method throws srm::Exception
+
+    /** Returns char* of parameter names and their values
+        @exception This method throws srm::Exception
     */
     const char* toString();
 
 protected:
-    SRF_SolarEquatorial( void *impl ) : BaseSRF_3D(impl) {} ///< No stack allocation
-    SRF_SolarEquatorial &operator =( const SRF_SolarEquatorial & ) { return *this; } ///< No copy constructor
-    virtual ~SRF_SolarEquatorial() {} ///< Use release()
+    SRF_HeliosphericEarthEcliptic( void *impl ) : BaseSRF_3D(impl) {} ///< No stack allocation
+    SRF_HeliosphericEarthEcliptic &operator =( const SRF_HeliosphericEarthEcliptic & ) { return *this; } ///< No copy constructor
+    virtual ~SRF_HeliosphericEarthEcliptic() {} ///< Use release()
 };
 
 
-inline bool SRF_SolarEquatorial::isA( SRF_ClassType type ) const
+inline bool SRF_HeliosphericEarthEcliptic::isA( SRF_ClassType type ) const
 {
-    if (type == BaseSRF::SRF_TYP_SEQ)
+    if (type == BaseSRF::SRF_TYP_HEEC)
         return true;
     else
         return BaseSRF_3D::isA(type);
- };
+};
 
 
-/// Shorthand version for SRF_SolarEquatorial
-typedef SRF_SolarEquatorial SRF_SEQ;
+/// Shorthand version for SRF_HeliosphericEarthEcliptic
+typedef SRF_HeliosphericEarthEcliptic SRF_HEEC;
 
 
-/** A Coord3D for SRF_SolarEquatorial.
+/** A Coord3D for SRF_HeliosphericEarthEcliptic.
     @author David Shen
-    @see SRF_SolarEquatorial
+    @see SRF_HeliosphericEarthEcliptic
  */
-class Coord3D_SolarEquatorial: public Coord3D
+class Coord3D_HeliosphericEarthEcliptic: public Coord3D
 {
 public:
    /** Constructor
     */
-    Coord3D_SolarEquatorial( SRF_SolarEquatorial *srf,
-                             SRM_Long_Float longitude = 0.0,
-                             SRM_Long_Float latitude = 0.0,
-                             SRM_Long_Float radius = 0.0 )
+    Coord3D_HeliosphericEarthEcliptic( SRF_HeliosphericEarthEcliptic *srf,
+                                       SRM_Long_Float longitude = 0.0,
+                                       SRM_Long_Float latitude = 0.0,
+                                       SRM_Long_Float radius = 0.0 )
     : Coord3D(srf)
     {
         setComponentValues(longitude, latitude, radius);
@@ -108,7 +109,7 @@ public:
 
    /** Copy constructor
     */
-    Coord3D_SolarEquatorial( const Coord3D_SolarEquatorial &coord )
+    Coord3D_HeliosphericEarthEcliptic( const Coord3D_HeliosphericEarthEcliptic &coord )
     : Coord3D(coord._srf)
     {
         setComponentValues( coord._values[0], coord._values[1], coord._values[2] );
@@ -119,7 +120,7 @@ public:
        @note This method is deprecated.  Use the assignment operator.
        @exception This method throws srm::Exception
     */
-    void copyTo( Coord3D_SolarEquatorial &coord ) const
+    void copyTo( Coord3D_HeliosphericEarthEcliptic &coord ) const
     {
         if (coord._srf != _srf)
             throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
@@ -132,7 +133,7 @@ public:
    /** Returns true if the coordinate component values are identical
        @note This method is deprecated.  Use the equality operator.
     */
-    bool isEqual( const Coord3D_SolarEquatorial &coord ) const
+    bool isEqual( const Coord3D_HeliosphericEarthEcliptic &coord ) const
     {
         return (_srf == coord._srf &&
                 _values[0] == coord._values[0] &&
@@ -199,30 +200,30 @@ public:
     */
     virtual Coord_ClassType getClassType() const
     {
-        return Coord::COORD_TYP_SEQ;
+        return Coord::COORD_TYP_HEEC;
     }
 
    /** The equality operator
     */
-    bool operator==( const Coord3D_SolarEquatorial &rhs ) const;
+    bool operator==( const Coord3D_HeliosphericEarthEcliptic &rhs ) const;
 
    /** Returns true if the coordinates are associated with SRFs with identical parameters.
        @note This method should be used to evaluate coordinate compatibility before
              calling the coordinate assignment operator to avoid raising runtime exception
              when operating on incompatible coordinates.
     */
-    bool isCompatibleWith( const Coord3D_SolarEquatorial &rhs ) const
+    bool isCompatibleWith( const Coord3D_HeliosphericEarthEcliptic &rhs ) const
     {
-        return ((*(SRF_SolarEquatorial*)(this->_srf)) == (*(SRF_SolarEquatorial*)(rhs._srf)));
+        return ((*(SRF_HeliosphericEarthEcliptic*)(this->_srf)) == (*(SRF_HeliosphericEarthEcliptic*)(rhs._srf)));
     }
 
    /** The assignment operator
        @note This operator will check whether the coordinates are compatible.
        @exception This method throws srm::Exception
     */
-    Coord3D_SolarEquatorial &operator= ( const Coord3D_SolarEquatorial &rhs )
+    Coord3D_HeliosphericEarthEcliptic &operator= ( const Coord3D_HeliosphericEarthEcliptic &rhs )
     {
-        if((*(SRF_SolarEquatorial*)(this->_srf)) == (*(SRF_SolarEquatorial*)(rhs._srf)))
+        if((*(SRF_HeliosphericEarthEcliptic*)(this->_srf)) == (*(SRF_HeliosphericEarthEcliptic*)(rhs._srf)))
         {
             _values[0] = rhs._values[0];
             _values[1] = rhs._values[1];
@@ -230,25 +231,25 @@ public:
         }
         else
             throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
-                            "Coord3D_SolarEquatorial op=: incompatible rhs coordinate");
+                            "Coord3D_HeliosphericEarthEcliptic op=: incompatible rhs coordinate");
 
         return *this;
     }
 };
 
 
-inline bool Coord3D_SolarEquatorial::isA( Coord_ClassType type ) const
+inline bool Coord3D_HeliosphericEarthEcliptic::isA( Coord_ClassType type ) const
 {
-    if (type == Coord::COORD_TYP_SEQ)
+    if (type == Coord::COORD_TYP_HEEC)
         return true;
     else
         return Coord3D::isA(type);
 };
 
 
-/// Shorthand version for Coord3D_SolarEquatorial
-typedef Coord3D_SolarEquatorial Coord3D_SEQ;
+/// Shorthand version for Coord3D_HeliosphericEarthEcliptic
+typedef Coord3D_HeliosphericEarthEcliptic Coord3D_HEEC;
 
 } // namespace srm
 
-#endif // _SolarEquatorial_h
+#endif // _HeliosphericEarthEcliptic_h

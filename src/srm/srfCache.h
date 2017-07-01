@@ -2,7 +2,7 @@
 #ifndef __srfCache_H__
 #define __srfCache_H__
 
-#include "BaseSRF.h"
+#include "BaseSRF.hpp"
 #include "support/srm_internal.h"
 
 // TYPEDEF STRUCT: CC_Cache_Constants

@@ -1,88 +1,76 @@
 
-#ifndef __LambertConformalConic_H__
-#define __LambertConformalConic_H__
+#ifndef __Mercator_H__
+#define __Mercator_H__
 
-#include "BaseSRF.h"
-#include "Coord.h"
-#include "Exception.h"
+#include "BaseSRF.hpp"
+#include "Coord.hpp"
+#include "Exception.hpp"
 
 namespace srm
 {
-/** SRF_LambertConformalConic class declaration.
+/** SRF_Mercator class declaration.
     SRFs are allocated by the API, and when no longer needed they should be
     released by calling the release() method.
     @author David Shen
     @see BaseSRF_MapProjection
 */
-class SRF_LambertConformalConic: public BaseSRF_MapProjection
+class SRF_Mercator: public BaseSRF_MapProjection
 {
 public:
-    /** Constructor by SRF parameter structure
-        @exception This method throws srm::Exception
+   /** Constructor by SRF parameter structure
+       @exception This method throws srm::Exception
     */
-    static SRF_LambertConformalConic* create(      SRM_ORM_Code orm,
-                                                   SRM_RT_Code  rt,
-                                             const SRM_LCC_Parameters &params);
+    static SRF_Mercator* create(      SRM_ORM_Code orm,
+                                      SRM_RT_Code  rt,
+                                const SRM_M_Parameters &params);
 
-    /** Constructor by individual SRF parameters
-        @exception This method throws srm::Exception
+   /** Constructor by individual SRF parameters
+       @exception This method throws srm::Exception
     */
-    static SRF_LambertConformalConic* create(
-                                             SRM_ORM_Code orm,
-                                             SRM_RT_Code  rt,
-                                             SRM_Long_Float origin_longitude,
-                                             SRM_Long_Float origin_latitude,
-                                             SRM_Long_Float latitude1,
-                                             SRM_Long_Float latitude2,
-                                             SRM_Long_Float false_easting,
-                                             SRM_Long_Float false_northing
-                                            );
+    static SRF_Mercator* create(
+                                SRM_ORM_Code   orm,
+                                SRM_RT_Code    rt,
+                                SRM_Long_Float origin_longitude,
+                                SRM_Long_Float central_scale,
+                                SRM_Long_Float false_easting,
+                                SRM_Long_Float false_northing
+                                );
 
-    /** SRF_LambertConformalConic constructor by SRF parameter structure
-        @exception This method throws srm::Exception
+   /** SRF_Mercator constructor by SRF parameter structure
+       @exception This method throws srm::Exception
     */
-    static SRF_LambertConformalConic* create( SRM_SRF_Parameters_Info srf_params )
+    static SRF_Mercator* create( SRM_SRF_Parameters_Info srf_params )
     {
-        return create( srf_params.value.srf_template.orm_code,
-                       srf_params.rt_code,
-                       srf_params.value.srf_template.parameters.lcc_srf_parameters );
+        return create(srf_params.value.srf_template.orm_code,
+                      srf_params.rt_code,
+                      srf_params.value.srf_template.parameters.m_srf_parameters);
     }
 
    /** Returns a 3D coordinate object
     */
     Coord3D* createCoordinate3D(SRM_Long_Float coord_comp1,
                                 SRM_Long_Float coord_comp2,
-                                SRM_Long_Float coord_comp3 );
+                                SRM_Long_Float coord_comp3);
 
    /** Returns a surface coordinate object
     */
     CoordSurf* createSurfaceCoordinate(SRM_Long_Float coord_surf_comp1,
-                                       SRM_Long_Float coord_surf_comp2 );
+                                       SRM_Long_Float coord_surf_comp2);
 
    /** Returns a reference to the SRF parameter structure
        @exception This method throws srm::Exception
     */
-    const SRM_LCC_Parameters &getSRFParameters() const;
+    const SRM_M_Parameters &getSRFParameters() const;
 
    /** Returns the origin_longitude SRF parameter value
        @exception This method throws srm::Exception
     */
     SRM_Long_Float get_origin_longitude() const;
 
-   /** Returns the origin_latitude SRF parameter value
+   /** Returns the central_scale SRF parameter value
        @exception This method throws srm::Exception
     */
-    SRM_Long_Float get_origin_latitude() const;
-
-   /** Returns the latitude1 SRF parameter value
-       @exception This method throws srm::Exception
-    */
-    SRM_Long_Float get_latitude1() const;
-
-   /** Returns the latitude2 SRF parameter value
-       @exception This method throws srm::Exception
-    */
-    SRM_Long_Float get_latitude2() const;
+    SRM_Long_Float get_central_scale() const;
 
    /** Returns the false_easting SRF parameter value
        @exception This method throws srm::Exception
@@ -102,25 +90,33 @@ public:
     */
     virtual SRF_ClassType getClassType() const
     {
-        return BaseSRF::SRF_TYP_LCC;
+        return BaseSRF::SRF_TYP_M;
     }
 
    /** Returns true if the SRF parameters are equal
        @note This method is deprecated.  Use the equality operator instead.
     */
-    bool isEqual( const SRF_LambertConformalConic &srf ) const;
+    bool isEqual( const SRF_Mercator &srf ) const;
 
    /** The equality operator
        @note This operator returns true if the SRFs have identical parameter values.
     */
-    bool operator==( const SRF_LambertConformalConic &rhs ) const;
-
+    bool operator==( const SRF_Mercator &rhs ) const;
 
    /** Returns a copy of this SRF object
        @exception This method throws srm::Exception
     */
-    SRF_LambertConformalConic* makeCopy() const;
+    SRF_Mercator* makeCopy() const;
 
+   /** Changes a coordinate's values to this SRF (optimized implementation).
+       @note The destination coordinate must have been created using this SRF.
+       @param src_coord in: the source coordinate in some other SRF
+       @param des_coord in/out: the destination coordinate in this SRF
+       @return validity code for the destination coordinate
+       @exception This method throws srm::Exception
+    */
+    virtual SRM_Coordinate_Valid_Region changeCoordinate3DSRF(const Coord3D &src_coord,
+                                                                    Coord3D &des_coord);
 
    /** Returns char* of parameter names and their values
        @exception This method throws srm::Exception
@@ -129,40 +125,38 @@ public:
 
 protected:
     friend class BaseSRF;
-    friend class BaseSRF_3D;
-    friend class BaseSRF_WithEllipsoidalHeight;
-    SRF_LambertConformalConic( void *impl ) : BaseSRF_MapProjection(impl) {} ///< No stack allocation
-    SRF_LambertConformalConic &operator =( const SRF_LambertConformalConic & ) { return *this; } ///< No copy constructor
-    virtual ~SRF_LambertConformalConic() {} ///< Use release()
+    SRF_Mercator( void *impl ); ///< No stack allocation
+    SRF_Mercator &operator =( const SRF_Mercator & ) { return *this; } ///< No copy constructor
+    virtual ~SRF_Mercator(); ///< Use release()
 };
 
 
-inline bool SRF_LambertConformalConic::isA( SRF_ClassType type ) const
+inline bool SRF_Mercator::isA( SRF_ClassType type ) const
 {
-    if (type == BaseSRF::SRF_TYP_LCC)
+    if (type == BaseSRF::SRF_TYP_M)
         return true;
     else
         return BaseSRF_MapProjection::isA(type);
 };
 
 
-/// Shorthand version for SRF_LambertConformalConic
-typedef SRF_LambertConformalConic SRF_LCC;
+/// Shorthand version for SRF_Mercator
+typedef SRF_Mercator SRF_M;
 
 
-/** A Coord3D for SRF_LambertConformalConic.
+/** A Coord3D for SRF_Mercator.
     @author David Shen
-    @see SRF_LambertConformalConic
+    @see SRF_Mercator
  */
-class Coord3D_LambertConformalConic: public Coord3D
+class Coord3D_Mercator: public Coord3D
 {
 public:
    /** Constructor
     */
-    Coord3D_LambertConformalConic(SRF_LambertConformalConic *srf,
-                                  SRM_Long_Float easting = 0.0,
-                                  SRM_Long_Float northing = 0.0,
-                                  SRM_Long_Float ellipsoidal_height = 0.0 )
+    Coord3D_Mercator(SRF_Mercator *srf,
+                     SRM_Long_Float easting = 0.0,
+                     SRM_Long_Float northing = 0.0,
+                     SRM_Long_Float ellipsoidal_height = 0.0)
     : Coord3D(srf)
     {
         setComponentValues(easting, northing, ellipsoidal_height);
@@ -170,7 +164,7 @@ public:
 
    /** Copy constructor
     */
-    Coord3D_LambertConformalConic( const Coord3D_LambertConformalConic &coord )
+    Coord3D_Mercator( const Coord3D_Mercator &coord )
     : Coord3D(coord._srf)
     {
         setComponentValues( coord._values[0], coord._values[1], coord._values[2] );
@@ -181,7 +175,7 @@ public:
        @note This method is deprecated.  Use the assignment operator.
        @exception This method throws srm::Exception
     */
-    void copyTo( Coord3D_LambertConformalConic &coord ) const
+    void copyTo( Coord3D_Mercator &coord ) const
     {
         if (coord._srf != _srf)
             throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
@@ -194,12 +188,12 @@ public:
    /** Returns true if the coordinate component values are identical
        @note This method is deprecated.  Use the equality operator.
     */
-    bool isEqual( const Coord3D_LambertConformalConic &coord ) const
+    bool isEqual( const Coord3D_Mercator &coord ) const
     {
         return (_srf == coord._srf &&
                 _values[0] == coord._values[0] &&
                 _values[1] == coord._values[1] &&
-                _values[2] == coord._values[2] );
+                _values[2] == coord._values[2]);
     }
 
    /** Sets all coordinate component values
@@ -234,21 +228,21 @@ public:
 
    /** Sets the easting value
     */
-    void set_easting(SRM_Long_Float value)
+    void set_easting( SRM_Long_Float value )
     {
         _values[0] = value;
     }
 
    /** Sets the northing value
     */
-    void set_northing(SRM_Long_Float value)
+    void set_northing( SRM_Long_Float value )
     {
         _values[1] = value;
     }
 
    /** Sets the ellipsoidal_height value
     */
-    void set_ellipsoidal_height(SRM_Long_Float value)
+    void set_ellipsoidal_height( SRM_Long_Float value )
     {
         _values[2] = value;
     }
@@ -261,30 +255,30 @@ public:
     */
     virtual Coord_ClassType getClassType() const
     {
-        return Coord::COORD_TYP_LCC;
+        return Coord::COORD_TYP_M;
     }
 
    /** The equality operator
     */
-    bool operator==( const Coord3D_LambertConformalConic &rhs ) const;
+    bool operator==( const Coord3D_Mercator &rhs ) const;
 
-    /** Returns true if the coordinates are associated with SRFs with identical parameters.
-        @note This method should be used to evaluate coordinate compatibility before
-              calling the coordinate assignment operator to avoid raising runtime exception
-              when operating on incompatible coordinates.
+   /** Returns true if the coordinates are associated with SRFs with identical parameters.
+       @note This method should be used to evaluate coordinate compatibility
+             before calling the coordinate assignment operator to avoid raising
+             runtime exception when operating on incompatible coordinates.
     */
-    bool isCompatibleWith( const Coord3D_LambertConformalConic &rhs ) const
+    bool isCompatibleWith( const Coord3D_Mercator &rhs ) const
     {
-        return ((*(SRF_LambertConformalConic*)(this->_srf)) == (*(SRF_LambertConformalConic*)(rhs._srf)));
+        return ((*(SRF_Mercator*)(this->_srf)) == (*(SRF_Mercator*)(rhs._srf)));
     }
 
    /** The assignment operator
        @note This operator will check whether the coordinates are compatible.
        @exception This method throws srm::Exception
     */
-    Coord3D_LambertConformalConic &operator= ( const Coord3D_LambertConformalConic &rhs)
+    Coord3D_Mercator &operator= ( const Coord3D_Mercator &rhs )
     {
-        if((*(SRF_LambertConformalConic*)(this->_srf)) == (*(SRF_LambertConformalConic*)(rhs._srf)))
+        if((*(SRF_Mercator*)(this->_srf)) == (*(SRF_Mercator*)(rhs._srf)))
         {
             _values[0] = rhs._values[0];
             _values[1] = rhs._values[1];
@@ -292,38 +286,38 @@ public:
         }
         else
             throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
-                          "Coord3D_LambertConformalConic op=: incompatible rhs coordinate");
+                            "Coord3D_Mercator op=: incompatible rhs coordinate");
 
         return *this;
     }
 };
 
 
-inline bool Coord3D_LambertConformalConic::isA( Coord_ClassType type ) const
+inline bool Coord3D_Mercator::isA( Coord_ClassType type ) const
 {
-    if (type == Coord::COORD_TYP_LCC)
+    if (type == Coord::COORD_TYP_M)
         return true;
     else
         return Coord3D::isA(type);
 };
 
 
-/// Shorthand version for Coord3D_LambertConformalConic
-typedef Coord3D_LambertConformalConic Coord3D_LCC;
+/// Shorthand version for Coord3D_Mercator
+typedef Coord3D_Mercator Coord3D_M;
 
 
-/** A CoordSurf for SRF_LambertConformalConic.
+/** A CoordSurf for SRF_Mercator.
     @author David Shen
-    @see SRF_LambertConformalConic
+    @see SRF_Mercator
  */
-class CoordSurf_LambertConformalConic: public CoordSurf
+class CoordSurf_Mercator: public CoordSurf
 {
 public:
    /** Constructor
     */
-    CoordSurf_LambertConformalConic(SRF_LambertConformalConic *srf,
-                                    SRM_Long_Float easting = 0.0,
-                                    SRM_Long_Float northing = 0.0 )
+    CoordSurf_Mercator( SRF_Mercator *srf,
+                        SRM_Long_Float easting = 0.0,
+                        SRM_Long_Float northing = 0.0 )
     : CoordSurf(srf)
     {
         setComponentValues(easting, northing);
@@ -331,7 +325,7 @@ public:
 
    /** Copy constructor
     */
-    CoordSurf_LambertConformalConic( const CoordSurf_LambertConformalConic &coord )
+    CoordSurf_Mercator( const CoordSurf_Mercator &coord )
     : CoordSurf(coord._srf)
     {
         setComponentValues( coord._values[0], coord._values[1] );
@@ -342,7 +336,7 @@ public:
        @note This method is deprecated.  Use the assignment operator.
        @exception This method throws srm::Exception
     */
-    void copyTo( CoordSurf_LambertConformalConic &coord ) const
+    void copyTo( CoordSurf_Mercator &coord ) const
     {
         if (coord._srf != _srf)
             throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
@@ -354,7 +348,7 @@ public:
    /** Returns true if the coordinate component values are identical
        @note This method is deprecated.  Use the equality operator.
     */
-    bool isEqual( const CoordSurf_LambertConformalConic &coord ) const
+    bool isEqual( const CoordSurf_Mercator &coord ) const
     {
         return (_srf == coord._srf &&
                 _values[0] == coord._values[0] &&
@@ -385,14 +379,14 @@ public:
 
    /** Sets the easting value
     */
-    void set_easting(SRM_Long_Float value)
+    void set_easting( SRM_Long_Float value )
     {
         _values[0] = value;
     }
 
    /** Sets the northing value
     */
-    void set_northing(SRM_Long_Float value)
+    void set_northing( SRM_Long_Float value )
     {
         _values[1] = value;
     }
@@ -401,62 +395,60 @@ public:
     */
     virtual bool isA( Coord_ClassType type ) const;
 
-
    /** Returns true if this SRF is of the given class type
     */
     virtual Coord_ClassType getClassType() const
     {
-        return Coord::COORD_TYP_SURF_LCC;
+        return Coord::COORD_TYP_SURF_M;
     }
 
    /** The equality operator
     */
-    bool operator==( const CoordSurf_LambertConformalConic &rhs ) const;
+    bool operator==( const CoordSurf_Mercator &rhs ) const;
 
    /** Returns true if the coordinates are associated with SRFs with identical parameters.
-       @note This method should be used to evaluate coordinate compatibility before
-             calling the coordinate assignment operator to avoid raising runtime exception
-             when operating on incompatible coordinates.
+       @note This method should be used to evaluate coordinate compatibility
+             before calling the coordinate assignment operator to avoid raising
+             runtime exception when operating on incompatible coordinates.
     */
-    bool isCompatibleWith( const CoordSurf_LambertConformalConic &rhs ) const
+    bool isCompatibleWith( const CoordSurf_Mercator &rhs ) const
     {
-        return ((*(SRF_LambertConformalConic*)(this->_srf)) == (*(SRF_LambertConformalConic*)(rhs._srf)));
+        return ((*(SRF_Mercator*)(this->_srf)) == (*(SRF_Mercator*)(rhs._srf)));
     }
 
-    /** The assignment operator
-        @note This operator will check whether the coordinates are compatible.
-        @note Compatible coordinates are associated with SRFs whose parameters are
-          within 0.0001 accuracy
-        @exception This method throws srm::Exception
+   /** The assignment operator
+       @note This operator will check whether the coordinates are compatible.
+       @note Compatible coordinates are associated with SRFs with identical parameters.
+       @exception This method throws srm::Exception
     */
-    CoordSurf_LambertConformalConic &operator= ( const CoordSurf_LambertConformalConic &rhs)
+    CoordSurf_Mercator &operator= ( const CoordSurf_Mercator &rhs )
     {
-        if((*(SRF_LambertConformalConic*)(this->_srf)) == (*(SRF_LambertConformalConic*)(rhs._srf)))
+        if((*(SRF_Mercator*)(this->_srf)) == (*(SRF_Mercator*)(rhs._srf)))
         {
             _values[0] = rhs._values[0];
             _values[1] = rhs._values[1];
         }
         else
             throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
-                            "CoordSurf_LambertConformalConic op=: incompatible rhs coordinate");
+                            "CoordSurf_Mercator op=: incompatible rhs coordinate");
 
         return *this;
     }
 };
 
 
-inline bool CoordSurf_LambertConformalConic::isA( Coord_ClassType type ) const
+inline bool CoordSurf_Mercator::isA( Coord_ClassType type ) const
 {
-    if (type == Coord::COORD_TYP_SURF_LCC)
+    if (type == Coord::COORD_TYP_SURF_M)
         return true;
     else
         return CoordSurf::isA(type);
 };
 
 
-/// Shorthand version for CoordSurf_LambertConformalConic
-typedef CoordSurf_LambertConformalConic CoordSurf_LCC;
+/// Shorthand version for CoordSurf_Mercator
+typedef CoordSurf_Mercator CoordSurf_M;
 
 } // namespace srm
 
-#endif // _LambertConformalConic_h
+#endif // _Mercator_h

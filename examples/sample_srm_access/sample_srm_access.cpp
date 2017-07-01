@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "srf_all.h"
+#include "srf_all.hpp"
 
 #ifndef PI
 #define PI 3.14159265358979323846

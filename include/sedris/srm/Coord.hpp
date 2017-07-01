@@ -2,7 +2,7 @@
 #ifndef __Coord_H__
 #define __Coord_H__
 
-#include "BaseSRF.h" ///< For SRF clone() and release() methods.
+#include "BaseSRF.hpp" ///< For SRF clone() and release() methods.
 
 namespace srm
 {

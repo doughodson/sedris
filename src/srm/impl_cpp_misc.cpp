@@ -1,6 +1,6 @@
 
 #include "impl_cpp_misc.h"
-#include "Exception.h"
+#include "Exception.hpp"
 #include "string.h"
 
 bool srm::isLegalSRFTCode (SRM_SRFT_Code srft_code)

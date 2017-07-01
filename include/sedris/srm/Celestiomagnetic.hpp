@@ -1,113 +1,116 @@
 
-#ifndef __SolarMagneticDipole_H__
-#define __SolarMagneticDipole_H__
+#ifndef __Celestiomagnetic_H__
+#define __Celestiomagnetic_H__
 
-#include "BaseSRF.h"
-#include "Coord.h"
-#include "Exception.h"
+#include "BaseSRF.hpp"
+#include "Coord.hpp"
+#include "Exception.hpp"
 
 namespace srm
 {
-/** SRF_SolarMagneticDipole class declaration.
-    SRFs are allocated by the API, and when no longer needed they should be
-    released by calling the release() method.
-    @author David Shen
-    @see BaseSRF_3D
- */
-class SRF_SolarMagneticDipole: public BaseSRF_3D
-{
-public:
-     /** SRF_SolarMagneticDipole only constructor by ORM code
-         @exception This method throws srm::Exception
-      */
-      static SRF_SolarMagneticDipole* create( SRM_ORM_Code orm,
-                                              SRM_RT_Code  rt );
+  /** SRF_Celestiomagnetic class declaration.
+      SRFs are allocated by the API, and when no longer needed they should be
+      released by calling the release() method.
+      @author David Shen
+      @see BaseSRF_3D
+  */
+  class SRF_Celestiomagnetic: public BaseSRF_3D
+    {
+    public:
 
-     /** SRF_SolarMagneticDipole constructor by ORM parameters
-         @exception This method throws srm::Exception
+      /** SRF_Celestiomagnetic only constructor by ORM code
+          @exception This method throws srm::Exception
       */
-      static SRF_SolarMagneticDipole* create( SRM_SRF_Parameters_Info srf_params )
-      {
+      static SRF_Celestiomagnetic* create( SRM_ORM_Code orm,
+                                           SRM_RT_Code  rt );
+
+      /** SRF_Celestiomagnetic constructor by ORM parameters
+          @exception This method throws srm::Exception
+      */
+      static SRF_Celestiomagnetic* create( SRM_SRF_Parameters_Info srf_params )
+        {
           return create( srf_params.value.srf_template.orm_code, srf_params.rt_code );
-      }
+        }
 
-     /** Returns a 3D coordinate object
-      */
+      /// Returns a 3D coordinate object
       Coord3D* createCoordinate3D(SRM_Long_Float coord_comp1,
                                   SRM_Long_Float coord_comp2,
                                   SRM_Long_Float coord_comp3 );
 
-     /** Returns true if this SRF is of the given class type
-      */
+      /// Returns true if this SRF is of the given class type
       virtual bool isA( SRF_ClassType type ) const;
 
-     /** Returns the class type of this SRF instance
-      */
-      virtual SRF_ClassType getClassType() const
-      {
-          return BaseSRF::SRF_TYP_SMD;
+
+      /// Returns the class type of this SRF instance
+      virtual SRF_ClassType getClassType() const {
+        return BaseSRF::SRF_TYP_CM;
       }
 
-     /** Returns true if the SRF parameters are equal
-         @note This method is deprecated.  Use the equality operator instead.
+      /** Returns true if the SRF parameters are equal
+          @note This method is deprecated.  Use the equality operator instead.
       */
-      bool isEqual( const SRF_SolarMagneticDipole &srf ) const;
+      bool isEqual( const SRF_Celestiomagnetic &srf ) const;
 
-     /** The equality operator
-         @note This operator returns true if the SRFs have identical parameter values.
+      /** The equality operator
+          @note This operator returns true if the SRFs have identical parameter values.
       */
-      bool operator==( const SRF_SolarMagneticDipole &rhs ) const;
+      bool operator==( const SRF_Celestiomagnetic &rhs ) const;
 
-     /** Returns a copy of this SRF object
-         @exception This method throws srm::Exception
+
+      /** Returns a copy of this SRF object
+          @exception This method throws srm::Exception
       */
-      SRF_SolarMagneticDipole* makeCopy() const;
+      SRF_Celestiomagnetic* makeCopy() const;
 
-     /** Returns char* of parameter names and their values
-         @exception This method throws srm::Exception
+
+      /** Returns char* of parameter names and their values
+          @exception This method throws srm::Exception
       */
       const char* toString();
 
-protected:
-      SRF_SolarMagneticDipole( void *impl ) : BaseSRF_3D(impl) {} ///< No stack allocation
-      SRF_SolarMagneticDipole &operator =( const SRF_SolarMagneticDipole & ) { return *this; } ///< No copy constructor
-      virtual ~SRF_SolarMagneticDipole() {} ///< Use release()
-};
+    protected:
+
+      SRF_Celestiomagnetic( void *impl ) : BaseSRF_3D(impl) {} ///< No stack allocation
+      SRF_Celestiomagnetic &operator =( const SRF_Celestiomagnetic & ) { return *this; } ///< No copy constructor
+      virtual ~SRF_Celestiomagnetic() {} ///< Use release()
+
+    };
 
 
-inline bool SRF_SolarMagneticDipole::isA( SRF_ClassType type ) const
-{
-    if (type == BaseSRF::SRF_TYP_SMD)
+  inline bool SRF_Celestiomagnetic::isA( SRF_ClassType type ) const
+    {
+      if (type == BaseSRF::SRF_TYP_CM)
         return true;
-    else
+      else
         return BaseSRF_3D::isA(type);
-};
+    };
 
 
-/// Shorthand version for SRF_SolarMagneticDipole
-typedef SRF_SolarMagneticDipole SRF_SMD;
+/// Shorthand version for SRF_Celestiomagnetic
+typedef SRF_Celestiomagnetic SRF_CM;
 
 
-/** A Coord3D for SRF_SolarMagneticDipole.
+/** A Coord3D for SRF_Celestiomagnetic.
     @author David Shen
-    @see SRF_SolarMagneticDipole
- */
-class Coord3D_SolarMagneticDipole: public Coord3D
+    @see SRF_Celestiomagnetic
+  */
+class Coord3D_Celestiomagnetic: public Coord3D
 {
 public:
    /** Constructor
     */
-    Coord3D_SolarMagneticDipole(SRF_SolarMagneticDipole *srf,
-                                SRM_Long_Float longitude = 0.0,
-                                SRM_Long_Float latitude = 0.0,
-                                SRM_Long_Float radius = 0.0 )
+    Coord3D_Celestiomagnetic( SRF_Celestiomagnetic *srf,
+                              SRM_Long_Float longitude = 0.0,
+                              SRM_Long_Float latitude = 0.0,
+                              SRM_Long_Float radius = 0.0 )
     : Coord3D(srf)
     {
         setComponentValues(longitude, latitude, radius);
     }
 
-    /// Copy constructor
-    Coord3D_SolarMagneticDipole( const Coord3D_SolarMagneticDipole &coord )
+   /** Copy constructor
+    */
+    Coord3D_Celestiomagnetic( const Coord3D_Celestiomagnetic &coord )
     : Coord3D(coord._srf)
     {
         setComponentValues( coord._values[0], coord._values[1], coord._values[2] );
@@ -118,7 +121,7 @@ public:
        @note This method is deprecated.  Use the assignment operator.
        @exception This method throws srm::Exception
     */
-    void copyTo( Coord3D_SolarMagneticDipole &coord ) const
+    void copyTo( Coord3D_Celestiomagnetic &coord ) const
     {
         if (coord._srf != _srf)
             throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
@@ -131,7 +134,7 @@ public:
    /** Returns true if the coordinate component values are identical
        @note This method is deprecated.  Use the equality operator.
     */
-    bool isEqual( const Coord3D_SolarMagneticDipole &coord ) const
+    bool isEqual( const Coord3D_Celestiomagnetic &coord ) const
     {
         return (_srf == coord._srf &&
                 _values[0] == coord._values[0] &&
@@ -198,30 +201,30 @@ public:
     */
     virtual Coord_ClassType getClassType() const
     {
-        return Coord::COORD_TYP_SMD;
+        return Coord::COORD_TYP_CM;
     }
 
    /** The equality operator
     */
-    bool operator==( const Coord3D_SolarMagneticDipole &rhs ) const;
+    bool operator==( const Coord3D_Celestiomagnetic &rhs ) const;
 
    /** Returns true if the coordinates are associated with SRFs with identical parameters.
        @note This method should be used to evaluate coordinate compatibility before
              calling the coordinate assignment operator to avoid raising runtime exception
              when operating on incompatible coordinates.
     */
-    bool isCompatibleWith( const Coord3D_SolarMagneticDipole &rhs ) const
+    bool isCompatibleWith( const Coord3D_Celestiomagnetic &rhs ) const
     {
-        return ((*(SRF_SolarMagneticDipole*)(this->_srf)) == (*(SRF_SolarMagneticDipole*)(rhs._srf)));
+        return ((*(SRF_Celestiomagnetic*)(this->_srf)) == (*(SRF_Celestiomagnetic*)(rhs._srf)));
     }
 
    /** The assignment operator
        @note This operator will check whether the coordinates are compatible.
        @exception This method throws srm::Exception
     */
-    Coord3D_SolarMagneticDipole &operator= ( const Coord3D_SolarMagneticDipole &rhs )
+    Coord3D_Celestiomagnetic &operator= ( const Coord3D_Celestiomagnetic &rhs )
     {
-        if((*(SRF_SolarMagneticDipole*)(this->_srf)) == (*(SRF_SolarMagneticDipole*)(rhs._srf)))
+        if((*(SRF_Celestiomagnetic*)(this->_srf)) == (*(SRF_Celestiomagnetic*)(rhs._srf)))
         {
             _values[0] = rhs._values[0];
             _values[1] = rhs._values[1];
@@ -229,25 +232,25 @@ public:
         }
         else
             throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
-                            "Coord3D_SolarMagneticDipole op=: incompatible rhs coordinate");
+                            "Coord3D_Celestiomagnetic op=: incompatible rhs coordinate");
 
         return *this;
     }
 };
 
 
-inline bool Coord3D_SolarMagneticDipole::isA( Coord_ClassType type ) const
+inline bool Coord3D_Celestiomagnetic::isA( Coord_ClassType type ) const
 {
-    if (type == Coord::COORD_TYP_SMD)
+    if (type == Coord::COORD_TYP_CM)
         return true;
     else
         return Coord3D::isA(type);
 };
 
 
-/// Shorthand version for Coord3D_SolarMagneticDipole
-typedef Coord3D_SolarMagneticDipole Coord3D_SMD;
+/// Shorthand version for Coord3D_Celestiomagnetic
+typedef Coord3D_Celestiomagnetic Coord3D_CM;
 
 } // namespace srm
 
-#endif // _SolarMagneticDipole_h
+#endif // _Celestiomagnetic_h

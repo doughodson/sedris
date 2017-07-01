@@ -1,32 +1,32 @@
 
-#ifndef __HeliosphericAriesEcliptic_H__
-#define __HeliosphericAriesEcliptic_H__
+#ifndef __EquatorialInertial_H__
+#define __EquatorialInertial_H__
 
-#include "BaseSRF.h"
-#include "Coord.h"
-#include "Exception.h"
+#include "BaseSRF.hpp"
+#include "Coord.hpp"
+#include "Exception.hpp"
 
 namespace srm
 {
-/** SRF_HeliosphericAriesEcliptic class declaration.
+/** SRF_EquatorialInertial class declaration.
     SRFs are allocated by the API, and when no longer needed they should be
     released by calling the release() method.
     @author David Shen
     @see BaseSRF_3D
- */
-class SRF_HeliosphericAriesEcliptic: public BaseSRF_3D
+*/
+class SRF_EquatorialInertial: public BaseSRF_3D
 {
 public:
-   /** SRF_HeliosphericAriesEcliptic only constructor by ORM code
+   /** SRF_EquatorialInertial only constructor by ORM code
        @exception This method throws srm::Exception
     */
-    static SRF_HeliosphericAriesEcliptic* create( SRM_ORM_Code orm,
-                                                  SRM_RT_Code  rt );
+    static SRF_EquatorialInertial* create( SRM_ORM_Code orm, 
+                                           SRM_RT_Code  rt );
 
-   /** SRF_HeliosphericAriesEcliptic constructor by ORM parameters
+   /** SRF_EquatorialInertial constructor by ORM parameters
        @exception This method throws srm::Exception
     */
-    static SRF_HeliosphericAriesEcliptic* create( SRM_SRF_Parameters_Info srf_params )
+    static SRF_EquatorialInertial* create( SRM_SRF_Parameters_Info srf_params )
     {
         return create( srf_params.value.srf_template.orm_code, srf_params.rt_code );
     }
@@ -36,7 +36,7 @@ public:
     Coord3D* createCoordinate3D(SRM_Long_Float coord_comp1,
                                 SRM_Long_Float coord_comp2,
                                 SRM_Long_Float coord_comp3 );
-
+ 
    /** Returns true if this SRF is of the given class type
     */
     virtual bool isA( SRF_ClassType type ) const;
@@ -45,23 +45,23 @@ public:
     */
     virtual SRF_ClassType getClassType() const
     {
-        return BaseSRF::SRF_TYP_HAEC;
+        return BaseSRF::SRF_TYP_EI;
     }
 
    /** Returns true if the SRF parameters are equal
        @note This method is deprecated.  Use the equality operator instead.
     */
-    bool isEqual( const SRF_HeliosphericAriesEcliptic &srf ) const;
+    bool isEqual( const SRF_EquatorialInertial &srf ) const;
 
    /** The equality operator
        @note This operator returns true if the SRFs have identical parameter values.
     */
-    bool operator==( const SRF_HeliosphericAriesEcliptic &rhs ) const;
+    bool operator==( const SRF_EquatorialInertial &rhs ) const;
 
    /** Returns a copy of this SRF object
        @exception This method throws srm::Exception
     */
-    SRF_HeliosphericAriesEcliptic* makeCopy() const;
+    SRF_EquatorialInertial* makeCopy() const;
 
    /** Returns char* of parameter names and their values
        @exception This method throws srm::Exception
@@ -69,46 +69,46 @@ public:
     const char* toString();
 
 protected:
-    SRF_HeliosphericAriesEcliptic( void *impl ) : BaseSRF_3D(impl) {} ///< No stack allocation
-    SRF_HeliosphericAriesEcliptic &operator =( const SRF_HeliosphericAriesEcliptic & ) { return *this; } ///< No copy constructor
-    virtual ~SRF_HeliosphericAriesEcliptic() {} ///< Use release()
+    SRF_EquatorialInertial( void *impl ) : BaseSRF_3D(impl) {} ///< No stack allocation
+    SRF_EquatorialInertial &operator =( const SRF_EquatorialInertial & ) { return *this; } ///< No copy constructor
+    virtual ~SRF_EquatorialInertial() {} ///< Use release()
 };
 
 
-inline bool SRF_HeliosphericAriesEcliptic::isA( SRF_ClassType type ) const
+inline bool SRF_EquatorialInertial::isA( SRF_ClassType type ) const
 {
-    if (type == BaseSRF::SRF_TYP_HAEC)
+    if (type == BaseSRF::SRF_TYP_EI)
         return true;
     else
         return BaseSRF_3D::isA(type);
 };
 
 
-/// Shorthand version for SRF_HeliosphericAriesEcliptic
-typedef SRF_HeliosphericAriesEcliptic SRF_HAEC;
+/// Shorthand version for SRF_EquatorialInertial
+typedef SRF_EquatorialInertial SRF_EI;
 
 
- /** A Coord3D for SRF_HeliosphericAriesEcliptic.
-      @author David Shen
-      @see SRF_HeliosphericAriesEcliptic
-  */
-class Coord3D_HeliosphericAriesEcliptic: public Coord3D
+/** A Coord3D for SRF_EquatorialInertial.
+    @author David Shen
+    @see SRF_EquatorialInertial
+*/
+class Coord3D_EquatorialInertial: public Coord3D
 {
 public:
    /** Constructor
     */
-    Coord3D_HeliosphericAriesEcliptic( SRF_HeliosphericAriesEcliptic *srf,
-                                       SRM_Long_Float longitude = 0.0,
-                                       SRM_Long_Float latitude = 0.0,
-                                       SRM_Long_Float radius = 0.0 )
+    Coord3D_EquatorialInertial( SRF_EquatorialInertial *srf, 
+                                SRM_Long_Float right_ascension = 0.0,
+                                SRM_Long_Float declination = 0.0,
+                                SRM_Long_Float radius = 0.0 )
     : Coord3D(srf)
     {
-        setComponentValues(longitude, latitude, radius);
+        setComponentValues(right_ascension, declination, radius);
     }
 
    /** Copy constructor
     */
-    Coord3D_HeliosphericAriesEcliptic( const Coord3D_HeliosphericAriesEcliptic &coord )
+    Coord3D_EquatorialInertial( const Coord3D_EquatorialInertial &coord )
     : Coord3D(coord._srf)
     {
         setComponentValues( coord._values[0], coord._values[1], coord._values[2] );
@@ -119,20 +119,20 @@ public:
        @note This method is deprecated.  Use the assignment operator.
        @exception This method throws srm::Exception
     */
-    void copyTo( Coord3D_HeliosphericAriesEcliptic &coord ) const
+    void copyTo( Coord3D_EquatorialInertial &coord ) const
     {
         if (coord._srf != _srf)
-            throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
+          throw Exception( SRM_STATCOD_INVALID_SOURCE_COORDINATE, "copyTo: Coordinate associated with a difference SRF" );
 
-        coord._values[0] = _values[0];
-        coord._values[1] = _values[1];
+        coord._values[0] = _values[0]; 
+        coord._values[1] = _values[1]; 
         coord._values[2] = _values[2];
     }
 
    /** Returns true if the coordinate component values are identical
        @note This method is deprecated.  Use the equality operator.
     */
-    bool isEqual( const Coord3D_HeliosphericAriesEcliptic &coord ) const
+    bool isEqual( const Coord3D_EquatorialInertial &coord ) const
     {
         return (_srf == coord._srf &&
                 _values[0] == coord._values[0] &&
@@ -142,23 +142,23 @@ public:
 
    /** Sets all coordinate component values
     */
-    void setComponentValues( SRM_Long_Float longitude, SRM_Long_Float latitude, SRM_Long_Float radius )
+    void setComponentValues( SRM_Long_Float right_ascension, SRM_Long_Float declination, SRM_Long_Float radius )
     {
-        _values[0] = longitude;
-        _values[1] = latitude;
+        _values[0] = right_ascension;
+        _values[1] = declination;
         _values[2] = radius;
     }
 
-   /** Returns the longitude value
+   /** Returns the right_ascension value
     */
-    SRM_Long_Float get_longitude() const
+    SRM_Long_Float get_right_ascension() const
     {
         return _values[0];
     }
 
-   /** Returns the latitude value
+   /** Returns the declination value
     */
-    SRM_Long_Float get_latitude() const
+    SRM_Long_Float get_declination() const
     {
         return _values[1];
     }
@@ -170,16 +170,16 @@ public:
         return _values[2];
     }
 
-   /** Sets the longitude value
+   /** Sets the right_ascension value
     */
-    void set_longitude( SRM_Long_Float value )
+    void set_right_ascension( SRM_Long_Float value )
     {
         _values[0] = value;
     }
 
-   /** Sets the latitude value
+   /** Sets the declination value
     */
-    void set_latitude( SRM_Long_Float value )
+    void set_declination( SRM_Long_Float value )
     {
         _values[1] = value;
     }
@@ -199,30 +199,30 @@ public:
     */
     virtual Coord_ClassType getClassType() const
     {
-        return Coord::COORD_TYP_HAEC;
+        return Coord::COORD_TYP_EI;
     }
 
    /** The equality operator
     */
-    bool operator==( const Coord3D_HeliosphericAriesEcliptic &rhs ) const;
+    bool operator==( const Coord3D_EquatorialInertial &rhs ) const;
 
    /** Returns true if the coordinates are associated with SRFs with identical parameters.
        @note This method should be used to evaluate coordinate compatibility before
              calling the coordinate assignment operator to avoid raising runtime exception
              when operating on incompatible coordinates.
     */
-    bool isCompatibleWith( const Coord3D_HeliosphericAriesEcliptic &rhs ) const
+    bool isCompatibleWith( const Coord3D_EquatorialInertial &rhs ) const
     {
-        return ((*(SRF_HeliosphericAriesEcliptic*)(this->_srf)) == (*(SRF_HeliosphericAriesEcliptic*)(rhs._srf)));
+        return ((*(SRF_EquatorialInertial*)(this->_srf)) == (*(SRF_EquatorialInertial*)(rhs._srf)));
     }
 
-   /** The assignment operator
-       @note This operator will check whether the coordinates are compatible.
-       @exception This method throws srm::Exception
+    /** The assignment operator
+        @note This operator will check whether the coordinates are compatible.
+        @exception This method throws srm::Exception
     */
-    Coord3D_HeliosphericAriesEcliptic &operator= ( const Coord3D_HeliosphericAriesEcliptic &rhs )
+    Coord3D_EquatorialInertial &operator= ( const Coord3D_EquatorialInertial &rhs )
     {
-        if((*(SRF_HeliosphericAriesEcliptic*)(this->_srf)) == (*(SRF_HeliosphericAriesEcliptic*)(rhs._srf)))
+        if((*(SRF_EquatorialInertial*)(this->_srf)) == (*(SRF_EquatorialInertial*)(rhs._srf)))
         {
             _values[0] = rhs._values[0];
             _values[1] = rhs._values[1];
@@ -230,25 +230,25 @@ public:
         }
         else
             throw Exception(SRM_STATCOD_INVALID_TARGET_COORDINATE,
-                            "Coord3D_HeliosphericAriesEcliptic op=: incompatible rhs coordinate");
+                            "Coord3D_EquatorialInertial op=: incompatible rhs coordinate");
 
         return *this;
     }
 };
 
 
-inline bool Coord3D_HeliosphericAriesEcliptic::isA( Coord_ClassType type ) const
+inline bool Coord3D_EquatorialInertial::isA( Coord_ClassType type ) const
 {
-    if (type == Coord::COORD_TYP_HAEC)
+    if (type == Coord::COORD_TYP_EI)
         return true;
     else
         return Coord3D::isA(type);
 };
 
 
-/// Shorthand version for Coord3D_HeliosphericAriesEcliptic
-typedef Coord3D_HeliosphericAriesEcliptic Coord3D_HAEC;
+/// Shorthand version for Coord3D_EquatorialInertial
+typedef Coord3D_EquatorialInertial Coord3D_EI;
 
 } // namespace srm
 
-#endif // _HeliosphericAriesEcliptic_h
+#endif // _EquatorialInertial_h
