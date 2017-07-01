@@ -20,9 +20,10 @@ end
 --
 -- set include and library paths
 --
-SRM_IncPath     = "../../include/sedris/srm"
-EDCS_IncPath     = "../../include/sedris/edcs"
-SEDRIS_LibPath  = "../../lib"
+SRM_IncPath            = "../../include/sedris/srm"
+SRM_c_wrapper_IncPath  = "../../include/sedris/srm-c-wrapper"
+EDCS_IncPath           = "../../include/sedris/edcs"
+SEDRIS_LibPath         = "../../lib"
 
 workspace "sedris"
 
@@ -77,7 +78,7 @@ workspace "sedris"
       if _ACTION == "gmake" then
          defines { "gnu" }
       end
-      includedirs { EDCS_IncPath, SRM_IncPath }
+      includedirs { SRM_c_wrapper_IncPath, SRM_IncPath, EDCS_IncPath }
       files {
          "../../include/sedris/drm/**.h*",
          "../../src/drm/**.c*"
@@ -121,8 +122,8 @@ workspace "sedris"
       }
 
    -- srm-c-wrapper
-   project "lib_srm-c-wrapper"
-      targetname "sedris_srm-c-wrapper"
+   project "lib_srm_c_wrapper"
+      targetname "sedris_srm_c_wrapper"
       targetdir ("../../lib/")
       kind "StaticLib"
       language "C++"
@@ -132,7 +133,7 @@ workspace "sedris"
       if _ACTION ~= "gmake" then
          defines { "_LIB" }
       end
-      includedirs { SRM_IncPath }
+      includedirs { SRM_c_wrapper_IncPath, SRM_IncPath }
       files {
          "../../include/sedris/srm-c-wrapper/**.h*",
          "../../src/srm-c-wrapper/**.h*",
@@ -188,13 +189,13 @@ workspace "sedris"
       targetdir "../../examples/sample_srm_access_c"
       debugdir "../../examples/sample_srm_access_c"
       kind "ConsoleApp"
-      language "C"
+      language "C++"
       if _ACTION ~= "gmake" then
          defines { "_CONSOLE" }
       end
-      includedirs { SRM_IncPath }
+      includedirs { SRM_c_wrapper_IncPath, SRM_IncPath }
       libdirs { SEDRIS_LibPath }
-      links { "lib_srm", "lib_srm-c-wrapper" }
+      links { "lib_srm_c_wrapper", "lib_srm" }
       files {
          "../../examples/sample_srm_access_c/**.h*",
          "../../examples/sample_srm_access_c/**.c*"

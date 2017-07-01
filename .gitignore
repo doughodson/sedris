@@ -43,7 +43,8 @@ codelite/
 *.pdb
 
 # linux exes
-examples/sample_srm_access/sample_srm_access
 examples/sample_edcs_access/sample_edcs_access
+examples/sample_srm_access/sample_srm_access
+examples/sample_srm_access_c/sample_srm_access_c
 
 
