@@ -1,0 +1,49 @@
+# generated build files
+build/obj/
+gmake/
+vs2013/
+vs2015/
+vs2017/
+codeblocks/
+codelite/
+.vscode/
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+!premake*.*
+
+# visual studio files
+*.ilk
+*.pdb
+
+# linux exes
+examples/sample_srm_access/sample_srm_access
+examples/sample_edcs_access/sample_edcs_access
+
+
