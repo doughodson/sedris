@@ -113,7 +113,7 @@ extern "C" {
  *   For each class, indicates whether an object of the class can have
  *   components.
  */
-EXPORT_DLL extern const SE_Boolean
+ extern const SE_Boolean
 SE_ComponentsLegal[SE_DRM_CLASS_UBOUND];
 
 
@@ -125,7 +125,7 @@ SE_ComponentsLegal[SE_DRM_CLASS_UBOUND];
  *   legal, SE_TRUE if any 2-way associations to this class are legal, and
  *   SE_FALSE otherwise.
  */
-EXPORT_DLL extern const SE_Boolean
+ extern const SE_Boolean
 SE_IncomingAssociationsLegal[SE_DRM_CLASS_UBOUND];
 
 
@@ -136,7 +136,7 @@ SE_IncomingAssociationsLegal[SE_DRM_CLASS_UBOUND];
  *   class are legal. An entry is SE_TRUE if any 1-way associations to this
  *   class are legal, SE_FALSE otherwise.
  */
-EXPORT_DLL extern const SE_Boolean
+ extern const SE_Boolean
 SE_IncomingOneWayAssociationsLegal[SE_DRM_CLASS_UBOUND];
 
 /*
@@ -145,7 +145,7 @@ SE_IncomingOneWayAssociationsLegal[SE_DRM_CLASS_UBOUND];
  *   For each class, indicates whether an object of the class can be
  *   published.
  */
-EXPORT_DLL extern const SE_Boolean
+ extern const SE_Boolean
 SE_IsPublishable[SE_DRM_CLASS_UBOUND];
 
 
@@ -155,7 +155,7 @@ SE_IsPublishable[SE_DRM_CLASS_UBOUND];
  *   For each class, indicates whether an object of the class can have
  *   aggregates.
  */
-EXPORT_DLL extern const SE_Boolean
+ extern const SE_Boolean
 SE_OutgoingAggregationsLegal[SE_DRM_CLASS_UBOUND];
 
 
@@ -165,7 +165,7 @@ SE_OutgoingAggregationsLegal[SE_DRM_CLASS_UBOUND];
  *   For each class, indicates whether outgoing associations from that class
  *   are legal.
  */
-EXPORT_DLL extern const SE_Boolean
+ extern const SE_Boolean
 SE_OutgoingAssociationsLegal[SE_DRM_CLASS_UBOUND];
 
 
@@ -193,7 +193,7 @@ SE_OutgoingAssociationsLegal[SE_DRM_CLASS_UBOUND];
  *----------------------------------------------------------------------------
 
  */
-EXPORT_DLL extern int
+ extern int
 se_strcasecmp
 (
     const char *s1_ptr,
@@ -221,7 +221,7 @@ se_strcasecmp
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL  extern void
+  extern void
 se_strupper
 (
           char *dst_ptr,
@@ -267,7 +267,7 @@ se_strupper
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Character *
+ extern SE_Character *
 SE_AllocCharacterArray
 (
     SE_Integer_Unsigned size
@@ -293,7 +293,7 @@ SE_AllocCharacterArray
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_CanInheritComponents
 (
     SE_DRM_Class drm_class
@@ -345,7 +345,7 @@ SE_CanInheritComponents
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneAddress
 (
     const SE_Address *src_ptr,
@@ -398,7 +398,7 @@ SE_CloneAddress
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneContactInformation
 (
     const SE_Contact_Information *src_ptr,
@@ -451,7 +451,7 @@ SE_CloneContactInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneDataQualityElement
 (
     const SE_Data_Quality_Element *src_ptr,
@@ -503,7 +503,7 @@ SE_CloneDataQualityElement
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneFields
 (
     SE_FIELDS_PTR        src_ptr,
@@ -556,7 +556,7 @@ SE_CloneFields
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneSingleValue
 (
     const SE_Single_Value *src_ptr,
@@ -608,7 +608,7 @@ SE_CloneSingleValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneString
 (
     const SE_String *src_ptr,
@@ -661,7 +661,7 @@ SE_CloneString
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneTelephoneInformation
 (
     const SE_Telephone_Information *src_ptr,
@@ -714,7 +714,7 @@ SE_CloneTelephoneInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneTextFont
 (
     const SE_Text_Font *src_ptr,
@@ -767,7 +767,7 @@ SE_CloneTextFont
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneCIOnlineResource
 (
     const SE_CI_OnlineResource *src_ptr,
@@ -819,7 +819,7 @@ SE_CloneCIOnlineResource
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneURN
 (
     const SE_URN *src_ptr,
@@ -871,7 +871,7 @@ SE_CloneURN
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CloneURL
 (
     const SE_URL *src_ptr,
@@ -923,7 +923,7 @@ SE_CloneURL
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CMYKtoCMY
 (
     const SE_CMYK_Data *original_colour_ptr,
@@ -975,7 +975,7 @@ SE_CMYKtoCMY
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_CMYtoCMYK
 (
     const SE_CMY_Data  *original_colour_ptr,
@@ -1008,7 +1008,7 @@ SE_CMYtoCMYK
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareCharacters
 (
     const SE_Character *a_ptr,
@@ -1044,7 +1044,7 @@ SE_CompareCharacters
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareCountIntervalValues
 (
     const SE_Count_Interval_Value *a_ptr,
@@ -1079,7 +1079,7 @@ SE_CompareCountIntervalValues
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareElementTypes
 (
     const SE_Element_Type *a_ptr,
@@ -1115,7 +1115,7 @@ SE_CompareElementTypes
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareIntegerIntervalValues
 (
     const SE_Integer_Interval_Value *a_ptr,
@@ -1152,7 +1152,7 @@ SE_CompareIntegerIntervalValues
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareIntervalValues
 (
     const SE_Interval_Value *a_ptr,
@@ -1184,7 +1184,7 @@ SE_CompareIntervalValues
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareLocales
 (
     const SE_Locale *a_ptr,
@@ -1220,7 +1220,7 @@ SE_CompareLocales
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareLongFloatIntervalValues
 (
     const SE_Long_Float_Interval_Value *a_ptr,
@@ -1255,7 +1255,7 @@ SE_CompareLongFloatIntervalValues
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_ComparePropertyCodes
 (
     const SE_Property_Code *a_ptr,
@@ -1300,7 +1300,7 @@ SE_ComparePropertyCodes
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareSingleValues
 (
     const SE_Single_Value *a_ptr,
@@ -1335,7 +1335,7 @@ SE_CompareSingleValues
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareStrings
 (
     const SE_String *a_ptr,
@@ -1367,7 +1367,7 @@ SE_CompareStrings
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern int
+ extern int
 SE_CompareURNs
 (
     const SE_URN *a_ptr,
@@ -1402,7 +1402,7 @@ SE_CompareURNs
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_ConvertColourDataToFields
 (
     const SE_Colour_Data      *colour_ptr,
@@ -1465,7 +1465,7 @@ SE_ConvertColourDataToFields
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_ConvertColourToGivenModel
 (
     const SE_Colour_Data  *original_colour_ptr,
@@ -1501,7 +1501,7 @@ SE_ConvertColourToGivenModel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_ConvertCoordinateToFields
 (
     const SRM_Coordinate      *coord_ptr,
@@ -1536,7 +1536,7 @@ SE_ConvertCoordinateToFields
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_ConvertFieldsToColourData
 (
     SE_FIELDS_PTR   field_ptr,
@@ -1571,7 +1571,7 @@ SE_ConvertFieldsToColourData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_ConvertFieldsToCoordinate
 (
     SE_FIELDS_PTR   field_ptr,
@@ -1603,7 +1603,7 @@ SE_ConvertFieldsToCoordinate
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SRM_Status_Code
+ extern SRM_Status_Code
 SE_CreateObjectReferenceFromSRFContextInfo
 (
     const SE_SRF_Context_Info  *srf_info_in_ptr,
@@ -1645,7 +1645,7 @@ SE_CreateObjectReferenceFromSRFContextInfo
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeAddress
 (
     SE_Address *to_free,
@@ -1676,7 +1676,7 @@ SE_FreeAddress
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_FreeCharacterArray
 (
     char *string_ptr,
@@ -1718,7 +1718,7 @@ SE_FreeCharacterArray
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeContactInformation
 (
     SE_Contact_Information *to_free,
@@ -1760,7 +1760,7 @@ SE_FreeContactInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeDataQualityElement
 (
     SE_Data_Quality_Element *to_free,
@@ -1800,7 +1800,7 @@ SE_FreeDataQualityElement
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeFields
 (
     SE_DRM_Class_Fields *to_free,
@@ -1842,7 +1842,7 @@ SE_FreeFields
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeCIOnlineResource
 (
     SE_CI_OnlineResource *to_free,
@@ -1884,7 +1884,7 @@ SE_FreeCIOnlineResource
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeSingleValue
 (
     SE_Single_Value *to_free,
@@ -1925,7 +1925,7 @@ SE_FreeSingleValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeString
 (
     SE_String *to_free,
@@ -1967,7 +1967,7 @@ SE_FreeString
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeTelephoneInformation
 (
     SE_Telephone_Information *to_free,
@@ -2009,7 +2009,7 @@ SE_FreeTelephoneInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeTextFont
 (
     SE_Text_Font *to_free,
@@ -2049,7 +2049,7 @@ SE_FreeTextFont
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeURL
 (
     SE_URL *to_free,
@@ -2089,7 +2089,7 @@ SE_FreeURL
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FreeURN
 (
     SE_URN *to_free,
@@ -2126,7 +2126,7 @@ SE_FreeURN
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncAdd
 (
     const SE_Literal_Fields *a_ptr,
@@ -2164,7 +2164,7 @@ SE_FuncAdd
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncDiv
 (
     const SE_Literal_Fields *a_ptr,
@@ -2202,7 +2202,7 @@ SE_FuncDiv
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncEqual
 (
     const SE_Literal_Fields *a_ptr,
@@ -2240,7 +2240,7 @@ SE_FuncEqual
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncGT
 (
     const SE_Literal_Fields *a_ptr,
@@ -2278,7 +2278,7 @@ SE_FuncGT
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncGTE
 (
     const SE_Literal_Fields *a_ptr,
@@ -2316,7 +2316,7 @@ SE_FuncGTE
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncLT
 (
     const SE_Literal_Fields *a_ptr,
@@ -2354,7 +2354,7 @@ SE_FuncLT
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncLTE
 (
     const SE_Literal_Fields *a_ptr,
@@ -2392,7 +2392,7 @@ SE_FuncLTE
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncMod
 (
     const SE_Literal_Fields *a_ptr,
@@ -2430,7 +2430,7 @@ SE_FuncMod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncMultiply
 (
     const SE_Literal_Fields *a_ptr,
@@ -2468,7 +2468,7 @@ SE_FuncMultiply
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncNotEqual
 (
     const SE_Literal_Fields *a_ptr,
@@ -2506,7 +2506,7 @@ SE_FuncNotEqual
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_FuncSubtract
 (
     const SE_Literal_Fields *a_ptr,
@@ -2547,7 +2547,7 @@ SE_FuncSubtract
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_HLStoRGB
 (
     const SE_HLS_Data *original_colour_ptr,
@@ -2582,7 +2582,7 @@ SE_HLStoRGB
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SRM_Status_Code
+ extern SRM_Status_Code
 SE_GetSRFTCodeFromSRFContextInfo
 (
     const SE_SRF_Context_Info *srf_info_in_ptr,
@@ -2610,7 +2610,7 @@ SE_GetSRFTCodeFromSRFContextInfo
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_IsInheritable
 (
     SE_DRM_Class drm_class
@@ -2648,7 +2648,7 @@ SE_IsInheritable
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_IsStringEmpty
 (
     const SE_String  *string_ptr,
@@ -2689,7 +2689,7 @@ SE_IsStringEmpty
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SingleValueToBoolean
 (
     const SE_Single_Value *value_ptr,
@@ -2733,7 +2733,7 @@ SE_SingleValueToBoolean
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SingleValueToCount
 (
     const SE_Single_Value *value_ptr,
@@ -2772,7 +2772,7 @@ SE_SingleValueToCount
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SingleValueToEnumerantCode
 (
     const SE_Single_Value     *value_ptr,
@@ -2816,7 +2816,7 @@ SE_SingleValueToEnumerantCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SingleValueToInteger
 (
     const SE_Single_Value *value_ptr,
@@ -2859,7 +2859,7 @@ SE_SingleValueToInteger
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SingleValueToLongFloat
 (
     const SE_Single_Value *value_ptr,
@@ -2899,7 +2899,7 @@ SE_SingleValueToLongFloat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SingleValueToString
 (
     const SE_Single_Value *value_ptr,
@@ -2939,7 +2939,7 @@ SE_SingleValueToString
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_RGBtoHLS
 (
     const SE_RGB_Data *original_colour_ptr,
@@ -2979,7 +2979,7 @@ SE_RGBtoHLS
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_RGBtoYIQ
 (
     const SE_RGB_Data *original_colour_ptr,
@@ -3013,7 +3013,7 @@ SE_RGBtoYIQ
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetFieldsToDefault
 (
     SE_DRM_Class         tag,
@@ -3054,7 +3054,7 @@ SE_SetFieldsToDefault
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetRotateMatrix3x3
 (
           SRM_Matrix_3x3             mat_ptr,
@@ -3097,7 +3097,7 @@ SE_SetRotateMatrix3x3
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetRotateMatrix4x4
 (
           SRM_Matrix_4x4             mat_ptr,
@@ -3141,7 +3141,7 @@ SE_SetRotateMatrix4x4
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetScaleMatrix3x3
 (
           SRM_Matrix_3x3             mat_ptr,
@@ -3185,7 +3185,7 @@ SE_SetScaleMatrix3x3
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetScaleMatrix4x4
 (
           SRM_Matrix_4x4             mat_ptr,
@@ -3224,7 +3224,7 @@ SE_SetScaleMatrix4x4
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetString
 (
     const SE_Locale *locale_ptr,
@@ -3289,7 +3289,7 @@ SE_SetString
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetURL
 (
     const char   *c_str_ptr,
@@ -3323,7 +3323,7 @@ SE_SetURL
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetURN
 (
     const char   *c_str_ptr,
@@ -3365,7 +3365,7 @@ SE_SetURN
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetTranslateMatrix3x3
 (
           SRM_Matrix_3x3             mat_ptr,
@@ -3409,7 +3409,7 @@ SE_SetTranslateMatrix3x3
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetTranslateMatrix4x4
 (
           SRM_Matrix_4x4             mat_ptr,
@@ -3444,7 +3444,7 @@ SE_SetTranslateMatrix4x4
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SRM_Boolean
+ extern SRM_Boolean
 SE_SRFContextInfoEqual
 (
     const SE_SRF_Context_Info *srf1_ptr,
@@ -3477,7 +3477,7 @@ SE_SRFContextInfoEqual
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SRM_Boolean
+ extern SRM_Boolean
 SE_ValidCoordinateForSRFContextInfo
 (
     const SRM_Coordinate      *coord_in_ptr,
@@ -3517,7 +3517,7 @@ SE_ValidCoordinateForSRFContextInfo
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_YIQtoRGB
 (
     const SE_YIQ_Data *original_colour_ptr,
@@ -3552,7 +3552,7 @@ SE_YIQtoRGB
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToAPI
 (
     const char   *enum_name_in_ptr,
@@ -3587,7 +3587,7 @@ SE_EnumNameToAPI
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToAxisAlignment
 (
     const char              *enum_name_in_ptr,
@@ -3622,7 +3622,7 @@ SE_EnumNameToAxisAlignment
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToBoolean
 (
     const char       *enum_name_in_ptr,
@@ -3657,7 +3657,7 @@ SE_EnumNameToBoolean
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToCameraProjectionType
 (
     const char                      *enum_name_in_ptr,
@@ -3692,7 +3692,7 @@ SE_EnumNameToCameraProjectionType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToCIOnlineFunctionCode
 (
     const char                     *enum_name_in_ptr,
@@ -3727,7 +3727,7 @@ SE_EnumNameToCIOnlineFunctionCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToCIRoleCode
 (
     const char           *enum_name_in_ptr,
@@ -3762,7 +3762,7 @@ SE_EnumNameToCIRoleCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToColourBinding
 (
     const char              *enum_name_in_ptr,
@@ -3797,7 +3797,7 @@ SE_EnumNameToColourBinding
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToColourModel
 (
     const char            *enum_name_in_ptr,
@@ -3832,7 +3832,7 @@ SE_EnumNameToColourModel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToDataTableDataValueType
 (
     const char                          *enum_name_in_ptr,
@@ -3867,7 +3867,7 @@ SE_EnumNameToDataTableDataValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToDRMClass
 (
     const char         *enum_name_in_ptr,
@@ -3902,7 +3902,7 @@ SE_EnumNameToDRMClass
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToDRMStatusCode
 (
     const char               *enum_name_in_ptr,
@@ -3937,7 +3937,7 @@ SE_EnumNameToDRMStatusCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToDRMType
 (
     const char        *enum_name_in_ptr,
@@ -3972,7 +3972,7 @@ SE_EnumNameToDRMType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToElementTypeCode
 (
     const char                 *enum_name_in_ptr,
@@ -4007,7 +4007,7 @@ SE_EnumNameToElementTypeCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToFeatureTopologyLevel
 (
     const char                      *enum_name_in_ptr,
@@ -4042,7 +4042,7 @@ SE_EnumNameToFeatureTopologyLevel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToFieldModifier
 (
     const char              *enum_name_in_ptr,
@@ -4077,7 +4077,7 @@ SE_EnumNameToFieldModifier
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToFontStyle
 (
     const char          *enum_name_in_ptr,
@@ -4112,7 +4112,7 @@ SE_EnumNameToFontStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToFunctionalAssociationMeaningType
 (
     const char                                   *enum_name_in_ptr,
@@ -4147,7 +4147,7 @@ SE_EnumNameToFunctionalAssociationMeaningType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToGeometricCentreCode
 (
     const char                     *enum_name_in_ptr,
@@ -4182,7 +4182,7 @@ SE_EnumNameToGeometricCentreCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToGeometryTopologyLevel
 (
     const char                       *enum_name_in_ptr,
@@ -4217,7 +4217,7 @@ SE_EnumNameToGeometryTopologyLevel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToGridOverlapOperator
 (
     const char                     *enum_name_in_ptr,
@@ -4252,7 +4252,7 @@ SE_EnumNameToGridOverlapOperator
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToHSMultiplicityCode
 (
     const char                    *enum_name_in_ptr,
@@ -4287,7 +4287,7 @@ SE_EnumNameToHSMultiplicityCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToImageComponentType
 (
     const char                    *enum_name_in_ptr,
@@ -4322,7 +4322,7 @@ SE_EnumNameToImageComponentType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToImageMappingMethod
 (
     const char                    *enum_name_in_ptr,
@@ -4357,7 +4357,7 @@ SE_EnumNameToImageMappingMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToImageProjectionType
 (
     const char                     *enum_name_in_ptr,
@@ -4392,7 +4392,7 @@ SE_EnumNameToImageProjectionType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToImageScanDirection
 (
     const char                    *enum_name_in_ptr,
@@ -4427,7 +4427,7 @@ SE_EnumNameToImageScanDirection
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToImageScanDirectionZ
 (
     const char                      *enum_name_in_ptr,
@@ -4462,7 +4462,7 @@ SE_EnumNameToImageScanDirectionZ
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToImageSignature
 (
     const char               *enum_name_in_ptr,
@@ -4497,7 +4497,7 @@ SE_EnumNameToImageSignature
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToImageWrap
 (
     const char          *enum_name_in_ptr,
@@ -4532,7 +4532,7 @@ SE_EnumNameToImageWrap
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToIndexCode
 (
     const char          *enum_name_in_ptr,
@@ -4567,7 +4567,7 @@ SE_EnumNameToIndexCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToInterpolationType
 (
     const char                  *enum_name_in_ptr,
@@ -4602,7 +4602,7 @@ SE_EnumNameToInterpolationType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToIntervalType
 (
     const char             *enum_name_in_ptr,
@@ -4637,7 +4637,7 @@ SE_EnumNameToIntervalType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToIntervalValueType
 (
     const char                   *enum_name_in_ptr,
@@ -4672,7 +4672,7 @@ SE_EnumNameToIntervalValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToLODDataType
 (
     const char             *enum_name_in_ptr,
@@ -4707,7 +4707,7 @@ SE_EnumNameToLODDataType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToLSRTransformationAxis
 (
     const char                       *enum_name_in_ptr,
@@ -4742,7 +4742,7 @@ SE_EnumNameToLSRTransformationAxis
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToMDClassificationCode
 (
     const char                     *enum_name_in_ptr,
@@ -4777,7 +4777,7 @@ SE_EnumNameToMDClassificationCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToMDKeywordTypeCode
 (
     const char                  *enum_name_in_ptr,
@@ -4812,7 +4812,7 @@ SE_EnumNameToMDKeywordTypeCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToMDRestrictionCode
 (
     const char                  *enum_name_in_ptr,
@@ -4847,7 +4847,7 @@ SE_EnumNameToMDRestrictionCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToMediaFormat
 (
     const char            *enum_name_in_ptr,
@@ -4882,7 +4882,7 @@ SE_EnumNameToMediaFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToModelReferenceType
 (
     const char                    *enum_name_in_ptr,
@@ -4917,7 +4917,7 @@ SE_EnumNameToModelReferenceType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToMonth
 (
     const char     *enum_name_in_ptr,
@@ -4952,7 +4952,7 @@ SE_EnumNameToMonth
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToMultiplicity
 (
     const char            *enum_name_in_ptr,
@@ -4987,7 +4987,7 @@ SE_EnumNameToMultiplicity
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToOctant
 (
     const char      *enum_name_in_ptr,
@@ -5022,7 +5022,7 @@ SE_EnumNameToOctant
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToOrderingReason
 (
     const char               *enum_name_in_ptr,
@@ -5057,7 +5057,7 @@ SE_EnumNameToOrderingReason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToPixelFillMethod
 (
     const char                 *enum_name_in_ptr,
@@ -5092,7 +5092,7 @@ SE_EnumNameToPixelFillMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToPointLightDisplayType
 (
     const char                        *enum_name_in_ptr,
@@ -5127,7 +5127,7 @@ SE_EnumNameToPointLightDisplayType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToPredefinedFunction
 (
     const char                   *enum_name_in_ptr,
@@ -5162,7 +5162,7 @@ SE_EnumNameToPredefinedFunction
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToPresentIn
 (
     const char          *enum_name_in_ptr,
@@ -5197,7 +5197,7 @@ SE_EnumNameToPresentIn
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToPropertyCodeType
 (
     const char                  *enum_name_in_ptr,
@@ -5232,7 +5232,7 @@ SE_EnumNameToPropertyCodeType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToQuadrant
 (
     const char        *enum_name_in_ptr,
@@ -5267,7 +5267,7 @@ SE_EnumNameToQuadrant
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToReferenceSurfaceElevationSelect
 (
     const char                                  *enum_name_in_ptr,
@@ -5302,7 +5302,7 @@ SE_EnumNameToReferenceSurfaceElevationSelect
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToReferenceSurfaceLODSelect
 (
     const char                            *enum_name_in_ptr,
@@ -5337,7 +5337,7 @@ SE_EnumNameToReferenceSurfaceLODSelect
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToReferenceVectorType
 (
     const char                     *enum_name_in_ptr,
@@ -5372,7 +5372,7 @@ SE_EnumNameToReferenceVectorType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToSeason
 (
     const char      *enum_name_in_ptr,
@@ -5407,7 +5407,7 @@ SE_EnumNameToSeason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToShadingMethod
 (
     const char              *enum_name_in_ptr,
@@ -5442,7 +5442,7 @@ SE_EnumNameToShadingMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToSingleValueType
 (
     const char                 *enum_name_in_ptr,
@@ -5477,7 +5477,7 @@ SE_EnumNameToSingleValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToSoundFormat
 (
     const char            *enum_name_in_ptr,
@@ -5512,7 +5512,7 @@ SE_EnumNameToSoundFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToSpacingType
 (
     const char            *enum_name_in_ptr,
@@ -5547,7 +5547,7 @@ SE_EnumNameToSpacingType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToSpatialAssociationMeaningType
 (
     const char                                *enum_name_in_ptr,
@@ -5582,7 +5582,7 @@ SE_EnumNameToSpatialAssociationMeaningType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToSpatialIndexSpacingUnit
 (
     const char                          *enum_name_in_ptr,
@@ -5617,7 +5617,7 @@ SE_EnumNameToSpatialIndexSpacingUnit
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToStateMismatchBehaviour
 (
     const char                        *enum_name_in_ptr,
@@ -5652,7 +5652,7 @@ SE_EnumNameToStateMismatchBehaviour
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToSymbolFormat
 (
     const char             *enum_name_in_ptr,
@@ -5687,7 +5687,7 @@ SE_EnumNameToSymbolFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToTimeConfiguration
 (
     const char                  *enum_name_in_ptr,
@@ -5722,7 +5722,7 @@ SE_EnumNameToTimeConfiguration
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToTimeDataType
 (
     const char              *enum_name_in_ptr,
@@ -5757,7 +5757,7 @@ SE_EnumNameToTimeDataType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToTimeOfDay
 (
     const char           *enum_name_in_ptr,
@@ -5792,7 +5792,7 @@ SE_EnumNameToTimeOfDay
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToTimeSignificance
 (
     const char                 *enum_name_in_ptr,
@@ -5827,7 +5827,7 @@ SE_EnumNameToTimeSignificance
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToTypeClassification
 (
     const char                   *enum_name_in_ptr,
@@ -5862,7 +5862,7 @@ SE_EnumNameToTypeClassification
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToUnderlineStyle
 (
     const char               *enum_name_in_ptr,
@@ -5897,7 +5897,7 @@ SE_EnumNameToUnderlineStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_EnumNameToUnionReason
 (
     const char            *enum_name_in_ptr,
@@ -5932,7 +5932,7 @@ SE_EnumNameToUnionReason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+extern SE_DRM_Status_Code
 SE_EnumNameToVariableCode
 (
     const char             *enum_name_in_ptr,

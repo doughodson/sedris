@@ -1,119 +1,28 @@
-/*
- * FILE       : drm_valid.h
- *
- * PROGRAMMERS: Automatically generated file
- *
- * DESCRIPTION:
- *   Contains prototypes for validating functions for all SEDRIS types,
- *   and for an object's fields.
- *
- *   A type's validating function checks that:
- *   - any enumerators have valid values
- *   - any array that is allocated at run-time is non-NULL if
- *     it has a non-zero array count
- *
- *   Some types do not have validating functions because they
- *   contain nothing that can be checked. For a struct type,
- *   the corresponding validating function will check only
- *   those fields that need validating.
- *
- *   These functions are intended for use by any application
- *   in order to insure that a given variable has valid values;
- *   for example, SE_ValidDRMClassFields() may be used by applications
- *   that check that transmittals are valid, e.g. syntax_checker.
- *
- * - DRM spec. 4.1
- * SEDRIS C++ SDK Release 4.1.4 - July 1, 2011
- */
-/*
- *                             NOTICE
- * 
- * This software is provided openly and freely for use in representing and
- * interchanging environmental data & databases.
- * 
- * This software was developed for use by the United States Government with
- * unlimited rights.  The software was developed under contract
- * DASG60-02-D-0006 TO-193 by Science Applications International Corporation.
- * The software is unclassified and is deemed as Distribution A, approved
- * for Public Release.
- * 
- * Use by others is permitted only upon the ACCEPTANCE OF THE TERMS AND
- * CONDITIONS, AS STIPULATED UNDER THE FOLLOWING PROVISIONS:
- * 
- *    1. Recipient may make unlimited copies of this software and give
- *       copies to other persons or entities as long as the copies contain
- *       this NOTICE, and as long as the same copyright notices that
- *       appear on, or in, this software remain.
- * 
- *    2. Trademarks. All trademarks belong to their respective trademark
- *       holders.  Third-Party applications/software/information are
- *       copyrighted by their respective owners.
- * 
- *    3. Recipient agrees to forfeit all intellectual property and
- *       ownership rights for any version created from the modification
- *       or adaptation of this software, including versions created from
- *       the translation and/or reverse engineering of the software design.
- * 
- *    4. Transfer.  Recipient may not sell, rent, lease, or sublicense
- *       this software.  Recipient may, however enable another person
- *       or entity the rights to use this software, provided that this
- *       AGREEMENT and NOTICE is furnished along with the software and
- *       /or software system utilizing this software.
- * 
- *       All revisions, modifications, created by the Recipient, to this
- *       software and/or related technical data shall be forwarded by the
- *       Recipient to the Government at the following address:
- * 
- *         SMDC
- *         Attention SEDRIS (TO193) TPOC
- *         P.O. Box 1500
- *         Huntsville, AL  35807-3801
- * 
- *         or via electronic mail to:  se-mgmt@sedris.org
- * 
- *    5. No Warranty. This software is being delivered to you AS IS
- *       and there is no warranty, EXPRESS or IMPLIED, as to its use
- *       or performance.
- * 
- *       The RECIPIENT ASSUMES ALL RISKS, KNOWN AND UNKNOWN, OF USING
- *       THIS SOFTWARE.  The DEVELOPER EXPRESSLY DISCLAIMS, and the
- *       RECIPIENT WAIVES, ANY and ALL PERFORMANCE OR RESULTS YOU MAY
- *       OBTAIN BY USING THIS SOFTWARE OR DOCUMENTATION.  THERE IS
- *       NO WARRANTY, EXPRESS OR, IMPLIED, AS TO NON-INFRINGEMENT OF
- *       THIRD PARTY RIGHTS, MERCHANTABILITY, OR FITNESS FOR ANY
- *       PARTICULAR PURPOSE.  IN NO EVENT WILL THE DEVELOPER, THE
- *       UNITED STATES GOVERNMENT OR ANYONE ELSE ASSOCIATED WITH THE
- *       DEVELOPMENT OF THIS SOFTWARE BE HELD LIABLE FOR ANY CONSEQUENTIAL,
- *       INCIDENTAL OR SPECIAL DAMAGES, INCLUDING ANY LOST PROFITS
- *       OR LOST SAVINGS WHATSOEVER.
- */
 
-/*
- * COPYRIGHT 2011, SCIENCE APPLICATIONS INTERNATIONAL CORPORATION.
- *                 ALL RIGHTS RESERVED.
- */
-
-/*
- * Ensure that drm_valid.h is included only once.
- */
 #ifndef _DRM_VALID_H_INCLUDED
 #define _DRM_VALID_H_INCLUDED
 
-#if !defined(_WIN32)
-#define EXPORT_DLL
-#elif !defined(EXPORT_DLL)
-#if defined(_LIB)
-#define EXPORT_DLL
-#elif defined(_USRDLL)
-#define EXPORT_DLL __declspec(dllexport)
-#else
-#define EXPORT_DLL __declspec(dllimport)
-#endif
-#endif /* _WIN32 && EXPORT_DLL */
+//
+// DESCRIPTION:
+//   Contains prototypes for validating functions for all SEDRIS types,
+//   and for an object's fields.
+//
+//   A type's validating function checks that:
+//   - any enumerators have valid values
+//   - any array that is allocated at run-time is non-NULL if
+//     it has a non-zero array count
+//
+//   Some types do not have validating functions because they
+//   contain nothing that can be checked. For a struct type,
+//   the corresponding validating function will check only
+//   those fields that need validating.
+//
+//   These functions are intended for use by any application
+//   in order to insure that a given variable has valid values;
+//   for example, SE_ValidDRMClassFields() may be used by applications
+//   that check that transmittals are valid, e.g. syntax_checker.
+//
 
-/*
- * Allow C++ compilers to use this API without any problems
- */
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -138,7 +47,7 @@ extern "C" {
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern FILE *
+ extern FILE *
 SE_GetErrorFilePtr(void);
 
 
@@ -165,7 +74,7 @@ SE_GetErrorFilePtr(void);
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetErrorFilePtr
 (
     FILE *err_file_ptr
@@ -198,7 +107,7 @@ SE_SetErrorFilePtr
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidCMYData
 (
     const SE_CMY_Data          *value_ptr,
@@ -233,7 +142,7 @@ SE_ValidCMYData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidCMYKData
 (
     const SE_CMYK_Data        *value_ptr,
@@ -267,7 +176,7 @@ SE_ValidCMYKData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidHLSData
 (
     const SE_HLS_Data         *value_ptr,
@@ -301,7 +210,7 @@ SE_ValidHLSData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidHSVData
 (
     const SE_HSV_Data         *value_ptr,
@@ -335,7 +244,7 @@ SE_ValidHSVData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidLocale
 (
     const SE_Locale           *value_ptr,
@@ -370,7 +279,7 @@ SE_ValidLocale
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidRGBData
 (
     const SE_RGB_Data         *value_ptr,
@@ -402,7 +311,7 @@ SE_ValidRGBData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDRMClassFields
 (
     SE_FIELDS_PTR        field_ptr,
@@ -450,7 +359,7 @@ SE_ValidDRMClassFields
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidNonNullString
 (
     const SE_String           *value_ptr,
@@ -484,7 +393,7 @@ SE_ValidNonNullString
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidAddress
 (
     const SE_Address *value_ptr,
@@ -512,7 +421,7 @@ SE_ValidAddress
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidAPI
 (
     SE_API value
@@ -538,7 +447,7 @@ SE_ValidAPI
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidAxisAlignment
 (
     SE_Axis_Alignment value
@@ -564,7 +473,7 @@ SE_ValidAxisAlignment
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidBoolean
 (
     SE_Boolean value
@@ -590,7 +499,7 @@ SE_ValidBoolean
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidBytePositive
 (
     SE_Byte_Positive value
@@ -616,7 +525,7 @@ SE_ValidBytePositive
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidCameraProjectionType
 (
     SE_Camera_Projection_Type value
@@ -642,7 +551,7 @@ SE_ValidCameraProjectionType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidCIOnlineFunctionCode
 (
     SE_CI_OnlineFunctionCode value
@@ -675,7 +584,7 @@ SE_ValidCIOnlineFunctionCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidCIOnlineResource
 (
     const SE_CI_OnlineResource *value_ptr,
@@ -703,7 +612,7 @@ SE_ValidCIOnlineResource
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidCIRoleCode
 (
     SE_CI_RoleCode value
@@ -729,7 +638,7 @@ SE_ValidCIRoleCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidColourBinding
 (
     SE_Colour_Binding value
@@ -761,7 +670,7 @@ SE_ValidColourBinding
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidColourData
 (
     const SE_Colour_Data *value_ptr,
@@ -795,7 +704,7 @@ SE_ValidColourData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidColourMapping
 (
     const SE_Colour_Mapping *value_ptr,
@@ -823,7 +732,7 @@ SE_ValidColourMapping
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidColourModel
 (
     SE_Colour_Model value
@@ -856,7 +765,7 @@ SE_ValidColourModel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidContactInformation
 (
     const SE_Contact_Information *value_ptr,
@@ -892,7 +801,7 @@ SE_ValidContactInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidCountIntervalValue
 (
     const SE_Count_Interval_Value *value_ptr,
@@ -928,7 +837,7 @@ SE_ValidCountIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDataQualityElement
 (
     const SE_Data_Quality_Element *value_ptr,
@@ -956,7 +865,7 @@ SE_ValidDataQualityElement
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDataTableDataValueType
 (
     SE_Data_Table_Data_Value_Type value
@@ -988,7 +897,7 @@ SE_ValidDataTableDataValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDisplaySide
 (
     const SE_Display_Side *value_ptr,
@@ -1022,7 +931,7 @@ SE_ValidDisplaySide
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDisplayStyle
 (
     const SE_Display_Style *value_ptr,
@@ -1050,7 +959,7 @@ SE_ValidDisplayStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDRMClass
 (
     SE_DRM_Class value
@@ -1076,7 +985,7 @@ SE_ValidDRMClass
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDRMStatusCode
 (
     SE_DRM_Status_Code value
@@ -1102,7 +1011,7 @@ SE_ValidDRMStatusCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidDRMType
 (
     SE_DRM_Type value
@@ -1134,7 +1043,7 @@ SE_ValidDRMType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidElementType
 (
     const SE_Element_Type *value_ptr,
@@ -1162,7 +1071,7 @@ SE_ValidElementType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidElementTypeCode
 (
     SE_Element_Type_Code value
@@ -1195,7 +1104,7 @@ SE_ValidElementTypeCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidEnumerantStructure
 (
     const SE_Enumerant_Structure *value_ptr,
@@ -1223,7 +1132,7 @@ SE_ValidEnumerantStructure
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidFeatureTopologyLevel
 (
     SE_Feature_Topology_Level value
@@ -1249,7 +1158,7 @@ SE_ValidFeatureTopologyLevel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidFieldModifier
 (
     SE_Field_Modifier value
@@ -1275,7 +1184,7 @@ SE_ValidFieldModifier
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidFontStyle
 (
     SE_Font_Style value
@@ -1302,7 +1211,7 @@ SE_ValidFontStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidFunctionalAssociationMeaningType
 (
     SE_Functional_Association_Meaning_Type value
@@ -1328,7 +1237,7 @@ SE_ValidFunctionalAssociationMeaningType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidGeometricCentreCode
 (
     SE_Geometric_Centre_Code value
@@ -1354,7 +1263,7 @@ SE_ValidGeometricCentreCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidGeometryTopologyLevel
 (
     SE_Geometry_Topology_Level value
@@ -1380,7 +1289,7 @@ SE_ValidGeometryTopologyLevel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidGridOverlapOperator
 (
     SE_Grid_Overlap_Operator value
@@ -1406,7 +1315,7 @@ SE_ValidGridOverlapOperator
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidHSMultiplicityCode
 (
     SE_HS_Multiplicity_Code value
@@ -1432,7 +1341,7 @@ SE_ValidHSMultiplicityCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageComponentType
 (
     SE_Image_Component_Type value
@@ -1458,7 +1367,7 @@ SE_ValidImageComponentType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageMappingMethod
 (
     SE_Image_Mapping_Method value
@@ -1491,7 +1400,7 @@ SE_ValidImageMappingMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageMIPExtents
 (
     const SE_Image_MIP_Extents *value_ptr,
@@ -1519,7 +1428,7 @@ SE_ValidImageMIPExtents
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageProjectionType
 (
     SE_Image_Projection_Type value
@@ -1545,7 +1454,7 @@ SE_ValidImageProjectionType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageScanDirection
 (
     SE_Image_Scan_Direction value
@@ -1571,7 +1480,7 @@ SE_ValidImageScanDirection
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageScanDirectionZ
 (
     SE_Image_Scan_Direction_Z value
@@ -1597,7 +1506,7 @@ SE_ValidImageScanDirectionZ
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageSignature
 (
     SE_Image_Signature value
@@ -1623,7 +1532,7 @@ SE_ValidImageSignature
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidImageWrap
 (
     SE_Image_Wrap value
@@ -1649,7 +1558,7 @@ SE_ValidImageWrap
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidIndexCode
 (
     SE_Index_Code value
@@ -1683,7 +1592,7 @@ SE_ValidIndexCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidIntegerIntervalValue
 (
     const SE_Integer_Interval_Value *value_ptr,
@@ -1711,7 +1620,7 @@ SE_ValidIntegerIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidIntegerPositive
 (
     SE_Integer_Positive value
@@ -1737,7 +1646,7 @@ SE_ValidIntegerPositive
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidInterpolationType
 (
     SE_Interpolation_Type value
@@ -1763,7 +1672,7 @@ SE_ValidInterpolationType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidIntervalType
 (
     SE_Interval_Type value
@@ -1795,7 +1704,7 @@ SE_ValidIntervalType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidIntervalValue
 (
     const SE_Interval_Value *value_ptr,
@@ -1823,7 +1732,7 @@ SE_ValidIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidIntervalValueType
 (
     SE_Interval_Value_Type value
@@ -1849,7 +1758,7 @@ SE_ValidIntervalValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidLODDataType
 (
     SE_LOD_Data_Type value
@@ -1883,7 +1792,7 @@ SE_ValidLODDataType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidLongFloatIntervalValue
 (
     const SE_Long_Float_Interval_Value *value_ptr,
@@ -1918,7 +1827,7 @@ SE_ValidLongFloatIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidLongFloatValue
 (
     const SE_Long_Float_Value *value_ptr,
@@ -1946,7 +1855,7 @@ SE_ValidLongFloatValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidLSRTransformationAxis
 (
     SE_LSR_Transformation_Axis value
@@ -1972,7 +1881,7 @@ SE_ValidLSRTransformationAxis
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidMDClassificationCode
 (
     SE_MD_ClassificationCode value
@@ -1998,7 +1907,7 @@ SE_ValidMDClassificationCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidMDKeywordTypeCode
 (
     SE_MD_KeywordTypeCode value
@@ -2024,7 +1933,7 @@ SE_ValidMDKeywordTypeCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidMDRestrictionCode
 (
     SE_MD_RestrictionCode value
@@ -2050,7 +1959,7 @@ SE_ValidMDRestrictionCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidMediaFormat
 (
     SE_Media_Format value
@@ -2076,7 +1985,7 @@ SE_ValidMediaFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidModelReferenceType
 (
     SE_Model_Reference_Type value
@@ -2102,7 +2011,7 @@ SE_ValidModelReferenceType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidMonth
 (
     SE_Month value
@@ -2128,7 +2037,7 @@ SE_ValidMonth
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidMultiplicity
 (
     SE_Multiplicity value
@@ -2154,7 +2063,7 @@ SE_ValidMultiplicity
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidOctant
 (
     SE_Octant value
@@ -2180,7 +2089,7 @@ SE_ValidOctant
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidOrderingReason
 (
     SE_Ordering_Reason value
@@ -2206,7 +2115,7 @@ SE_ValidOrderingReason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPixelFillMethod
 (
     SE_Pixel_Fill_Method value
@@ -2232,7 +2141,7 @@ SE_ValidPixelFillMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPointLightDisplayType
 (
     SE_Point_Light_Display_Type value
@@ -2264,7 +2173,7 @@ SE_ValidPointLightDisplayType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPolygonFlag
 (
     const SE_Polygon_Flag *value_ptr,
@@ -2300,7 +2209,7 @@ SE_ValidPolygonFlag
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPredefFuncArgStructure
 (
     const SE_Predef_Func_Arg_Structure *value_ptr,
@@ -2336,7 +2245,7 @@ SE_ValidPredefFuncArgStructure
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPredefFuncStructure
 (
     const SE_Predef_Func_Structure *value_ptr,
@@ -2364,7 +2273,7 @@ SE_ValidPredefFuncStructure
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPredefinedFunction
 (
     SE_Predefined_Function value
@@ -2390,7 +2299,7 @@ SE_ValidPredefinedFunction
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPresentIn
 (
     SE_Present_In value
@@ -2423,7 +2332,7 @@ SE_ValidPresentIn
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPresentationDomain
 (
     const SE_Presentation_Domain *value_ptr,
@@ -2457,7 +2366,7 @@ SE_ValidPresentationDomain
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPropertyCode
 (
     const SE_Property_Code *value_ptr,
@@ -2485,7 +2394,7 @@ SE_ValidPropertyCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidPropertyCodeType
 (
     SE_Property_Code_Type value
@@ -2511,7 +2420,7 @@ SE_ValidPropertyCodeType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidQuadrant
 (
     SE_Quadrant value
@@ -2538,7 +2447,7 @@ SE_ValidQuadrant
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidReferenceSurfaceElevationSelect
 (
     SE_Reference_Surface_Elevation_Select value
@@ -2564,7 +2473,7 @@ SE_ValidReferenceSurfaceElevationSelect
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidReferenceSurfaceLODSelect
 (
     SE_Reference_Surface_LOD_Select value
@@ -2590,7 +2499,7 @@ SE_ValidReferenceSurfaceLODSelect
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidReferenceVectorType
 (
     SE_Reference_Vector_Type value
@@ -2616,7 +2525,7 @@ SE_ValidReferenceVectorType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSeason
 (
     SE_Season value
@@ -2642,7 +2551,7 @@ SE_ValidSeason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidShadingMethod
 (
     SE_Shading_Method value
@@ -2668,7 +2577,7 @@ SE_ValidShadingMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidShortIntegerPositive
 (
     SE_Short_Integer_Positive value
@@ -2702,7 +2611,7 @@ SE_ValidShortIntegerPositive
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSingleValue
 (
           EDCS_Attribute_Code     attr_code,
@@ -2731,7 +2640,7 @@ SE_ValidSingleValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSingleValueType
 (
     SE_Single_Value_Type value
@@ -2757,7 +2666,7 @@ SE_ValidSingleValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSoundFormat
 (
     SE_Sound_Format value
@@ -2783,7 +2692,7 @@ SE_ValidSoundFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSpacingType
 (
     SE_Spacing_Type value
@@ -2809,7 +2718,7 @@ SE_ValidSpacingType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSpatialAssociationMeaningType
 (
     SE_Spatial_Association_Meaning_Type value
@@ -2835,7 +2744,7 @@ SE_ValidSpatialAssociationMeaningType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSpatialIndexSpacingUnit
 (
     SE_Spatial_Index_Spacing_Unit value
@@ -2868,7 +2777,7 @@ SE_ValidSpatialIndexSpacingUnit
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSRFContextInfo
 (
     const SE_SRF_Context_Info *value_ptr,
@@ -2896,7 +2805,7 @@ SE_ValidSRFContextInfo
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidStateMismatchBehaviour
 (
     SE_State_Mismatch_Behaviour value
@@ -2928,7 +2837,7 @@ SE_ValidStateMismatchBehaviour
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidString
 (
     const SE_String *value_ptr,
@@ -2956,7 +2865,7 @@ SE_ValidString
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidSymbolFormat
 (
     SE_Symbol_Format value
@@ -2990,7 +2899,7 @@ SE_ValidSymbolFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTelephoneInformation
 (
     const SE_Telephone_Information *value_ptr,
@@ -3024,7 +2933,7 @@ SE_ValidTelephoneInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTextFont
 (
     const SE_Text_Font *value_ptr,
@@ -3052,7 +2961,7 @@ SE_ValidTextFont
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeConfiguration
 (
     SE_Time_Configuration value
@@ -3078,7 +2987,7 @@ SE_ValidTimeConfiguration
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeDataType
 (
     SE_Time_Data_Type value
@@ -3112,7 +3021,7 @@ SE_ValidTimeDataType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeDayOfYearValue
 (
     const SE_Time_Day_Of_Year_Value *value_ptr,
@@ -3146,7 +3055,7 @@ SE_ValidTimeDayOfYearValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeMValue
 (
     const SE_Time_M_Value *value_ptr,
@@ -3181,7 +3090,7 @@ SE_ValidTimeMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeMDHValue
 (
     const SE_Time_MD_H_Value *value_ptr,
@@ -3216,7 +3125,7 @@ SE_ValidTimeMDHValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeMDHMValue
 (
     const SE_Time_MD_HM_Value *value_ptr,
@@ -3251,7 +3160,7 @@ SE_ValidTimeMDHMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeMDHMSValue
 (
     const SE_Time_MD_HMS_Value *value_ptr,
@@ -3279,7 +3188,7 @@ SE_ValidTimeMDHMSValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeOfDay
 (
     SE_Time_Of_Day value
@@ -3305,7 +3214,7 @@ SE_ValidTimeOfDay
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeSignificance
 (
     SE_Time_Significance value
@@ -3337,7 +3246,7 @@ SE_ValidTimeSignificance
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeValue
 (
     const SE_Time_Value *value_ptr,
@@ -3372,7 +3281,7 @@ SE_ValidTimeValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeYDHValue
 (
     const SE_Time_YD_H_Value *value_ptr,
@@ -3407,7 +3316,7 @@ SE_ValidTimeYDHValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeYDHMValue
 (
     const SE_Time_YD_HM_Value *value_ptr,
@@ -3442,7 +3351,7 @@ SE_ValidTimeYDHMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeYDHMSValue
 (
     const SE_Time_YD_HMS_Value *value_ptr,
@@ -3476,7 +3385,7 @@ SE_ValidTimeYDHMSValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidTimeYDValue
 (
     const SE_Time_YD_Value *value_ptr,
@@ -3511,7 +3420,7 @@ SE_ValidTimeYDValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidTimeYMDHValue
 (
     const SE_Time_YMD_H_Value *value_ptr,
@@ -3546,7 +3455,7 @@ SE_ValidTimeYMDHValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidTimeYMDHMValue
 (
     const SE_Time_YMD_HM_Value *value_ptr,
@@ -3581,7 +3490,7 @@ SE_ValidTimeYMDHMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidTimeYMDHMSValue
 (
     const SE_Time_YMD_HMS_Value *value_ptr,
@@ -3615,7 +3524,7 @@ SE_ValidTimeYMDHMSValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidTimeYMDValue
 (
     const SE_Time_YMD_Value *value_ptr,
@@ -3643,7 +3552,7 @@ SE_ValidTimeYMDValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidTypeClassification
 (
     SE_Type_Classification value
@@ -3669,7 +3578,7 @@ SE_ValidTypeClassification
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidUnderlineStyle
 (
     SE_Underline_Style value
@@ -3695,7 +3604,7 @@ SE_ValidUnderlineStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidUnionReason
 (
     SE_Union_Reason value
@@ -3727,7 +3636,7 @@ SE_ValidUnionReason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidURL
 (
     const SE_URL *value_ptr,
@@ -3761,7 +3670,7 @@ SE_ValidURL
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+extern SE_Boolean
 SE_ValidURN
 (
     const SE_URN *value_ptr,
@@ -3789,7 +3698,7 @@ SE_ValidURN
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_ValidVariableCode
 (
     SE_Variable_Code value

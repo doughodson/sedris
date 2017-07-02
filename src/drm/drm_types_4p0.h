@@ -1,21 +1,6 @@
 #ifndef _DRM_TYPES_4P0_H_INCLUDED
 #define _DRM_TYPES_4P0_H_INCLUDED
 
-#if !defined(_WIN32)
-#define EXPORT_DLL
-#elif !defined(EXPORT_DLL)
-#if defined(_LIB)
-#define EXPORT_DLL
-#elif defined(_USRDLL)
-#define EXPORT_DLL __declspec(dllexport)
-#else
-#define EXPORT_DLL __declspec(dllimport)
-#endif
-#endif /* _WIN32 && EXPORT_DLL */
-
-/*
- * Allow C++ compilers to use this API without any problems
- */
 #ifdef __cplusplus
 extern "C" {
 #endif

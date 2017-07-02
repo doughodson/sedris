@@ -1,102 +1,12 @@
-/* SEDRIS DRM API
- *
- * FILE       : drm_print.h
- *
- * PROGRAMMERS: Automatically generated file
- *
- * DESCRIPTION:
- *   Contains print functions for all SEDRIS DRM types, and for
- *   an object's fields.
- *
- * - DRM spec. 4.1
- * SEDRIS C++ SDK Release 4.1.4 - July 1, 2011
- */
-/*
- *                             NOTICE
- * 
- * This software is provided openly and freely for use in representing and
- * interchanging environmental data & databases.
- * 
- * This software was developed for use by the United States Government with
- * unlimited rights.  The software was developed under contract
- * DASG60-02-D-0006 TO-193 by Science Applications International Corporation.
- * The software is unclassified and is deemed as Distribution A, approved
- * for Public Release.
- * 
- * Use by others is permitted only upon the ACCEPTANCE OF THE TERMS AND
- * CONDITIONS, AS STIPULATED UNDER THE FOLLOWING PROVISIONS:
- * 
- *    1. Recipient may make unlimited copies of this software and give
- *       copies to other persons or entities as long as the copies contain
- *       this NOTICE, and as long as the same copyright notices that
- *       appear on, or in, this software remain.
- * 
- *    2. Trademarks. All trademarks belong to their respective trademark
- *       holders.  Third-Party applications/software/information are
- *       copyrighted by their respective owners.
- * 
- *    3. Recipient agrees to forfeit all intellectual property and
- *       ownership rights for any version created from the modification
- *       or adaptation of this software, including versions created from
- *       the translation and/or reverse engineering of the software design.
- * 
- *    4. Transfer.  Recipient may not sell, rent, lease, or sublicense
- *       this software.  Recipient may, however enable another person
- *       or entity the rights to use this software, provided that this
- *       AGREEMENT and NOTICE is furnished along with the software and
- *       /or software system utilizing this software.
- * 
- *       All revisions, modifications, created by the Recipient, to this
- *       software and/or related technical data shall be forwarded by the
- *       Recipient to the Government at the following address:
- * 
- *         SMDC
- *         Attention SEDRIS (TO193) TPOC
- *         P.O. Box 1500
- *         Huntsville, AL  35807-3801
- * 
- *         or via electronic mail to:  se-mgmt@sedris.org
- * 
- *    5. No Warranty. This software is being delivered to you AS IS
- *       and there is no warranty, EXPRESS or IMPLIED, as to its use
- *       or performance.
- * 
- *       The RECIPIENT ASSUMES ALL RISKS, KNOWN AND UNKNOWN, OF USING
- *       THIS SOFTWARE.  The DEVELOPER EXPRESSLY DISCLAIMS, and the
- *       RECIPIENT WAIVES, ANY and ALL PERFORMANCE OR RESULTS YOU MAY
- *       OBTAIN BY USING THIS SOFTWARE OR DOCUMENTATION.  THERE IS
- *       NO WARRANTY, EXPRESS OR, IMPLIED, AS TO NON-INFRINGEMENT OF
- *       THIRD PARTY RIGHTS, MERCHANTABILITY, OR FITNESS FOR ANY
- *       PARTICULAR PURPOSE.  IN NO EVENT WILL THE DEVELOPER, THE
- *       UNITED STATES GOVERNMENT OR ANYONE ELSE ASSOCIATED WITH THE
- *       DEVELOPMENT OF THIS SOFTWARE BE HELD LIABLE FOR ANY CONSEQUENTIAL,
- *       INCIDENTAL OR SPECIAL DAMAGES, INCLUDING ANY LOST PROFITS
- *       OR LOST SAVINGS WHATSOEVER.
- */
 
-/*
- * COPYRIGHT 2011, SCIENCE APPLICATIONS INTERNATIONAL CORPORATION.
- *                 ALL RIGHTS RESERVED.
- */
-
-
-/*
- * Ensure that drm_print.h is included only once.
- */
 #ifndef _DRM_PRINT_H_INCLUDED
 #define _DRM_PRINT_H_INCLUDED
 
-#if !defined(_WIN32)
-#define EXPORT_DLL
-#elif !defined(EXPORT_DLL)
-#if defined(_LIB)
-#define EXPORT_DLL
-#elif defined(_USRDLL)
-#define EXPORT_DLL __declspec(dllexport)
-#else
-#define EXPORT_DLL __declspec(dllimport)
-#endif
-#endif /* _WIN32 && EXPORT_DLL */
+//
+// DESCRIPTION:
+//   Contains print functions for all SEDRIS DRM types, and for
+//   an object's fields.
+//
 
 #include "drm_types.h"
 
@@ -126,7 +36,7 @@ extern "C" {
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Integer_Unsigned
+ extern SE_Integer_Unsigned
 SE_GetMinWidth(void);
 
 
@@ -147,7 +57,7 @@ SE_GetMinWidth(void);
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern FILE *
+ extern FILE *
 SE_GetOutFilePtr(void);
 
 
@@ -169,7 +79,7 @@ SE_GetOutFilePtr(void);
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Integer_Unsigned
+ extern SE_Integer_Unsigned
 SE_GetPrecision(void);
 
 
@@ -192,7 +102,7 @@ SE_GetPrecision(void);
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_SetMinWidth
 (
     SE_Integer_Unsigned min_width
@@ -222,7 +132,7 @@ SE_SetMinWidth
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_SetOutFilePtr
 (
     FILE *out_file_ptr
@@ -247,7 +157,7 @@ SE_SetOutFilePtr
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_SetPrecision
 (
     SE_Integer_Unsigned precision
@@ -324,7 +234,7 @@ SE_PrintDRMClassFields
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintAddress
 (
     const SE_Address          *value_ptr,
@@ -355,7 +265,7 @@ SE_PrintAddress
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintAPI
 (
     SE_API value
@@ -385,7 +295,7 @@ SE_PrintAPI
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintAxisAlignment
 (
     SE_Axis_Alignment value
@@ -415,7 +325,7 @@ SE_PrintAxisAlignment
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintBoolean
 (
     SE_Boolean value
@@ -445,7 +355,7 @@ SE_PrintBoolean
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintByte
 (
     SE_Byte value
@@ -475,7 +385,7 @@ SE_PrintByte
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintBytePositive
 (
     SE_Byte_Positive value
@@ -505,7 +415,7 @@ SE_PrintBytePositive
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintByteUnsigned
 (
     SE_Byte_Unsigned value
@@ -535,7 +445,7 @@ SE_PrintByteUnsigned
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintCameraProjectionType
 (
     SE_Camera_Projection_Type value
@@ -565,7 +475,7 @@ SE_PrintCameraProjectionType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintCharacter
 (
     SE_Character value
@@ -595,7 +505,7 @@ SE_PrintCharacter
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintCIOnlineFunctionCode
 (
     SE_CI_OnlineFunctionCode value
@@ -627,7 +537,7 @@ SE_PrintCIOnlineFunctionCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintCIOnlineResource
 (
     const SE_CI_OnlineResource *value_ptr,
@@ -659,7 +569,7 @@ SE_PrintCIOnlineResource
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintCIRoleCode
 (
     SE_CI_RoleCode value
@@ -691,7 +601,7 @@ SE_PrintCIRoleCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintCMYData
 (
     const SE_CMY_Data         *value_ptr,
@@ -725,7 +635,7 @@ SE_PrintCMYData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintCMYKData
 (
     const SE_CMYK_Data        *value_ptr,
@@ -757,7 +667,7 @@ SE_PrintCMYKData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintColourBinding
 (
     SE_Colour_Binding value
@@ -789,7 +699,7 @@ SE_PrintColourBinding
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintColourData
 (
     const SE_Colour_Data      *value_ptr,
@@ -823,7 +733,7 @@ SE_PrintColourData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintColourMapping
 (
     const SE_Colour_Mapping   *value_ptr,
@@ -855,7 +765,7 @@ SE_PrintColourMapping
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintColourModel
 (
     SE_Colour_Model value
@@ -887,7 +797,7 @@ SE_PrintColourModel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintContactInformation
 (
     const SE_Contact_Information *value_ptr,
@@ -921,7 +831,7 @@ SE_PrintContactInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintCountIntervalValue
 (
     const SE_Count_Interval_Value *value_ptr,
@@ -955,7 +865,7 @@ SE_PrintCountIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintDataQualityElement
 (
     const SE_Data_Quality_Element *value_ptr,
@@ -987,7 +897,7 @@ SE_PrintDataQualityElement
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintDataTableDataValueType
 (
     SE_Data_Table_Data_Value_Type value
@@ -1019,7 +929,7 @@ SE_PrintDataTableDataValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintDisplaySide
 (
     const SE_Display_Side     *value_ptr,
@@ -1053,7 +963,7 @@ SE_PrintDisplaySide
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintDisplayStyle
 (
     const SE_Display_Style    *value_ptr,
@@ -1085,7 +995,7 @@ SE_PrintDisplayStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintDRMClass
 (
     SE_DRM_Class value
@@ -1115,7 +1025,7 @@ SE_PrintDRMClass
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintDRMStatusCode
 (
     SE_DRM_Status_Code value
@@ -1145,7 +1055,7 @@ SE_PrintDRMStatusCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintDRMType
 (
     SE_DRM_Type value
@@ -1177,7 +1087,7 @@ SE_PrintDRMType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintElementType
 (
     const SE_Element_Type     *value_ptr,
@@ -1209,7 +1119,7 @@ SE_PrintElementType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintElementTypeCode
 (
     SE_Element_Type_Code value
@@ -1241,7 +1151,7 @@ SE_PrintElementTypeCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintEnumerantStructure
 (
     const SE_Enumerant_Structure *value_ptr,
@@ -1273,7 +1183,7 @@ SE_PrintEnumerantStructure
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintFeatureTopologyLevel
 (
     SE_Feature_Topology_Level value
@@ -1303,7 +1213,7 @@ SE_PrintFeatureTopologyLevel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintFieldModifier
 (
     SE_Field_Modifier value
@@ -1334,7 +1244,7 @@ SE_PrintFieldModifier
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintFloat
 (
     SE_Float value
@@ -1364,7 +1274,7 @@ SE_PrintFloat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintFontStyle
 (
     SE_Font_Style value
@@ -1394,7 +1304,7 @@ SE_PrintFontStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintFunctionalAssociationMeaningType
 (
     SE_Functional_Association_Meaning_Type value
@@ -1424,7 +1334,7 @@ SE_PrintFunctionalAssociationMeaningType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintGeometricCentreCode
 (
     SE_Geometric_Centre_Code value
@@ -1454,7 +1364,7 @@ SE_PrintGeometricCentreCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintGeometryTopologyLevel
 (
     SE_Geometry_Topology_Level value
@@ -1484,7 +1394,7 @@ SE_PrintGeometryTopologyLevel
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintGridOverlapOperator
 (
     SE_Grid_Overlap_Operator value
@@ -1516,7 +1426,7 @@ SE_PrintGridOverlapOperator
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintHLSData
 (
     const SE_HLS_Data         *value_ptr,
@@ -1548,7 +1458,7 @@ SE_PrintHLSData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintHSMultiplicityCode
 (
     SE_HS_Multiplicity_Code value
@@ -1580,7 +1490,7 @@ SE_PrintHSMultiplicityCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintHSVData
 (
     const SE_HSV_Data         *value_ptr,
@@ -1612,7 +1522,7 @@ SE_PrintHSVData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintImageComponentType
 (
     SE_Image_Component_Type value
@@ -1642,7 +1552,7 @@ SE_PrintImageComponentType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintImageMappingMethod
 (
     SE_Image_Mapping_Method value
@@ -1674,7 +1584,7 @@ SE_PrintImageMappingMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintImageMIPExtents
 (
     const SE_Image_MIP_Extents *value_ptr,
@@ -1706,7 +1616,7 @@ SE_PrintImageMIPExtents
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintImageProjectionType
 (
     SE_Image_Projection_Type value
@@ -1736,7 +1646,7 @@ SE_PrintImageProjectionType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintImageScanDirection
 (
     SE_Image_Scan_Direction value
@@ -1766,7 +1676,7 @@ SE_PrintImageScanDirection
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintImageScanDirectionZ
 (
     SE_Image_Scan_Direction_Z value
@@ -1796,7 +1706,7 @@ SE_PrintImageScanDirectionZ
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintImageSignature
 (
     SE_Image_Signature value
@@ -1826,7 +1736,7 @@ SE_PrintImageSignature
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintImageWrap
 (
     SE_Image_Wrap value
@@ -1856,7 +1766,7 @@ SE_PrintImageWrap
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintIndexCode
 (
     SE_Index_Code value
@@ -1886,7 +1796,7 @@ SE_PrintIndexCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintInteger
 (
     SE_Integer value
@@ -1919,7 +1829,7 @@ SE_PrintInteger
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintIntegerIntervalValue
 (
     const SE_Integer_Interval_Value *value_ptr,
@@ -1951,7 +1861,7 @@ SE_PrintIntegerIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintIntegerPositive
 (
     SE_Integer_Positive value
@@ -1981,7 +1891,7 @@ SE_PrintIntegerPositive
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintIntegerUnsigned
 (
     SE_Integer_Unsigned value
@@ -2011,7 +1921,7 @@ SE_PrintIntegerUnsigned
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintInterpolationType
 (
     SE_Interpolation_Type value
@@ -2041,7 +1951,7 @@ SE_PrintInterpolationType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintIntervalType
 (
     SE_Interval_Type value
@@ -2073,7 +1983,7 @@ SE_PrintIntervalType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintIntervalValue
 (
     const SE_Interval_Value   *value_ptr,
@@ -2105,7 +2015,7 @@ SE_PrintIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintIntervalValueType
 (
     SE_Interval_Value_Type value
@@ -2137,7 +2047,7 @@ SE_PrintIntervalValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintLocale
 (
     const SE_Locale           *value_ptr,
@@ -2169,7 +2079,7 @@ SE_PrintLocale
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintLODDataType
 (
     SE_LOD_Data_Type value
@@ -2200,7 +2110,7 @@ SE_PrintLODDataType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintLongFloat
 (
     SE_Long_Float value
@@ -2233,7 +2143,7 @@ SE_PrintLongFloat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintLongFloatIntervalValue
 (
     const SE_Long_Float_Interval_Value *value_ptr,
@@ -2267,7 +2177,7 @@ SE_PrintLongFloatIntervalValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintLongFloatValue
 (
     const SE_Long_Float_Value *value_ptr,
@@ -2299,7 +2209,7 @@ SE_PrintLongFloatValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintLSRTransformationAxis
 (
     SE_LSR_Transformation_Axis value
@@ -2329,7 +2239,7 @@ SE_PrintLSRTransformationAxis
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintMDClassificationCode
 (
     SE_MD_ClassificationCode value
@@ -2359,7 +2269,7 @@ SE_PrintMDClassificationCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintMDKeywordTypeCode
 (
     SE_MD_KeywordTypeCode value
@@ -2389,7 +2299,7 @@ SE_PrintMDKeywordTypeCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintMDRestrictionCode
 (
     SE_MD_RestrictionCode value
@@ -2419,7 +2329,7 @@ SE_PrintMDRestrictionCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintMediaFormat
 (
     SE_Media_Format value
@@ -2449,7 +2359,7 @@ SE_PrintMediaFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintModelReferenceType
 (
     SE_Model_Reference_Type value
@@ -2478,7 +2388,7 @@ SE_PrintModelReferenceType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintMonth
 (
     SE_Month value
@@ -2508,7 +2418,7 @@ SE_PrintMonth
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintMultiplicity
 (
     SE_Multiplicity value
@@ -2538,7 +2448,7 @@ SE_PrintMultiplicity
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintOctant
 (
     SE_Octant value
@@ -2568,7 +2478,7 @@ SE_PrintOctant
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintOctet
 (
     SE_Octet value
@@ -2598,7 +2508,7 @@ SE_PrintOctet
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintOrderingReason
 (
     SE_Ordering_Reason value
@@ -2628,7 +2538,7 @@ SE_PrintOrderingReason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintPixelFillMethod
 (
     SE_Pixel_Fill_Method value
@@ -2658,7 +2568,7 @@ SE_PrintPixelFillMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintPointLightDisplayType
 (
     SE_Point_Light_Display_Type value
@@ -2690,7 +2600,7 @@ SE_PrintPointLightDisplayType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintPolygonFlag
 (
     const SE_Polygon_Flag     *value_ptr,
@@ -2725,7 +2635,7 @@ SE_PrintPolygonFlag
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintPredefFuncArgStructure
 (
     const SE_Predef_Func_Arg_Structure *value_ptr,
@@ -2759,7 +2669,7 @@ SE_PrintPredefFuncArgStructure
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintPredefFuncStructure
 (
     const SE_Predef_Func_Structure *value_ptr,
@@ -2791,7 +2701,7 @@ SE_PrintPredefFuncStructure
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintPredefinedFunction
 (
     SE_Predefined_Function value
@@ -2821,7 +2731,7 @@ SE_PrintPredefinedFunction
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintPresentIn
 (
     SE_Present_In value
@@ -2853,7 +2763,7 @@ SE_PrintPresentIn
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintPresentationDomain
 (
     const SE_Presentation_Domain *value_ptr,
@@ -2887,7 +2797,7 @@ SE_PrintPresentationDomain
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintPropertyCode
 (
     const SE_Property_Code    *value_ptr,
@@ -2919,7 +2829,7 @@ SE_PrintPropertyCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintPropertyCodeType
 (
     SE_Property_Code_Type value
@@ -2949,7 +2859,7 @@ SE_PrintPropertyCodeType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintQuadrant
 (
     SE_Quadrant value
@@ -2979,7 +2889,7 @@ SE_PrintQuadrant
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintReferenceSurfaceElevationSelect
 (
     SE_Reference_Surface_Elevation_Select value
@@ -3009,7 +2919,7 @@ SE_PrintReferenceSurfaceElevationSelect
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintReferenceSurfaceLODSelect
 (
     SE_Reference_Surface_LOD_Select value
@@ -3039,7 +2949,7 @@ SE_PrintReferenceSurfaceLODSelect
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintReferenceVectorType
 (
     SE_Reference_Vector_Type value
@@ -3071,7 +2981,7 @@ SE_PrintReferenceVectorType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintRGBData
 (
     const SE_RGB_Data         *value_ptr,
@@ -3105,7 +3015,7 @@ SE_PrintRGBData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintRotationData
 (
     const SE_Rotation_Data    *value_ptr,
@@ -3137,7 +3047,7 @@ SE_PrintRotationData
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintSeason
 (
     SE_Season value
@@ -3167,7 +3077,7 @@ SE_PrintSeason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintShadingMethod
 (
     SE_Shading_Method value
@@ -3197,7 +3107,7 @@ SE_PrintShadingMethod
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintShortInteger
 (
     SE_Short_Integer value
@@ -3227,7 +3137,7 @@ SE_PrintShortInteger
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintShortIntegerPositive
 (
     SE_Short_Integer_Positive value
@@ -3257,7 +3167,7 @@ SE_PrintShortIntegerPositive
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintShortIntegerUnsigned
 (
     SE_Short_Integer_Unsigned value
@@ -3291,7 +3201,7 @@ SE_PrintShortIntegerUnsigned
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintSingleValue
 (
           EDCS_Attribute_Code ea_code,
@@ -3324,7 +3234,7 @@ SE_PrintSingleValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintSingleValueType
 (
     SE_Single_Value_Type value
@@ -3354,7 +3264,7 @@ SE_PrintSingleValueType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintSoundFormat
 (
     SE_Sound_Format value
@@ -3384,7 +3294,7 @@ SE_PrintSoundFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintSpacingType
 (
     SE_Spacing_Type value
@@ -3414,7 +3324,7 @@ SE_PrintSpacingType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintSpatialAssociationMeaningType
 (
     SE_Spatial_Association_Meaning_Type value
@@ -3444,7 +3354,7 @@ SE_PrintSpatialAssociationMeaningType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintSpatialIndexSpacingUnit
 (
     SE_Spatial_Index_Spacing_Unit value
@@ -3476,7 +3386,7 @@ SE_PrintSpatialIndexSpacingUnit
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintSRFContextInfo
 (
     const SE_SRF_Context_Info *value_ptr,
@@ -3508,7 +3418,7 @@ SE_PrintSRFContextInfo
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintStateMismatchBehaviour
 (
     SE_State_Mismatch_Behaviour value
@@ -3540,7 +3450,7 @@ SE_PrintStateMismatchBehaviour
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintString
 (
     const SE_String           *value_ptr,
@@ -3572,7 +3482,7 @@ SE_PrintString
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintSymbolFormat
 (
     SE_Symbol_Format value
@@ -3604,7 +3514,7 @@ SE_PrintSymbolFormat
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTelephoneInformation
 (
     const SE_Telephone_Information *value_ptr,
@@ -3638,7 +3548,7 @@ SE_PrintTelephoneInformation
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTextFont
 (
     const SE_Text_Font        *value_ptr,
@@ -3670,7 +3580,7 @@ SE_PrintTextFont
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintTimeConfiguration
 (
     SE_Time_Configuration value
@@ -3700,7 +3610,7 @@ SE_PrintTimeConfiguration
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintTimeDataType
 (
     SE_Time_Data_Type value
@@ -3733,7 +3643,7 @@ SE_PrintTimeDataType
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeDayOfYearValue
 (
     const SE_Time_Day_Of_Year_Value *value_ptr,
@@ -3767,7 +3677,7 @@ SE_PrintTimeDayOfYearValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeMValue
 (
     const SE_Time_M_Value     *value_ptr,
@@ -3801,7 +3711,7 @@ SE_PrintTimeMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeMDHValue
 (
     const SE_Time_MD_H_Value  *value_ptr,
@@ -3835,7 +3745,7 @@ SE_PrintTimeMDHValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeMDHMValue
 (
     const SE_Time_MD_HM_Value *value_ptr,
@@ -3869,7 +3779,7 @@ SE_PrintTimeMDHMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeMDHMSValue
 (
     const SE_Time_MD_HMS_Value *value_ptr,
@@ -3901,7 +3811,7 @@ SE_PrintTimeMDHMSValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintTimeOfDay
 (
     SE_Time_Of_Day value
@@ -3931,7 +3841,7 @@ SE_PrintTimeOfDay
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintTimeSignificance
 (
     SE_Time_Significance value
@@ -3963,7 +3873,7 @@ SE_PrintTimeSignificance
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeValue
 (
     const SE_Time_Value       *value_ptr,
@@ -3997,7 +3907,7 @@ SE_PrintTimeValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYValue
 (
     const SE_Time_Y_Value     *value_ptr,
@@ -4031,7 +3941,7 @@ SE_PrintTimeYValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYDHValue
 (
     const SE_Time_YD_H_Value  *value_ptr,
@@ -4065,7 +3975,7 @@ SE_PrintTimeYDHValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYDHMValue
 (
     const SE_Time_YD_HM_Value *value_ptr,
@@ -4099,7 +4009,7 @@ SE_PrintTimeYDHMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYDHMSValue
 (
     const SE_Time_YD_HMS_Value *value_ptr,
@@ -4133,7 +4043,7 @@ SE_PrintTimeYDHMSValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYDValue
 (
     const SE_Time_YD_Value    *value_ptr,
@@ -4167,7 +4077,7 @@ SE_PrintTimeYDValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYMDHValue
 (
     const SE_Time_YMD_H_Value *value_ptr,
@@ -4201,7 +4111,7 @@ SE_PrintTimeYMDHValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYMDHMValue
 (
     const SE_Time_YMD_HM_Value *value_ptr,
@@ -4235,7 +4145,7 @@ SE_PrintTimeYMDHMValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYMDHMSValue
 (
     const SE_Time_YMD_HMS_Value *value_ptr,
@@ -4269,7 +4179,7 @@ SE_PrintTimeYMDHMSValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintTimeYMDValue
 (
     const SE_Time_YMD_Value   *value_ptr,
@@ -4301,7 +4211,7 @@ SE_PrintTimeYMDValue
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintTypeClassification
 (
     SE_Type_Classification value
@@ -4331,7 +4241,7 @@ SE_PrintTypeClassification
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintUnderlineStyle
 (
     SE_Underline_Style value
@@ -4361,7 +4271,7 @@ SE_PrintUnderlineStyle
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintUnionReason
 (
     SE_Union_Reason value
@@ -4393,7 +4303,7 @@ SE_PrintUnionReason
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintURL
 (
     const SE_URL              *value_ptr,
@@ -4427,7 +4337,7 @@ SE_PrintURL
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+ extern void
 SE_PrintURN
 (
     const SE_URN              *value_ptr,
@@ -4459,7 +4369,7 @@ SE_PrintURN
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const char *
+ extern const char *
 SE_PrintVariableCode
 (
     SE_Variable_Code value
@@ -4491,7 +4401,7 @@ SE_PrintVariableCode
  *
  *-----------------------------------------------------------------------------
  */
-EXPORT_DLL extern void
+extern void
 SE_PrintYIQData
 (
     const SE_YIQ_Data         *value_ptr,

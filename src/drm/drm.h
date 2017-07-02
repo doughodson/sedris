@@ -1,105 +1,13 @@
-/*
- * FILE       : drm.h
- *
- * PROGRAMMERS: Michele L. Worley (SAIC), Bill Horan (SAIC)
- *
- * DESCRIPTION:
- *   This interface provides functions and variables which provide
- *   meta-information about the SEDRIS DRM.
- *
- * SEDRIS C++ SDK Release 4.1.4 - July 1, 2011
- * - DRM spec. 4.1
- */
 
-/*
- *                             NOTICE
- * 
- * This software is provided openly and freely for use in representing and
- * interchanging environmental data & databases.
- * 
- * This software was developed for use by the United States Government with
- * unlimited rights.  The software was developed under contract
- * DASG60-02-D-0006 TO-193 by Science Applications International Corporation.
- * The software is unclassified and is deemed as Distribution A, approved
- * for Public Release.
- * 
- * Use by others is permitted only upon the ACCEPTANCE OF THE TERMS AND
- * CONDITIONS, AS STIPULATED UNDER THE FOLLOWING PROVISIONS:
- * 
- *    1. Recipient may make unlimited copies of this software and give
- *       copies to other persons or entities as long as the copies contain
- *       this NOTICE, and as long as the same copyright notices that
- *       appear on, or in, this software remain.
- * 
- *    2. Trademarks. All trademarks belong to their respective trademark
- *       holders.  Third-Party applications/software/information are
- *       copyrighted by their respective owners.
- * 
- *    3. Recipient agrees to forfeit all intellectual property and
- *       ownership rights for any version created from the modification
- *       or adaptation of this software, including versions created from
- *       the translation and/or reverse engineering of the software design.
- * 
- *    4. Transfer.  Recipient may not sell, rent, lease, or sublicense
- *       this software.  Recipient may, however enable another person
- *       or entity the rights to use this software, provided that this
- *       AGREEMENT and NOTICE is furnished along with the software and
- *       /or software system utilizing this software.
- * 
- *       All revisions, modifications, created by the Recipient, to this
- *       software and/or related technical data shall be forwarded by the
- *       Recipient to the Government at the following address:
- * 
- *         SMDC
- *         Attention SEDRIS (TO193) TPOC
- *         P.O. Box 1500
- *         Huntsville, AL  35807-3801
- * 
- *         or via electronic mail to:  se-mgmt@sedris.org
- * 
- *    5. No Warranty. This software is being delivered to you AS IS
- *       and there is no warranty, EXPRESS or IMPLIED, as to its use
- *       or performance.
- * 
- *       The RECIPIENT ASSUMES ALL RISKS, KNOWN AND UNKNOWN, OF USING
- *       THIS SOFTWARE.  The DEVELOPER EXPRESSLY DISCLAIMS, and the
- *       RECIPIENT WAIVES, ANY and ALL PERFORMANCE OR RESULTS YOU MAY
- *       OBTAIN BY USING THIS SOFTWARE OR DOCUMENTATION.  THERE IS
- *       NO WARRANTY, EXPRESS OR, IMPLIED, AS TO NON-INFRINGEMENT OF
- *       THIRD PARTY RIGHTS, MERCHANTABILITY, OR FITNESS FOR ANY
- *       PARTICULAR PURPOSE.  IN NO EVENT WILL THE DEVELOPER, THE
- *       UNITED STATES GOVERNMENT OR ANYONE ELSE ASSOCIATED WITH THE
- *       DEVELOPMENT OF THIS SOFTWARE BE HELD LIABLE FOR ANY CONSEQUENTIAL,
- *       INCIDENTAL OR SPECIAL DAMAGES, INCLUDING ANY LOST PROFITS
- *       OR LOST SAVINGS WHATSOEVER.
- */
-
-/*
- * COPYRIGHT 2011, SCIENCE APPLICATIONS INTERNATIONAL CORPORATION.
- *                 ALL RIGHTS RESERVED.
- */
-
-/*
- * Ensure that drm.h is only included once.
- */
 #ifndef _DRM_H_INCLUDED
 #define _DRM_H_INCLUDED
 
-#if !defined(_WIN32)
-#define EXPORT_DLL
-#elif !defined(EXPORT_DLL)
-#if defined(_LIB)
-#define EXPORT_DLL
-#elif defined(_USRDLL)
-#define EXPORT_DLL __declspec(dllexport)
-#else
-#define EXPORT_DLL __declspec(dllimport)
-#endif
-#endif /* _WIN32 && EXPORT_DLL */
+//
+// DESCRIPTION:
+//   This interface provides functions and variables which provide
+//   meta-information about the SEDRIS DRM.
+//
 
-/*
- * Allow C++ compilers to use this API without any problems
- */
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -117,7 +25,7 @@ extern "C" {
  *   SE_BidirectionalAssociation[a][b] indicates whether a bidirectional
  *   association from a to b is legal.
  */
-EXPORT_DLL extern const SE_Boolean
+extern const SE_Boolean
 SE_BidirectionalAssociation[SE_DRM_CLASS_UBOUND][SE_DRM_CLASS_UBOUND];
 
 /*
@@ -127,7 +35,7 @@ SE_BidirectionalAssociation[SE_DRM_CLASS_UBOUND][SE_DRM_CLASS_UBOUND];
  *   SE_FieldSizeArray[A] provides the size (in bytes) of the
  *   DRM type SE_A_FIELDS.
  */
-EXPORT_DLL extern const SE_Integer_Unsigned
+extern const SE_Integer_Unsigned
 SE_FieldSizeArray[SE_DRM_CLASS_UBOUND];
 
 /*
@@ -137,7 +45,7 @@ SE_FieldSizeArray[SE_DRM_CLASS_UBOUND];
  *   SE_IsA[a][b] indicates whether a is-a b, i.e. whether a is either a
  *   subclass of b (or is the same class as b), or not.
  */
-EXPORT_DLL extern const SE_Boolean
+extern const SE_Boolean
 SE_IsA[SE_DRM_CLASS_UBOUND][SE_DRM_CLASS_UBOUND];
 
 /*
@@ -148,7 +56,7 @@ SE_IsA[SE_DRM_CLASS_UBOUND][SE_DRM_CLASS_UBOUND];
  *   composition-relationship path from a to b. This is used internally to
  *   provide pruning for searches that have a search depth specified.
  */
-EXPORT_DLL extern const SE_Byte
+extern const SE_Byte
 SE_ShortestAggPath[SE_DRM_CLASS_UBOUND][SE_DRM_CLASS_UBOUND];
 
 #define SE_CURRENT_MAJOR_DRM_VERSION 4
@@ -198,7 +106,7 @@ SE_ShortestAggPath[SE_DRM_CLASS_UBOUND][SE_DRM_CLASS_UBOUND];
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralDRMClassStringToDRMClass
 (
           SE_Short_Integer_Positive  major_drm_version,
@@ -271,7 +179,7 @@ SE_GeneralDRMClassStringToDRMClass
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralEnumerantName
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -340,7 +248,7 @@ SE_GeneralEnumerantName
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralFieldCountForClass
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -419,7 +327,7 @@ SE_GeneralFieldCountForClass
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralFieldCountForType
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -491,7 +399,7 @@ SE_GeneralFieldCountForType
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralFieldIndexForClass
 (
           SE_Short_Integer_Positive  major_drm_version,
@@ -572,7 +480,7 @@ SE_GeneralFieldIndexForClass
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralGetAggregateOfType
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -648,7 +556,7 @@ SE_GeneralGetAggregateOfType
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralGetAssociateOfType
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -714,7 +622,7 @@ SE_GeneralGetAssociateOfType
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralClassCount
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -791,7 +699,7 @@ SE_GeneralClassCount
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralGetClassStructure
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -862,7 +770,7 @@ SE_GeneralGetClassStructure
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralGetComponentOfType
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -970,7 +878,7 @@ SE_GeneralGetComponentOfType
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralGetDRMTypeStructure
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -1032,7 +940,7 @@ SE_GeneralGetDRMTypeStructure
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralGetTypeClassification
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -1087,7 +995,7 @@ SE_GeneralGetTypeClassification
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_GeneralIsAbstractClass
 (
     SE_Short_Integer_Positive major_drm_version,
@@ -1143,7 +1051,7 @@ SE_GeneralIsAbstractClass
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_GeneralIsLegalAggregate
 (
     SE_Short_Integer_Positive major_drm_version,
@@ -1204,7 +1112,7 @@ SE_GeneralIsLegalAggregate
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_GeneralIsLegalAssociate
 (
     SE_Short_Integer_Positive major_drm_version,
@@ -1262,7 +1170,7 @@ SE_GeneralIsLegalAssociate
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_GeneralIsLegalComponent
 (
     SE_Short_Integer_Positive major_drm_version,
@@ -1317,7 +1225,7 @@ SE_GeneralIsLegalComponent
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_Boolean
+ extern SE_Boolean
 SE_GeneralIsLinkClass
 (
     SE_Short_Integer_Positive major_drm_version,
@@ -1382,7 +1290,7 @@ SE_GeneralIsLinkClass
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralithEnumerantInType
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -1455,7 +1363,7 @@ SE_GeneralithEnumerantInType
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralithFieldInClass
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -1532,7 +1440,7 @@ SE_GeneralithFieldInClass
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralithFieldInType
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -1600,7 +1508,7 @@ SE_GeneralithFieldInType
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralLegalAggregatesCount
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -1665,7 +1573,7 @@ SE_GeneralLegalAggregatesCount
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralLegalAggregatesList
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -1730,7 +1638,7 @@ SE_GeneralLegalAggregatesList
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralLegalAssociationsCount
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -1795,7 +1703,7 @@ SE_GeneralLegalAssociationsCount
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralLegalAssociationsList
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -1860,7 +1768,7 @@ SE_GeneralLegalAssociationsList
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralLegalComponentsCount
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -1925,7 +1833,7 @@ SE_GeneralLegalComponentsCount
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralLegalComponentsList
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -1989,7 +1897,7 @@ SE_GeneralLegalComponentsList
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralPredefinedFunctionDefinition
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -2038,7 +1946,7 @@ SE_GeneralPredefinedFunctionDefinition
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Class
+ extern SE_DRM_Class
 SE_SuperClass
 (
     SE_DRM_Class drm_class
@@ -2072,7 +1980,7 @@ SE_SuperClass
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const SE_Character *
+ extern const SE_Character *
 SE_GeneralGetDRMClassString
 (
     SE_Short_Integer_Positive major_drm_version,
@@ -2141,7 +2049,7 @@ SE_GeneralGetDRMClassString
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralTypeBasicType
 (
           SE_Short_Integer_Positive   major_drm_version,
@@ -2201,7 +2109,7 @@ SE_GeneralTypeBasicType
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern SE_DRM_Status_Code
+ extern SE_DRM_Status_Code
 SE_GeneralTypeCount
 (
     SE_Short_Integer_Positive  major_drm_version,
@@ -2256,7 +2164,7 @@ SE_GeneralTypeCount
  *
  *----------------------------------------------------------------------------
  */
-EXPORT_DLL extern const SE_Character *
+ extern const SE_Character *
 SE_GeneralTypeName
 (
     SE_Short_Integer_Positive major_drm_version,

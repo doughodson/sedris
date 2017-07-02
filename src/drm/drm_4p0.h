@@ -20,7 +20,7 @@ extern "C" {
  *
  *   See SE_IsA[][] for description.
  */
-EXPORT_DLL extern const SE_Boolean
+extern const SE_Boolean
 SE_4p0_IsA[SE_4P0_NUM_DRM_CLASSES][SE_4P0_NUM_DRM_CLASSES];
 
 
