@@ -294,4 +294,4 @@ SE_GetDRMImplVerInfo(void);
 }
 #endif
 
-#endif /* ifndef/define/endif for _DRM_STDS_H_INCLUDED */
+#endif

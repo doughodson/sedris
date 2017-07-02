@@ -193,6 +193,7 @@ workspace "sedris"
       if _ACTION ~= "gmake" then
          defines { "_CONSOLE" }
       end
+      --buildoptions { "-lm" "-lstdc++"}
       includedirs { SRM_c_wrapper_IncPath, SRM_IncPath }
       libdirs { SEDRIS_LibPath }
       links { "lib_srm_c_wrapper", "lib_srm" }

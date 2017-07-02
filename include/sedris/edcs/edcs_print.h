@@ -1930,4 +1930,4 @@ EDCS_PrintValueCharacteristicLabel
 }
 #endif
 
-#endif /* #ifndef/define/endif for _EDCS_PRINT_H_INCLUDED */
+#endif

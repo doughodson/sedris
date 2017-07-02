@@ -132,4 +132,4 @@ EDCS_STRING_DEFAULT;
 }
 #endif
 
-#endif /* #ifndef/define/endif for _EDCS_DEFAULT_H_INCLUDED */
+#endif

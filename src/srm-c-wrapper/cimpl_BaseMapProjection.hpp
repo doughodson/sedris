@@ -83,4 +83,4 @@ SRM_Status_Code cimpl_SRM_SetValidGeodeticRegion
 #ifdef __cplusplus
 }
 #endif
-#endif /* #ifndef/define/endif for CIMPL_BASEMAPPROJECTION_HPP_INCLUDED */
+#endif
