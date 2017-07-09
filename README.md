@@ -41,12 +41,12 @@ Progress - Steps to Improve Code
 
 To do/in-progress:
 
+* Add two SRM tests (timing and accuracy) to repo - update code.
 * Remove unnecessary includes and/or old C header files from C++ code (e.g., math.h, string.h, etc.).
 * Make maximum use of forward references were possible.
 * Remove legacy compiler/platform support - basically remove as many conditional compilation macros, etc, as possible.
 * Dump inclusion of Windows.h and any other platform specific references as much as possible.
 * Update codebase to leverage more modern C++ features.
-* Add more tests to ensure code works as intended.
 
 The libraries and examples above compile and appear to work.  We have dumped several of the old build tools used in the project and have moved to using premake.  This eases the creation of Visual Studio and gmake files with one consistent solution.
 
