@@ -38,10 +38,11 @@ Progress - Steps to Improve Code
 * Cleaned up many header files and removed RCS revision control generated tags.  These are old RCS 'indicators' left over from this ancient revision control system.  Code moved to GitHub, therefore, this is an easy cleanup that improves readable.
 * Create license file in root directory (as suggested by GitHub) to reduce duplication and clutter within code files.
 * Renamed SRM library C++ public header extensions from .h to .hpp to make obvious the nature of this codebase (C++).
+* Added timing test program for SRM - updated code slightly, needs more cleanup.
 
 To do/in-progress:
 
-* Add two SRM tests (timing and accuracy) to repo - update code.
+* Resurrect accuracy test program for SRM.
 * Remove unnecessary includes and/or old C header files from C++ code (e.g., math.h, string.h, etc.).
 * Make maximum use of forward references were possible.
 * Remove legacy compiler/platform support - basically remove as many conditional compilation macros, etc, as possible.
