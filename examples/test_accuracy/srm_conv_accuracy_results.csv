@@ -1,0 +1,229 @@
+Coordinate conversion accuracy assessment for SRM C++
+(The results are given as the Euclidean distance (in meters) between the computed coordinate and the golden data)
+
+Test conducted: Sun Jul  9 21:10:51 2017
+
+ORM/RT, Conversion, Count, MIN (m), MAX (m)
+
+WGE, Lon_Lat.csv to LCC_14.csv, Exception: create: Invalid ORM code
+WGE, LCC_14.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_14a.csv, Exception: create: Invalid ORM code
+WGE, LCC_14a.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+WGE, Lon_Lat.csv to LCC_15.csv, Exception: create: Invalid ORM code
+WGE, LCC_15.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+WGE, Lon_Lat.csv to LCC_16.csv, Exception: create: Invalid ORM code
+WGE, LCC_16.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_16a.csv, Exception: create: Invalid ORM code
+WGE, LCC_16a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_17.csv, Exception: create: Invalid ORM code
+WGE, LCC_17.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_18.csv, Exception: create: Invalid ORM code
+WGE, LCC_18.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_19.csv, Exception: create: Invalid ORM code
+WGE, LCC_19.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_20.csv, Exception: create: Invalid ORM code
+WGE, LCC_20.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_21.csv, Exception: create: Invalid ORM code
+WGE, LCC_21.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_22.csv, Exception: create: Invalid ORM code
+WGE, LCC_22.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to LCC_23.csv, Exception: create: Invalid ORM code
+WGE, LCC_23.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+WGE, Lon_Lat.csv to Mercator_5.csv, Exception: create: Invalid ORM code
+WGE, Mercator_5.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Mercator_5a.csv, Exception: create: Invalid ORM code
+WGE, Mercator_5a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Mercator_6.csv, Exception: create: Invalid ORM code
+WGE, Mercator_6.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Mercator_7.csv, Exception: create: Invalid ORM code
+WGE, Mercator_7.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Mercator_8.csv, Exception: create: Invalid ORM code
+WGE, Mercator_8.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Mercator_8a.csv, Exception: create: Invalid ORM code
+WGE, Mercator_8a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Mercator_8b.csv, Exception: create: Invalid ORM code
+WGE, Mercator_8b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Ney_24.csv, Exception: create: Invalid ORM code
+WGE, Ney_24.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to Ney_25.csv, Exception: create: Invalid ORM code
+WGE, Ney_25.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_09.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_09.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_09a.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_09a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_09b.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_09b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_10.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_10.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_11.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_11.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_11a.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_11a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_11b.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_11b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_12.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_12.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_12a.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_12a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_13.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_13.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to PolarStereo_13a.csv, Exception: create: Invalid ORM code
+WGE, PolarStereo_13a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to TransMerc_26.csv, Exception: create: Invalid ORM code
+WGE, TransMerc_26.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to TransMerc_26a.csv, Exception: create: Invalid ORM code
+WGE, TransMerc_26a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, Lon_Lat.csv to TransMerc_27.csv, Exception: create: Invalid ORM code
+WGE, TransMerc_27.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_37.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_37.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_37a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_37a.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_SRMmax, Lon_Lat.csv to LCC_38.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_38.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_SRMmax, Lon_Lat.csv to LCC_39.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_39.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_39a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_39a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_40.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_40.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_41.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_41.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_42.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_42.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_43.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_43.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_44.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_44.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_45.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_45.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to LCC_46.csv, Exception: create: Invalid ORM code
+Test_SRMmax, LCC_46.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_SRMmax, Lon_Lat.csv to Mercator_28.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Mercator_28.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Mercator_28a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Mercator_28a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Mercator_29.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Mercator_29.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Mercator_30.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Mercator_30.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Mercator_31.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Mercator_31.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Mercator_31a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Mercator_31a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Mercator_31b.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Mercator_31b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Ney_48.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Ney_48.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to Ney_47.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Ney_47.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_32.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_32.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_32a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_32a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_32b.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_32b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_33.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_33.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_34.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_34.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_34a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_34a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_34b.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_34b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_35.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_35.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_35a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_35a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_36.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_36.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to PolarStereo_36a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, PolarStereo_36a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to TransMerc_49.csv, Exception: create: Invalid ORM code
+Test_SRMmax, TransMerc_49.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to TransMerc_49a.csv, Exception: create: Invalid ORM code
+Test_SRMmax, TransMerc_49a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_SRMmax, Lon_Lat.csv to TransMerc_50.csv, Exception: create: Invalid ORM code
+Test_SRMmax, TransMerc_50.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_60.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_60.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_60a.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_60a.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_sphere, Lon_Lat.csv to LCC_61.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_61.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_sphere, Lon_Lat.csv to LCC_62.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_62.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_62a.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_62a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_63.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_63.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_64.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_64.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_65.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_65.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_66.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_66.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_67.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_67.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_68.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_68.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to LCC_69.csv, Exception: create: Invalid ORM code
+Test_sphere, LCC_69.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_sphere, Lon_Lat.csv to Mercator_51.csv, Exception: create: Invalid ORM code
+Test_sphere, Mercator_51.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Mercator_51a.csv, Exception: create: Invalid ORM code
+Test_sphere, Mercator_51a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Mercator_52.csv, Exception: create: Invalid ORM code
+Test_sphere, Mercator_52.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Mercator_53.csv, Exception: create: Invalid ORM code
+Test_sphere, Mercator_53.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Mercator_54.csv, Exception: create: Invalid ORM code
+Test_sphere, Mercator_54.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Mercator_54a.csv, Exception: create: Invalid ORM code
+Test_sphere, Mercator_54a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Mercator_54b.csv, Exception: create: Invalid ORM code
+Test_sphere, Mercator_54b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Ney_71.csv, Exception: create: Invalid ORM code
+Test_sphere, Ney_71.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to Ney_70.csv, Exception: create: Invalid ORM code
+Test_sphere, Ney_70.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_55.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_55.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_55a.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_55a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_55b.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_55b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_56.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_56.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_57.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_57.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_57a.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_57a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_57b.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_57b.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_58.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_58.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_58a.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_58a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_59.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_59.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to PolarStereo_59a.csv, Exception: create: Invalid ORM code
+Test_sphere, PolarStereo_59a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to TransMerc_72.csv, Exception: create: Invalid ORM code
+Test_sphere, TransMerc_72.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to TransMerc_72a.csv, Exception: create: Invalid ORM code
+Test_sphere, TransMerc_72a.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+Test_sphere, Lon_Lat.csv to TransMerc_73.csv, Exception: create: Invalid ORM code
+Test_sphere, TransMerc_73.csv to Lon_Lat.csv, Exception: create: Invalid ORM code
+WGE, geodetic_101.csv to rectangular_103.csv, Exception: create: Invalid ORM code
+WGE, rectangular_103.csv to geodetic_101.csv, Exception: create: Invalid ORM code
+WGE, geodetic_101.csv to spherical_104.csv, Exception: create: Invalid ORM code
+WGE, spherical_104.csv to geodetic_101.csv, Exception: create: Invalid ORM code
+WGE, geodetic_101.csv to ellipsoidal_105.csv, Exception: create: Invalid ORM code
+WGE, ellipsoidal_105.csv to geodetic_101.csv, Exception: create: Invalid ORM code
+Test_SRMmax, geodetic_106.csv to rectangular_108.csv, Exception: create: Invalid ORM code
+Test_SRMmax, rectangular_108.csv to geodetic_106.csv, Exception: create: Invalid ORM code
+Test_SRMmax, geodetic_106.csv to spherical_109.csv, Exception: create: Invalid ORM code
+Test_SRMmax, spherical_109.csv to geodetic_106.csv, Exception: create: Invalid ORM code
+Test_SRMmax, geodetic_106.csv to ellipsoidal_110.csv, Exception: create: Invalid ORM code
+Test_SRMmax, ellipsoidal_110.csv to geodetic_106.csv, Exception: create: Invalid ORM code
