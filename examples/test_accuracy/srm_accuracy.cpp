@@ -671,9 +671,9 @@ void initializeMaps()
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-void printData(std::vector<doubleArray3 >& inDoubleParam, int length) 
+void printData(std::vector<doubleArray3>& inDoubleParam, const int length) 
 {
-  doubleArray3 data;
+  doubleArray3 data{};
 
   for(int i=0; i<(int)inDoubleParam.size(); i++)
     {	
@@ -686,7 +686,7 @@ void printData(std::vector<doubleArray3 >& inDoubleParam, int length)
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-void printData( gdDatumCoord& gdCoord) 
+void printData(gdDatumCoord& gdCoord) 
 {
   cout << "CD DT Coord=> " << gdCoord.datum_name_in << ", ";
   cout << gdCoord.datum_name_out << ", ";
@@ -696,9 +696,9 @@ void printData( gdDatumCoord& gdCoord)
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-void printData(std::vector<configInfo >& config) 
+void printData(std::vector<configInfo>& config) 
 {
-  configInfo data;
+  configInfo data{};
 
   for(int i=0; i<(int)config.size(); i++)
     {	
@@ -707,110 +707,104 @@ void printData(std::vector<configInfo >& config)
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void printData( statInfo &results ) 
+void printData(statInfo& results) 
 {
-  cout << "Count => " << results.count << endl;
-  cout << "Min   => " << results.min << endl;
-  cout << "Max   => " << results.max << endl;
-  cout << "Mean  => " << results.mean << endl;
-  cout << "StdDev=> " << results.stdDev << endl;
-  cout << "Message=> " << results.message << endl;
-}
-/////////////////////////////////////////////////////////////////////////////////
-void printData( srm::Coord3D *coord )
-{
-  cout << "[ " << coord->getValues()[0] << ", " \
-       << coord->getValues()[1] << ", " \
-       << coord->getValues()[2] << " ]" << endl;
+   std::cout << "Count => " << results.count << std::endl;
+   std::cout << "Min   => " << results.min << std::endl;
+   std::cout << "Max   => " << results.max << std::endl;
+   std::cout << "Mean  => " << results.mean << std::endl;
+   std::cout << "StdDev=> " << results.stdDev << std::endl;
+   std::cout << "Message=> " << results.message << std::endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void printData( doubleArray3 &coord )
+void printData(srm::Coord3D* coord)
 {
-  cout << "[ " << coord.var[0]*toRad << ", " \
-       << coord.var[1]*toRad << ", " \
-       << coord.var[2] << " ]" << endl;
+   std::cout << "[ "
+             << coord->getValues()[0] << ", "
+             << coord->getValues()[1] << ", "
+             << coord->getValues()[2] << " ]"
+             << std::endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void printData( std::vector< diffInfo > &diffs )
+void printData(doubleArray3& coord)
 {
-  for( int i=0; i<diffs.size(); i ++ )
-    {
-      cout << i << ", " << diffs[i].compOut.var[0] << ", " \
-	   << diffs[i].compOut.var[1] << ", " \
-	   << diffs[i].compOut.var[2] << ", " \
-	   << diffs[i].diff << endl;
-    }
+   std::cout << "[ " << coord.var[0]*toRad
+             << ", "
+             << coord.var[1]*toRad << ", "
+             << coord.var[2] << " ]" << std::endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void printData( srfParams &srfParam ) 
+void printData(std::vector<diffInfo>& diffs)
 {
-  cout << "srfParam.orm=> " << srfParam.orm << endl;
-  cout << "srfParam.rt=> " << srfParam.rt << endl;
-  cout << "srfParam.type=> " << srfParam.type << endl;
-  cout << "srfParam.floatParam => " << endl;
-  for(int i=0; i<8; i++)
-    cout << "srf param [" << i << "]=SRM_ORMCOD_> " << srfParam.floatParam[i] << endl;
+   for(int i=0; i<diffs.size(); i++ ) {
+      std::cout << i << ", ";
+      std::cout << diffs[i].compOut.var[0] << ", ";
+      std::cout << diffs[i].compOut.var[1] << ", ";
+      std::cout << diffs[i].compOut.var[2] << ", ";
+      std::cout << diffs[i].diff << endl;
+   }
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void printRecord(std::ofstream &outStr, int num, statInfo results) 
+void printData(srfParams& srfParam) 
 {
-  outStr << "Coordinate " << num << ", ";
-  outStr << endl;
+   std::cout << "srfParam.orm=> "         << srfParam.orm  << std::endl;
+   std::cout << "srfParam.rt=> "          << srfParam.rt   << std::endl;
+   std::cout << "srfParam.type=> "        << srfParam.type << std::endl;
+   std::cout << "srfParam.floatParam => "                  << std::endl;
+   for (int i=0; i<8; i++)
+      std::cout << "srf param [" << i << "]=SRM_ORMCOD_> " << srfParam.floatParam[i] << std::endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void printConvHeader(std::ofstream &outStr, bool more) 
+void printRecord(std::ofstream &outStr, const int num, const statInfo results) 
 {
-  time_t date; // Make a time_t object that'll hold the date
-  time(&date); //  Set the date variable to the current date
+   outStr << "Coordinate " << num << ", ";
+   outStr << std::endl;
+}
+
+void printConvHeader(std::ofstream& outStr, const bool more) 
+{
+   time_t date; // Make a time_t object that'll hold the date
+   time(&date); //  Set the date variable to the current date
      
-  outStr << "Coordinate conversion accuracy assessment for SRM C++" << endl;
-  outStr << "(The results are given as the Euclidean distance (in meters) between the ";
-  outStr << "computed coordinate and the golden data)" << endl << endl;
-  outStr << "Test conducted: " << ctime(&date) << endl;
-  outStr << "ORM/RT, Conversion, Count, MIN (m), MAX (m)";
-  if( more )
-    outStr << ", # > 0.001, max #, g_in1, g_in2, g_out1, g_out2, c_out1, c_out2, #";
-  outStr << endl << endl;
+   outStr << "Coordinate conversion accuracy assessment for SRM C++" << std::endl;
+   outStr << "(The results are given as the Euclidean distance (in meters) between the ";
+   outStr << "computed coordinate and the golden data)" << std::endl << std::endl;
+   outStr << "Test conducted: " << ctime(&date) << std::endl;
+   outStr << "ORM/RT, Conversion, Count, MIN (m), MAX (m)";
+   if (more)
+      outStr << ", # > 0.001, max #, g_in1, g_in2, g_out1, g_out2, c_out1, c_out2, #";
+   outStr << std::endl << std::endl;
 }
 
-
-/////////////////////////////////////////////////////////////////////////////////
-void printDatumHeader(std::ofstream &outStr, bool more ) 
+void printDatumHeader(std::ofstream& outStr, const bool more ) 
 {
-  time_t date; // Make a time_t object that'll hold the date
-  time(&date); //  Set the date variable to the current date
-     
-  outStr << "Datum conversion accuracy assessment for SRM C++ 4.3" << endl;
-  outStr << "(The results are given as the Euclidean distance (in meters) between the ";
-  outStr << "computed coordinate and the golden data)" << endl << endl;
-  outStr << "Test conducted: " << ctime(&date) << endl;
-  outStr << "Src ORM, Tgt ORM, Count, MIN (m), MAX (m)";
-  if( more )
-    outStr << ", MAX_DIFF > 0.001";
-  outStr << endl << endl;
+   time_t date; // Make a time_t object that'll hold the date
+   time(&date); //  Set the date variable to the current date
+
+   outStr << "Datum conversion accuracy assessment for SRM C++ 4.3" << std::endl;
+   outStr << "(The results are given as the Euclidean distance (in meters) between the ";
+   outStr << "computed coordinate and the golden data)" << std::endl << std::endl;
+   outStr << "Test conducted: " << ctime(&date) << std::endl;
+   outStr << "Src ORM, Tgt ORM, Count, MIN (m), MAX (m)";
+   if (more)
+      outStr << ", MAX_DIFF > 0.001";
+   outStr << std::endl << std::endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void printData( std::ofstream &outStr,
-		std::vector<doubleArray3 > &srcDoubleParam,
-		std::vector<doubleArray3 > &tgtDoubleParam,
-		std::vector<doubleArray3 > &compDoubleParam,
+void printData(std::ofstream& outStr,
+		std::vector<doubleArray3>& srcDoubleParam,
+		std::vector<doubleArray3>& tgtDoubleParam,
+		std::vector<doubleArray3>& compDoubleParam,
 		char* datum,
-		std::vector< bool > &exceeded,
+		std::vector<bool>& exceeded,
 		char* source_file_name,
 		char* target_file_name,
-		statInfo &results,
-		bool more ) 
+		statInfo& results,
+		bool more)
 {
-  double toRadConv = 1.0;
+  double toRadConv{1.0};
 
-  if ( results.isCD )
+  if (results.isCD)
     toRadConv = toRad;
 
   outStr << datum << ", ";
