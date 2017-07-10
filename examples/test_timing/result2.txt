@@ -1,5 +1,0 @@
-Timing For One Coordinate Conversion With Validation (in micro-seconds) - SRM C++
-
-Test coord,CD to UTM,UTM to CD,CC to UTM,UTM to CC,CD to CC,CC to CD
-
-Coordinate 1, 0.945, 1.0281, 1.1465, 1.1396, 0.8385, 0.9251, 
