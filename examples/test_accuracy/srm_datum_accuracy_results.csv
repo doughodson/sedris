@@ -1,7 +1,7 @@
 Datum conversion accuracy assessment for SRM C++ 4.3
 (The results are given as the Euclidean distance (in meters) between the computed coordinate and the golden data)
 
-Test conducted: Sun Jul 09 22:26:33 2017
+Test conducted: Sun Jul  9 23:30:21 2017
 
 Src ORM, Tgt ORM, Count, MIN (m), MAX (m)
 
