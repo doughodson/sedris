@@ -1,8 +1,4 @@
 /*
- * FILE       : srm_timing.cpp
- *
- * PROGRAMMERS: David Shen
- *
  * DESCRIPTION:
  *     This program performance the SRM conversion timing assessment between
  *     CC, CD and UTM SRFs.  The input and output files are comma separated values
@@ -15,36 +11,35 @@
  *
  * Examples:
  *     srm_timing source_file.csv results_file.csv
- *    
- * COPYRIGHT 2008, SCIENCE APPLICATIONS INTERNATIONAL CORPORATION.
- *                 ALL RIGHTS RESERVED.
- * 
  */
 
-#include "BaseSRF.h"
-#include "srf_all.h"
-#include "Exception.h"
-#include <time.h>
-#include "math.h"
-#if defined(SC52) || defined(_WIN32) || defined(linux)
+#include "BaseSRF.hpp"
+#include "srf_all.hpp"
+#include "Exception.hpp"
+
 #include <iostream>
-#else
-#include <iostream.h>
-#endif
 #include <string>
 #include <fstream>
 #include <vector>
+#include <cstring>
+#include <cstdlib>
+
+#include <time.h>
+#include "math.h"
+
+using namespace std;
+
 #define DISPLAY false
 
 #define ITERATIONS 10000000
 
-#define FACTOR          (1000000.0/ITERATIONS)          
-#define RATIO           (1.0/CLOCKS_PER_SEC)
-#define START_CLOCK     start_time = clock()
-#define SHOW_CLOCK      end_time = clock(); \
+#define FACTOR        (1000000.0/ITERATIONS)          
+#define RATIO         (1.0/CLOCKS_PER_SEC)
+#define START_CLOCK   start_time = clock()
+#define SHOW_CLOCK    end_time = clock(); \
 	                    mean_time = (RATIO*(long)end_time - RATIO*(long)start_time)*FACTOR
 
-#define toRad atan(1.)/45.
+#define toRad atan(1.0)/45.0
 
 #define LINEF       cout << endl
 
@@ -58,8 +53,6 @@
             << "[ " << CC_Coord.get_u() << ", " << CC_Coord.get_v() \
             << ", " << CC_Coord.get_w() << " ]" << endl
 
-using namespace std;
-
 typedef struct 
 {
   double var[3];
@@ -70,49 +63,43 @@ typedef struct
   double var[6];
 } doubleArray6;
 
-int readCSV(FILE *infile,
-	    std::vector<doubleArray3 >& inDoubleParam) {
+int readCSV(FILE *infile, std::vector<doubleArray3>& inDoubleParam) {
 
   //	declare string buffer
   char buffer[500];
   doubleArray3 data;
 
-  int ret_code = 0;
+  int ret_code{};
 
   if ( feof(infile) )
     return ret_code;
 
   fgets (buffer , 500 , infile);
 
-  if ( !(strstr( buffer, "lon,") != NULL) )
+  if ( !(std::strstr( buffer, "lon,") != NULL) )
     return ret_code;
 
   while( buffer[0] !=  '\n' ) {
     fgets (buffer , 500 , infile);
   }
 
-
-  int j=1;
+  int j{1};
 
   while ( !feof(infile) ) {
 
     fgets (buffer , 500 , infile);
     //cout << "line=> " << buffer << endl;
 
-    char* pch;
+    char* pch = std::strtok (buffer,",");
+    int i{};
+    while (pch != NULL) {
+       // skip the item number column
+	     pch = std::strtok (NULL, ",");
 
-    pch = strtok (buffer,",");
-    int i=0;
-    while (pch != NULL)
-      {
-	// skip the item number column
-	pch = strtok (NULL, ",");
-
-	while (pch != NULL)
-	  {
-	    data.var[i++] = atof(pch);
-	    pch = strtok (NULL, ",");
-	  }
+      while (pch != NULL) {
+          data.var[i++] = std::atof(pch);
+          pch = std::strtok (NULL, ",");
+      }
 
       }
     inDoubleParam.push_back(data);
@@ -121,7 +108,6 @@ int readCSV(FILE *infile,
 
   return 1;
 }
-
 
 void printRecord(char* message, doubleArray3 record, int length) 
 {
@@ -422,15 +408,14 @@ void printLines(std::ofstream &outStr, int lines)
 
 void printHeader(std::ofstream &outStr, bool validation) 
 {
-  if(validation)
-    outStr << "Timing For One Coordinate Conversion With Validation (in micro-seconds) - SRM C++ 4.3";
+  if (validation)
+    outStr << "Timing For One Coordinate Conversion With Validation (in micro-seconds) - SRM C++";
   else 
-    outStr << "Timing for One Coordinate Conversion Without Validation (in micro-seconds) - SRM C++ 4.3";
+    outStr << "Timing for One Coordinate Conversion Without Validation (in micro-seconds) - SRM C++";
   outStr << endl << endl;
   outStr << "Test coord,CD to UTM,UTM to CD,CC to UTM,UTM to CC,CD to CC,CC to CD";
   outStr << endl << endl;;
 }
-
 
 void runTest( std::vector<doubleArray3> &inDoubleParam,
 	      doubleArray6 results,

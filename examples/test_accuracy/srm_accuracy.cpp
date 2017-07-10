@@ -1,41 +1,32 @@
 /*
- * FILE       : srm_accuracy.cpp
- *
- * PROGRAMMERS: David Shen
- *
  * DESCRIPTION:
  *     This program computes coordinate conversions and compare their results 
  *     against the NGA golden data whose paths are listed in the command line argument
  *     configuration file.
  *
- * Dependency: SRM C/C++ SDK Release 4.3
+ * Dependency: SRM C/C++ SDK
  */
 
-#include "BaseSRF.h"
-#include "srf_all.h"
-#include "Exception.h"
-#include "math.h"
-#if defined(SC52) || defined(_WIN32) || defined(linux)
+#include "BaseSRF.hpp"
+#include "srf_all.hpp"
+#include "srm_types.h"
+#include "Exception.hpp"
+
 #include <iostream>
 #include <fstream>
 #include <ctime>
-#include <string>
+#include <cstring>
 #include <vector>
 #include <map>
+
+#include "math.h"
+
 using namespace std;
-#else
-#include <iostream.h>
-#include <fstream.h>
-#include <time.h>
-#include <string.h>
-#include <vector.h>
-#include <map.h>
-#endif
 
 #define MAX_DIFF 0.001
 
-#define toRad atan(1.)/45.
-#define toDeg 45./atan(1.)
+#define toRad atan(1.0)/45.
+#define toDeg 45.0/atan(1.0)
 
 #define PI_OVER_4 atan(1.0)
 #define PI_OVER_2 atan(1.0)*2.0
@@ -46,14 +37,14 @@ using namespace std;
 #define WGS84_F    1.0/2.9825722356300e2
 #define WGS84_e    sqrt(2*WGS84_F - WGS84_F*WGS84_F)
 #define MAX_A      6400000.0
-#define MAX_F      1./150.
+#define MAX_F      1.0/150.0
 #define MAX_e      sqrt(2*MAX_F - MAX_F*MAX_F)
 #define SPHR_A     20000000.0/PI
-#define SPHR_F     0.
-#define SPHR_e     0.
+#define SPHR_F     0.0
+#define SPHR_e     0.0
 
 #define NEY_P1     70.*toRad
-#define NEY_P2     (89.+(59./60.)+(58./3600.))*toRad 
+#define NEY_P2     (89.0+(59.0/60.0)+(58.0/3600.0))*toRad 
 
 #define CENTRAL_MERIDIAN 0
 #define ORIGIN_LATITUDE 1
@@ -69,7 +60,6 @@ using namespace std;
 #define DATUM 11
 #define COORDINATES 12
 #define PROJECTION 13
-
 
 const char* datum[] = { "WGE",
                         "Test_SRMmax",
@@ -158,7 +148,7 @@ typedef struct
 struct strCmp {
   bool operator()( const char* s1, const char* s2 ) const 
   {
-    return strcmp( s1, s2 ) < 0;    
+    return std::strcmp( s1, s2 ) < 0;    
   }  
 };
 
@@ -479,7 +469,7 @@ void initializeMaps()
   rtMap["ASQ"]=SRM_RTCOD_MARCUS_STATION_1952_MARCUS_ISLANDS;
   rtMap["ATF"]=SRM_RTCOD_BEACON_E_1945_IWO_JIMA_ISLAND;
   rtMap["AUA"]=SRM_RTCOD_AUSTRALIAN_GEOD_1966_AUSTRALIA_TASMANIA;
-  rtMap["AUG"]=SRM_RTCOD_AUSTRALIA_GEOD_1984_3_AUSTRALIA_TASMANIA;
+  rtMap["AUG"]=SRM_RTCOD_AUSTRALIAN_GEOD_1984_3_AUSTRALIA_TASMANIA;
   rtMap["BAT"]=SRM_RTCOD_DJAKARTA_1987_SUMATRA;
   rtMap["BID"]=SRM_RTCOD_BISSAU_1991_GUINEA_BISSAU;
   rtMap["BER"]=SRM_RTCOD_BERMUDA_1957_BERMUDA;
@@ -490,7 +480,7 @@ void initializeMaps()
   rtMap["CAO"]=SRM_RTCOD_CANTON_1966_PHOENIX_ISLANDS;
   rtMap["CAP"]=SRM_RTCOD_CAPE_1987_SOUTH_AFRICA;
   rtMap["CAZ"]=SRM_RTCOD_CAMP_AREA_1987_MCMURDO_CAMP;
-  rtMap["CCD"]=SRM_RTCOD_S_JTSK_1993_CZECH_SLOVAKIA;
+  rtMap["CCD"]=SRM_RTCOD_S_JTSK_1993_CZECH_REP_SLOVAKIA;
   rtMap["CGE"]=SRM_RTCOD_CARTHAGE_1987_TUNISIA;
   rtMap["CHI"]=SRM_RTCOD_CHATHAM_1971_CHATHAM_ISLANDS;
   rtMap["CHU"]=SRM_RTCOD_CHUA_1987_PARAGUAY;
@@ -601,16 +591,16 @@ void initializeMaps()
   rtMap["OGB-B"]=SRM_RTCOD_OSGB_1936_ENGLAND_ISLE_OF_MAN_WALES;
   rtMap["OGB-C"]=SRM_RTCOD_OSGB_1936_SCOTLAND_SHETLAND_ISLANDS;
   rtMap["OGB-D"]=SRM_RTCOD_OSGB_1936_WALES;
-  rtMap["OHA-M"]=SRM_RTCOD_OLD_HAWAII_C_1987_MEAN_SOLUTION;
-  rtMap["OHA-A"]=SRM_RTCOD_OLD_HAWAII_C_1987_HAWAII;
-  rtMap["OHA-B"]=SRM_RTCOD_OLD_HAWAII_C_1987_KAUAI;
-  rtMap["OHA-C"]=SRM_RTCOD_OLD_HAWAII_C_1987_MAUI;
-  rtMap["OHA-D"]=SRM_RTCOD_OLD_HAWAII_C_1987_OAHU;
-  rtMap["OHI-M"]=SRM_RTCOD_OLD_HAWAII_I_1987_MEAN_SOLUTION;
-  rtMap["OHI-A"]=SRM_RTCOD_OLD_HAWAII_I_1987_HAWAII;
-  rtMap["OHI-B"]=SRM_RTCOD_OLD_HAWAII_I_1987_KAUAI;
-  rtMap["OHI-C"]=SRM_RTCOD_OLD_HAWAII_I_1987_MAUI;
-  rtMap["OHI-D"]=SRM_RTCOD_OLD_HAWAII_I_1987_OAHU;
+  rtMap["OHA-M"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_MEAN_SOLUTION;
+  rtMap["OHA-A"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_HAWAII;
+  rtMap["OHA-B"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_KAUAI;
+  rtMap["OHA-C"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_MAUI;
+  rtMap["OHA-D"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_OAHU;
+  rtMap["OHI-M"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_MEAN_SOLUTION;
+  rtMap["OHI-A"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_HAWAII;
+  rtMap["OHI-B"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_KAUAI;
+  rtMap["OHI-C"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_MAUI;
+  rtMap["OHI-D"]=SRM_RTCOD_OLD_HAWAIIAN_INT_1987_OAHU;
   rtMap["PHA"]=SRM_RTCOD_AYABELLE_LIGHTHOUSE_1991_DJIBOUTI;
   rtMap["PIT"]=SRM_RTCOD_PITCAIRN_1967_PITCAIRN_ISLAND;
   rtMap["PLN"]=SRM_RTCOD_PICO_DE_LAS_NIEVES_1987_CANARY_ISLANDS;
@@ -661,7 +651,7 @@ void initializeMaps()
   rtMap["SRL"]=SRM_RTCOD_SIERRA_LEONE_1960_SIERRA_LEONE;
   rtMap["TAN"]=SRM_RTCOD_TANANARIVE_OBS_1925_3_MADAGASCAR;
   rtMap["TDC"]=SRM_RTCOD_TRISTAN_1968_TRISTAN_DA_CUNHA;
-  rtMap["TIL"]=SRM_RTCOD_TIMBALAI_EVRST_1948_3_BRUNEI_E_MALAYSIA;
+  rtMap["TIL"]=SRM_RTCOD_TIMBALAI_EVEREST_1948_3_BRUNEI_E_MALAYSIA;
   rtMap["TOY-A"]=SRM_RTCOD_TOKYO_1991_JAPAN;
   rtMap["TOY-B"]=SRM_RTCOD_TOKYO_1991_1991_SOUTH_KOREA;
   rtMap["TOY-B1"]=SRM_RTCOD_TOKYO_1991_1997_SOUTH_KOREA;
@@ -779,7 +769,7 @@ void printConvHeader(std::ofstream &outStr, bool more)
   time_t date; // Make a time_t object that'll hold the date
   time(&date); //  Set the date variable to the current date
      
-  outStr << "Coordinate conversion accuracy assessment for SRM C++ 4.3" << endl;
+  outStr << "Coordinate conversion accuracy assessment for SRM C++" << endl;
   outStr << "(The results are given as the Euclidean distance (in meters) between the ";
   outStr << "computed coordinate and the golden data)" << endl << endl;
   outStr << "Test conducted: " << ctime(&date) << endl;

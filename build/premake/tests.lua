@@ -9,13 +9,16 @@
       targetdir "../../examples/test_accuracy"
       debugdir "../../examples/test_accuracy"
       kind "ConsoleApp"
-      language "C"
+      language "C++"
       if _ACTION ~= "gmake" then
          defines { "_CONSOLE" }
       end
-      includedirs { EDCS_IncPath }
+      if _ACTION == "gmake" then
+         buildoptions { "-std=c++11" }
+      end
+      includedirs { SRM_IncPath }
       libdirs { SEDRIS_LibPath }
-      links { "lib_edcs" }
+      links { "lib_srm" }
       files {
          "../../examples/test_accuracy/**.h*",
          "../../examples/test_accuracy/**.c*"
