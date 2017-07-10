@@ -36,6 +36,7 @@ codelite/
 *.exe
 *.out
 *.app
+*.suo
 !premake*.*
 
 # visual studio files
