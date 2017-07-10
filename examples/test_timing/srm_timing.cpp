@@ -63,11 +63,11 @@ typedef struct
   double var[6];
 } doubleArray6;
 
-int readCSV(FILE *infile, std::vector<doubleArray3>& inDoubleParam) {
-
+int readCSV(FILE* infile, std::vector<doubleArray3>& inDoubleParam)
+{
   //	declare string buffer
-  char buffer[500];
-  doubleArray3 data;
+  char buffer[500]{};
+  doubleArray3 data{};
 
   int ret_code{};
 
@@ -92,7 +92,7 @@ int readCSV(FILE *infile, std::vector<doubleArray3>& inDoubleParam) {
 
     char* pch = std::strtok (buffer,",");
     int i{};
-    while (pch != NULL) {
+    while (pch != nullptr) {
        // skip the item number column
 	     pch = std::strtok (NULL, ",");
 
@@ -118,12 +118,8 @@ void printRecord(char* message, doubleArray3 record, int length)
 }
 
 
-int load_file( FILE *inFile,
-	       char *file_name,
-	       std::vector<doubleArray3 > &doubleParam )
+int load_file( FILE *inFile, char* file_name, std::vector<doubleArray3 > &doubleParam )
 {
-  int ret_code = 1;
-
   inFile = fopen(file_name, "r");
 
   if (!inFile) {
@@ -131,24 +127,22 @@ int load_file( FILE *inFile,
     return false; // terminate with error
   }
 
-  ret_code = readCSV(inFile, doubleParam);
+  int ret_code = readCSV(inFile, doubleParam);
 
   fclose(inFile);
 
   return ret_code;
 }
 
-
 int processTiming( doubleArray3 in_coord, doubleArray6 &results, int iterations, bool validation )
 {
-  clock_t start_time, end_time;
-  double mean_time;
-  srm::SRF_Celestiocentric* CC_SRF;
-  srm::SRF_Celestiodetic* CD_SRF;
-  srm::SRF_TransverseMercator* UTM_SRF;
+  clock_t start_time{}, end_time{};
+  double mean_time{};
+  srm::SRF_Celestiocentric* CC_SRF{};
+  srm::SRF_Celestiodetic* CD_SRF{};
+  srm::SRF_TransverseMercator* UTM_SRF{};
 
   cout.precision(15);
-
 
   try {
     // create SRFs and coords
@@ -423,7 +417,7 @@ void runTest( std::vector<doubleArray3> &inDoubleParam,
 	      bool validation,
               std::ofstream &outStr )
 {
-  doubleArray6 min, max, mean;
+  doubleArray6 min{}, max{}, mean{};
 
   printHeader(outStr, validation);
 
@@ -484,14 +478,14 @@ void process_arguments
 
 int main (int argc, char* argv[])
 {
-  FILE *inFile = 0;
-  int record = 0;
-  char source_file_name[500], result_file_name[500];
+  FILE *inFile{};
+  int record{};
+  char source_file_name[500]{}, result_file_name[500]{};
 
   ofstream outStr;
 
-  std::vector<doubleArray3 > inDoubleParam; 
-  doubleArray6 results;
+  std::vector<doubleArray3> inDoubleParam; 
+  doubleArray6 results{};
  			 
   cout.precision(15);
 
