@@ -1,4 +1,3 @@
-
 //
 // DESCRIPTION:
 //    This program create CC, CD and UTM SRFs and Coordinates and then
@@ -15,14 +14,12 @@
 
 #define TO_DEGREES(__rad)   (__rad*(180/PI))
 
-using namespace srm;
-
 int main(int, char**)
 {
    // SRF containers, parameters, and coordinates
-   SRF_TransverseMercator* utm12_srf{};
-   SRF_Celestiodetic*      cd_srf{};
-   SRF_Celestiocentric*    cc_srf{};
+   srm::SRF_TransverseMercator* utm12_srf{};
+   srm::SRF_Celestiodetic*      cd_srf{};
+   srm::SRF_Celestiocentric*    cc_srf{};
    SRM_SRFS_Info           utm12_srfs_params;
 
    SRM_Long_Float          src_ord1 = 500000.0,
@@ -41,16 +38,16 @@ int main(int, char**)
       utm12_srfs_params.srfs_code_info.value.srfsm_utm = SRM_SRFSMUTMCOD_ZONE_12_NORTHERN_HEMISPHERE;
       utm12_srfs_params.orm_code = orm;
 
-      utm12_srf = (SRF_TransverseMercator*)
-                  BaseSRF::createSRFSetMember(utm12_srfs_params, rt);
-      cd_srf = (SRF_Celestiodetic*)
-               BaseSRF::createStandardSRF(cd_srf_code, rt);
-      cc_srf = (SRF_Celestiocentric*)
-               BaseSRF::createStandardSRF(cc_srf_code, rt);
+      utm12_srf = (srm::SRF_TransverseMercator*)
+                  srm::BaseSRF::createSRFSetMember(utm12_srfs_params, rt);
+      cd_srf = (srm::SRF_Celestiodetic*)
+               srm::BaseSRF::createStandardSRF(cd_srf_code, rt);
+      cc_srf = (srm::SRF_Celestiocentric*)
+               srm::BaseSRF::createStandardSRF(cc_srf_code, rt);
 
-      Coord3D_TransverseMercator  utm_coord(utm12_srf, src_ord1, src_ord2, src_ord3);
-      Coord3D_Celestiodetic       cd_coord(cd_srf);
-      Coord3D_Celestiocentric     cc_coord(cc_srf);
+      srm::Coord3D_TransverseMercator  utm_coord(utm12_srf, src_ord1, src_ord2, src_ord3);
+      srm::Coord3D_Celestiodetic       cd_coord(cd_srf);
+      srm::Coord3D_Celestiocentric     cc_coord(cc_srf);
 
       // Perform conversions and print results
       cd_srf->changeCoordinate3DSRF(utm_coord, cd_coord);
