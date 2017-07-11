@@ -1,77 +1,229 @@
 Coordinate conversion accuracy assessment for SRM C++
 (The results are given as the Euclidean distance (in meters) between the computed coordinate and the golden data)
 
-Test conducted: Sun Jul  9 23:30:21 2017
+Test conducted: Mon Jul 10 18:55:34 2017
 
 ORM/RT, Conversion, Count, MIN (m), MAX (m)
 
-WGE, Lon_Lat.csv to LCC_14.csv, 300, 2.13240331818449e-08, 8.58716827501176e-06
-WGE, LCC_14.csv to Lon_Lat.csv, 300, 4.03066383241271e-08, 1.24890205793329e-05
+WGE, Lon_Lat.csv to LCC_14.csv, 300, 2.13240331818449e-008, 8.58716827501176e-006
+WGE, LCC_14.csv to Lon_Lat.csv, 300, 4.03066383241271e-008, 1.24890205793329e-005
 WGE, Lon_Lat.csv to LCC_14a.csv, Exception: Incompatible SRF Parameter Set
 WGE, LCC_14a.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-WGE, Lon_Lat.csv to LCC_15.csv, Exception: Incompatible SRF Parameter Set
-WGE, LCC_15.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-WGE, Lon_Lat.csv to LCC_16.csv, 300, 2.0340392056705e-08, 1.8445687545297e-05
-WGE, LCC_16.csv to Lon_Lat.csv, 300, 1.41623091030368e-09, 1.25698011327112e-05
-WGE, Lon_Lat.csv to LCC_16a.csv, 300, 2.90058767467689e-08, 1.84648657514542e-05
-WGE, LCC_16a.csv to Lon_Lat.csv, 300, 2.0524615214607e-08, 1.25877785645609e-05
-WGE, Lon_Lat.csv to LCC_17.csv, 300, 6.08218530835796e-08, 2.6856378414915e-06
-WGE, LCC_17.csv to Lon_Lat.csv, 300, 0, 1.21501453261613e-05
-WGE, Lon_Lat.csv to LCC_18.csv, 300, 0.000193919137579711, 0.0106954371335795
-WGE, LCC_18.csv to Lon_Lat.csv, 300, 6.56677351808393e-07, 0.00020052734507579
-WGE, Lon_Lat.csv to LCC_19.csv, 300, 7.36706657881122e-08, 2.92203363655419e-06
-WGE, LCC_19.csv to Lon_Lat.csv, 300, 5.66966403513896e-09, 1.29185181927641e-05
-WGE, Lon_Lat.csv to LCC_20.csv, 300, 1.15198240399854e-07, 0.000301474791460471
-WGE, LCC_20.csv to Lon_Lat.csv, 300, 3.82382345781994e-08, 1.20297991798806e-05
-WGE, Lon_Lat.csv to LCC_21.csv, 300, 2.12803073327379e-06, 0.00336220755885045
-WGE, LCC_21.csv to Lon_Lat.csv, 300, 2.15531021290923e-06, 8.49560489754398e-05
-WGE, Lon_Lat.csv to LCC_22.csv, 300, 0.00712329229267342, 0.0223092550684476
-WGE, LCC_22.csv to Lon_Lat.csv, 300, 1.27726930452513e-07, 0.000217996382087533
-WGE, Lon_Lat.csv to LCC_23.csv, Exception: Incompatible SRF Parameter Set
-WGE, LCC_23.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-WGE, Lon_Lat.csv to Mercator_5.csv, 300, 5.84963709115982e-06, 0.000889838769685864
-WGE, Mercator_5.csv to Lon_Lat.csv, 300, 0, 1.21723537268119e-05
-WGE, Lon_Lat.csv to Mercator_5a.csv, 300, 5.84870576858521e-06, 0.000889841563220014
-WGE, Mercator_5a.csv to Lon_Lat.csv, 300, 0, 1.21723083327883e-05
-WGE, Lon_Lat.csv to Mercator_6.csv, 300, 4.48152422904968e-06, 0.000771478778523631
-WGE, Mercator_6.csv to Lon_Lat.csv, 300, 0, 1.20151181231447e-05
-WGE, Lon_Lat.csv to Mercator_7.csv, 300, 4.1937455534935e-06, 0.000623286427856643
-WGE, Mercator_7.csv to Lon_Lat.csv, 300, 0, 1.23203173273583e-05
-WGE, Lon_Lat.csv to Mercator_8.csv, 300, 5.84992207100176e-06, 0.000889838798205425
-WGE, Mercator_8.csv to Lon_Lat.csv, 300, 0, 1.21742965875402e-05
-WGE, Lon_Lat.csv to Mercator_8a.csv, 300, 4.48206853197667e-06, 0.000771478762629057
-WGE, Mercator_8a.csv to Lon_Lat.csv, 300, 0, 1.20138140374864e-05
-WGE, Lon_Lat.csv to Mercator_8b.csv, 300, 4.48206853197667e-06, 0.000771481556767063
-WGE, Mercator_8b.csv to Lon_Lat.csv, 300, 0, 1.20124245861344e-05
-WGE, Lon_Lat.csv to Ney_24.csv, Ney SRF not supported
-WGE, Ney_24.csv to Lon_Lat.csv, Ney SRF not supported
-WGE, Lon_Lat.csv to Ney_25.csv, Ney SRF not supported
-WGE, Ney_25.csv to Lon_Lat.csv, Ney SRF not supported
-WGE, Lon_Lat.csv to PolarStereo_09.csv, 252, 3.24503000950183e-06, 0.000593949109315872
-WGE, PolarStereo_09.csv to Lon_Lat.csv, 222, 5.68354450217515e-09, 1.25191795172517e-05
-WGE, Lon_Lat.csv to PolarStereo_09a.csv, 252, 3.24470232135649e-06, 0.000593949109315872
-WGE, PolarStereo_09a.csv to Lon_Lat.csv, 222, 7.10016747929793e-09, 1.25191795172517e-05
-WGE, Lon_Lat.csv to PolarStereo_09b.csv, 252, 1.82832094951018e-06, 0.000415864400565624
-WGE, PolarStereo_09b.csv to Lon_Lat.csv, 207, 5.68354450217515e-09, 1.25707206817488e-05
-WGE, Lon_Lat.csv to PolarStereo_10.csv, 252, 2.76852459695566e-06, 0.000554215162992477
-WGE, PolarStereo_10.csv to Lon_Lat.csv, 218, 1.90389017662794e-08, 1.26290800899322e-05
-WGE, Lon_Lat.csv to PolarStereo_11.csv, 252, 3.29044490038816e-06, 0.000593848751240368
-WGE, PolarStereo_11.csv to Lon_Lat.csv, 222, 5.68354450217515e-09, 1.24838327872033e-05
-WGE, Lon_Lat.csv to PolarStereo_11a.csv, 252, 2.74415776993775e-06, 0.000554351230690603
-WGE, PolarStereo_11a.csv to Lon_Lat.csv, 217, 4.40210383716472e-08, 1.23630651572042e-05
-WGE, Lon_Lat.csv to PolarStereo_11b.csv, 252, 2.74415776993775e-06, 0.000554352185579288
-WGE, PolarStereo_11b.csv to Lon_Lat.csv, 217, 4.40210383716472e-08, 1.23630651572042e-05
-WGE, Lon_Lat.csv to PolarStereo_12.csv, 252, 3.24503000950183e-06, 0.000593949109315872
-WGE, PolarStereo_12.csv to Lon_Lat.csv, 222, 5.68354450217515e-09, 1.25191795172517e-05
-WGE, Lon_Lat.csv to PolarStereo_12a.csv, 252, 2.76847898295299e-06, 0.000554215162992477
-WGE, PolarStereo_12a.csv to Lon_Lat.csv, 218, 1.90389017662794e-08, 1.26304876341184e-05
-WGE, Lon_Lat.csv to PolarStereo_13.csv, 111, 1.93715306662598e-05, 0.000593847981628334
-WGE, PolarStereo_13.csv to Lon_Lat.csv, 81, 5.68354450217515e-09, 1.15699369682295e-05
-WGE, Lon_Lat.csv to PolarStereo_13a.csv, 111, 1.79791170547743e-05, 0.000554352686619455
-WGE, PolarStereo_13a.csv to Lon_Lat.csv, 76, 5.1750596768431e-08, 1.17300877992362e-05
-WGE, Lon_Lat.csv to TransMerc_26.csv, 66, 2.84006076064948e-10, 0.000267375318799254
-WGE, TransMerc_26.csv to Lon_Lat.csv, 66, 2.85436789319599e-10, 0.000190458063901174
-WGE, Lon_Lat.csv to TransMerc_26a.csv, 66, 1.52496751417185e-07, 0.000267375592121457
-WGE, TransMerc_26a.csv to Lon_Lat.csv, 64, 3.82213996834345e-07, 0.000190075617622058
-WGE, Lon_Lat.csv to TransMerc_27.csv, 71, 1.00675970484202e-06, 0.000438463699538342
-WGE, TransMerc_27.csv to Lon_Lat.csv, 71, 8.00617528098647e-08, 0.000180355768350544
+WGE, Lon_Lat.csv to LCC_15.csv, Exception: create: Invalid SRF
+WGE, LCC_15.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_16.csv, Exception: create: Invalid SRF
+WGE, LCC_16.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_16a.csv, Exception: create: Invalid SRF
+WGE, LCC_16a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_17.csv, Exception: create: Invalid SRF
+WGE, LCC_17.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_18.csv, Exception: create: Invalid SRF
+WGE, LCC_18.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_19.csv, Exception: create: Invalid SRF
+WGE, LCC_19.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_20.csv, Exception: create: Invalid SRF
+WGE, LCC_20.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_21.csv, Exception: create: Invalid SRF
+WGE, LCC_21.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to LCC_22.csv, 66, 2.54113153630442e-007, 15997879.950227
+WGE, LCC_22.csv to Lon_Lat.csv, 52, 2.52980708184961e-007, 2516399.68413777
+WGE, Lon_Lat.csv to LCC_23.csv, Exception: create: Invalid SRF
+WGE, LCC_23.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_5.csv, Exception: create: Invalid SRF
+WGE, Mercator_5.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_5a.csv, Exception: create: Invalid SRF
+WGE, Mercator_5a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_6.csv, Exception: create: Invalid SRF
+WGE, Mercator_6.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_7.csv, Exception: create: Invalid SRF
+WGE, Mercator_7.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_8.csv, Exception: create: Invalid SRF
+WGE, Mercator_8.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_8a.csv, Exception: create: Invalid SRF
+WGE, Mercator_8a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_8b.csv, Exception: create: Invalid SRF
+WGE, Mercator_8b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Ney_24.csv, Exception: create: Invalid SRF
+WGE, Ney_24.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Ney_25.csv, Exception: create: Invalid SRF
+WGE, Ney_25.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_09.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_09.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_09a.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_09a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_09b.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_09b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_10.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_10.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_11.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_11.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_11a.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_11a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_11b.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_11b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_12.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_12.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_12a.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_12a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_13.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_13.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to PolarStereo_13a.csv, Exception: create: Invalid SRF
+WGE, PolarStereo_13a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to TransMerc_26.csv, 66, 2.84006076064948e-010, 0.000267375318799254
+WGE, TransMerc_26.csv to Lon_Lat.csv, 66, 2.85436789319599e-010, 0.000190458063901174
+WGE, Lon_Lat.csv to TransMerc_26a.csv, 66, 1.52496751417185e-007, 0.000267375592121457
+WGE, TransMerc_26a.csv to Lon_Lat.csv, 64, 3.82213996834345e-007, 0.000190075617622058
+WGE, Lon_Lat.csv to TransMerc_27.csv, 71, 1.00675970484202e-006, 0.000438463699538342
+WGE, TransMerc_27.csv to Lon_Lat.csv, 71, 8.00617528098647e-008, 0.000180355768350544
+Test_SRMmax, Lon_Lat.csv to LCC_37.csv, 66, 0.000662614591419697, 151369804.454595
+Test_SRMmax, LCC_37.csv to Lon_Lat.csv, 38, 0.00265100931551541, 158869.436148272
+Test_SRMmax, Lon_Lat.csv to LCC_37a.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_37a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_38.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_38.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_39.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_39.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_39a.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_39a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_40.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_40.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_41.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_41.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_42.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_42.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_43.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_43.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_44.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_44.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to LCC_45.csv, 66, 3.03768302956087e-007, 16027639.2205385
+Test_SRMmax, LCC_45.csv to Lon_Lat.csv, 52, 3.01480366552765e-007, 2511836.94930153
+Test_SRMmax, Lon_Lat.csv to LCC_46.csv, Exception: create: Invalid SRF
+Test_SRMmax, LCC_46.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_28.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_28.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_28a.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_28a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_29.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_29.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_30.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_30.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_31.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_31.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_31a.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_31a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_31b.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_31b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Ney_48.csv, Exception: create: Invalid SRF
+Test_SRMmax, Ney_48.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Ney_47.csv, Exception: create: Invalid SRF
+Test_SRMmax, Ney_47.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_32.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_32.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_32a.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_32a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_32b.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_32b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_33.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_33.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_34.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_34.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_34a.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_34a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_34b.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_34b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_35.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_35.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_35a.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_35a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_36.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_36.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to PolarStereo_36a.csv, Exception: create: Invalid SRF
+Test_SRMmax, PolarStereo_36a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to TransMerc_49.csv, 66, 5.64884257905767e-010, 0.000637113116681576
+Test_SRMmax, TransMerc_49.csv to Lon_Lat.csv, 66, 5.70551786294043e-010, 0.00276694164617706
+Test_SRMmax, Lon_Lat.csv to TransMerc_49a.csv, 66, 4.40049916505814e-008, 0.000637069344520569
+Test_SRMmax, TransMerc_49a.csv to Lon_Lat.csv, 64, 4.17335096440208e-008, 0.00276698574508127
+Test_SRMmax, Lon_Lat.csv to TransMerc_50.csv, 71, 8.10250639936374e-006, 0.000636643704189173
+Test_SRMmax, TransMerc_50.csv to Lon_Lat.csv, 71, 6.1719543180262e-007, 0.00277182643509929
+Test_sphere, Lon_Lat.csv to LCC_60.csv, 66, 1.36642803333885e-007, 153336261.339889
+Test_sphere, LCC_60.csv to Lon_Lat.csv, 38, 1.49839464993392e-007, 157255.302069579
+Test_sphere, Lon_Lat.csv to LCC_60a.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_60a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_61.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_61.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_62.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_62.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_62a.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_62a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_63.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_63.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_64.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_64.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_65.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_65.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_66.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_66.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_67.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_67.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to LCC_68.csv, 66, 4.60520456053599e-007, 15993115.9280897
+Test_sphere, LCC_68.csv to Lon_Lat.csv, 52, 2.20518457914804e-007, 2524984.06370069
+Test_sphere, Lon_Lat.csv to LCC_69.csv, Exception: create: Invalid SRF
+Test_sphere, LCC_69.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_51.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_51.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_51a.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_51a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_52.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_52.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_53.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_53.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_54.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_54.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_54a.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_54a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_54b.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_54b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Ney_71.csv, Exception: create: Invalid SRF
+Test_sphere, Ney_71.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Ney_70.csv, Exception: create: Invalid SRF
+Test_sphere, Ney_70.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_55.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_55.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_55a.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_55a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_55b.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_55b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_56.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_56.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_57.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_57.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_57a.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_57a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_57b.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_57b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_58.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_58.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_58a.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_58a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_59.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_59.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to PolarStereo_59a.csv, Exception: create: Invalid SRF
+Test_sphere, PolarStereo_59a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to TransMerc_72.csv, 66, 1.04736353697907e-007, 5.46922105947038e-007
+Test_sphere, TransMerc_72.csv to Lon_Lat.csv, 66, 1.41357985842823e-009, 8.72275217799877e-005
+Test_sphere, Lon_Lat.csv to TransMerc_72a.csv, 66, 3.82979508707692e-008, 5.63097530911155e-007
+Test_sphere, TransMerc_72a.csv to Lon_Lat.csv, 64, 7.06789929214115e-009, 8.72081856744038e-005
+Test_sphere, Lon_Lat.csv to TransMerc_73.csv, 71, 6.12727636553166e-008, 7.92042096858426e-007
+Test_sphere, TransMerc_73.csv to Lon_Lat.csv, 71, 7.63333123551244e-008, 0.000495939619424579
+WGE, geodetic_101.csv to rectangular_103.csv, 471, 1.4531100695922e-007, 0.000101478665333062
+WGE, rectangular_103.csv to geodetic_101.csv, 461, 0, 0.000878061633994873
+WGE, geodetic_101.csv to spherical_104.csv, Spherical SRF not supported
+WGE, spherical_104.csv to geodetic_101.csv, Spherical SRF not supported
+WGE, geodetic_101.csv to ellipsoidal_105.csv, Exception: create: Invalid SRF
+WGE, ellipsoidal_105.csv to geodetic_101.csv, Exception: create: Invalid SRF
+Test_SRMmax, geodetic_106.csv to rectangular_108.csv, 471, 1.18884962647384e-007, 0.00159100722568013
+Test_SRMmax, rectangular_108.csv to geodetic_106.csv, 459, 0, 0.0141402697190643
+Test_SRMmax, geodetic_106.csv to spherical_109.csv, Spherical SRF not supported
+Test_SRMmax, spherical_109.csv to geodetic_106.csv, Spherical SRF not supported
+Test_SRMmax, geodetic_106.csv to ellipsoidal_110.csv, Exception: create: Invalid SRF
+Test_SRMmax, ellipsoidal_110.csv to geodetic_106.csv, Exception: create: Invalid SRF
