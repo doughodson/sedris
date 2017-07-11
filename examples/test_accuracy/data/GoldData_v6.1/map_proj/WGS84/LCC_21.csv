@@ -6,7 +6,9 @@ CENTRAL MERIDIAN: 000.00000000
 ORIGIN LATITUDE: 89.99970000
 # doubles as the standard parallel
 # Latitude corresponds to the cone constant
-SCALE FACTOR: 1.00000
+PARALLEL ONE: 89.99970000
+PARALLEL TWO: 89.99970000
+# SCALE FACTOR: 1.00000
 FALSE EASTING: 0.000
 FALSE NORTHING: 0.000
 # Summary of origins and offsets:
