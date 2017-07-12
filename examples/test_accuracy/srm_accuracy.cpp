@@ -926,17 +926,17 @@ int readCSV(FILE* infile, srfParams& srf, std::vector<doubleArray3>& inDoublePar
    doubleArray3 data{};
    char* pch{};
 
-   if (feof(infile))
+   if (std::feof(infile))
       return 0;
 
-   fgets(buffer, 500, infile);
+   std::fgets(buffer, 500, infile);
 
-   while (!feof(infile) && strstr(buffer, "END OF HEADER") == NULL) {
+   while (!std::feof(infile) && std::strstr(buffer, "END OF HEADER") == NULL) {
       if (buffer[0] != '#' && buffer[0] != '\n') {
-         pch = strtok(buffer, ":");
-         if (strstr(pch, srfParamName[NO_HEIGHT]) != NULL) {
+         pch = std::strtok(buffer, ":");
+         if (std::strstr(pch, srfParamName[NO_HEIGHT]) != NULL) {
             srf.floatParam[NO_HEIGHT] = 1.0;
-         } else if (strstr(pch, srfParamName[ELLIPSOID_HEIGHT]) != NULL) {
+         } else if (std::strstr(pch, srfParamName[ELLIPSOID_HEIGHT]) != NULL) {
             srf.floatParam[ELLIPSOID_HEIGHT] = 1.0;
          } else {
             switch (srfParamMap[pch])
