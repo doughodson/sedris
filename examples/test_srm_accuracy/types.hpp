@@ -4,6 +4,8 @@
 
 #include "srm_types.h"
 
+#include <cmath>
+
 #define MAX_DIFF 0.001
 
 #define toRad std::atan(1.0)/45.0
