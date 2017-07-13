@@ -3,11 +3,11 @@
    -- tests
    --
 
-   -- test accuracy
-   project "test_accuracy"
-      targetname "test_accuracy"
-      targetdir "../../examples/test_accuracy"
-      debugdir "../../examples/test_accuracy"
+   -- test SRM accuracy
+   project "test_srm_accuracy"
+      targetname "test_srm_accuracy"
+      targetdir "../../examples/test_srm_accuracy"
+      debugdir "../../examples/test_srm_accuracy"
       kind "ConsoleApp"
       language "C++"
       if _ACTION ~= "gmake" then
@@ -20,15 +20,15 @@
       libdirs { SEDRIS_LibPath }
       links { "lib_srm" }
       files {
-         "../../examples/test_accuracy/**.h*",
-         "../../examples/test_accuracy/**.c*"
+         "../../examples/test_srm_accuracy/**.h*",
+         "../../examples/test_srm_accuracy/**.c*"
       }
 
-   -- test timing
-   project "test_timing"
-      targetname "test_timing"
-      targetdir "../../examples/test_timing"
-      debugdir "../../examples/test_timing"
+   -- test SRM timing
+   project "test_srm_timing"
+      targetname "test_srm_timing"
+      targetdir "../../examples/test_srm_timing"
+      debugdir "../../examples/test_srm_timing"
       kind "ConsoleApp"
       language "C++"
       if _ACTION ~= "gmake" then
@@ -41,7 +41,7 @@
       libdirs { SEDRIS_LibPath }
       links { "lib_srm" }
       files {
-         "../../examples/test_timing/**.h*",
-         "../../examples/test_timing/**.cpp"
+         "../../examples/test_srm_timing/**.h*",
+         "../../examples/test_srm_timing/**.cpp"
       }
 

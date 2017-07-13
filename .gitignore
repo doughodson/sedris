@@ -47,6 +47,5 @@ codelite/
 examples/sample_edcs_access/sample_edcs_access
 examples/sample_srm_access/sample_srm_access
 examples/sample_srm_access_c/sample_srm_access_c
-examples/test_accuracy/test_accuracy
-examples/test_timing/test_timing
-
+examples/test_srm_accuracy/test_srm_accuracy
+examples/test_srm_timing/test_srm_timing

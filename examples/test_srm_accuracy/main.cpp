@@ -21,6 +21,9 @@
 #include <cmath>
 #include <cstdio>
 
+#include "types.hpp"
+#include "print_functions.hpp"
+
 #define MAX_DIFF 0.001
 
 #define toRad std::atan(1.0)/45.0
@@ -77,18 +80,6 @@ const char* srfParamName[] = { "CENTRAL MERIDIAN",
 "DATUM",
 "COORDINATES",
 "PROJECTION" };
-
-typedef struct
-{
-   SRM_Vector_3D var;
-} doubleArray3;
-
-typedef struct
-{
-   char path[100];
-   char file_name_1[50];
-   char file_name_2[50];
-} configInfo;
 
 typedef struct
 {
@@ -662,20 +653,8 @@ void initializeMaps()
    rtMap["Test_sphere"] = SRM_RTCOD_EXPERIMENTAL_NGA_SPHERE_IDENTITY_BY_DEFAULT;
 }
 
-void printData(std::vector<doubleArray3>& inDoubleParam, const int length)
-{
-   doubleArray3 data{};
 
-   for (int i = 0; i < (int)inDoubleParam.size(); i++) {
-      data = inDoubleParam.at(i);
-      std::cout << i + 1 << " ";
-      for (int j = 0; j < length; j++)
-         std::cout << data.var[j] << ", ";
-      std::cout << std::endl;
-   }
-}
-
-void printData(gdDatumCoord& gdCoord)
+void printData(const gdDatumCoord& gdCoord)
 {
    std::cout << "CD DT Coord=> " << gdCoord.datum_name_in << ", ";
    std::cout << gdCoord.datum_name_out << ", ";
@@ -684,27 +663,25 @@ void printData(gdDatumCoord& gdCoord)
    std::cout << "( " << gdCoord.comp_coord_out[0] << ", " << gdCoord.comp_coord_out[1] << ", " << gdCoord.comp_coord_out[2] << " )" << std::endl;
 }
 
-void printData(std::vector<configInfo>& config)
+void printData(const std::vector<configInfo>& config)
 {
-   configInfo data{};
-
-   for (int i = 0; i < (int)config.size(); i++) {
-      data = config.at(i);
+   for (int i = 0; i < static_cast<int>(config.size()); i++) {
+      configInfo data = config.at(i);
       std::cout << data.path << ", " << data.file_name_1 << ", " << data.file_name_2 << std::endl;
    }
 }
 
-void printData(statInfo& results)
+void printData(const statInfo& results)
 {
-   std::cout << "Count => " << results.count << std::endl;
-   std::cout << "Min   => " << results.min << std::endl;
-   std::cout << "Max   => " << results.max << std::endl;
-   std::cout << "Mean  => " << results.mean << std::endl;
-   std::cout << "StdDev=> " << results.stdDev << std::endl;
+   std::cout << "Count => "  << results.count << std::endl;
+   std::cout << "Min   => "  << results.min << std::endl;
+   std::cout << "Max   => "  << results.max << std::endl;
+   std::cout << "Mean  => "  << results.mean << std::endl;
+   std::cout << "StdDev=> "  << results.stdDev << std::endl;
    std::cout << "Message=> " << results.message << std::endl;
 }
 
-void printData(srm::Coord3D* coord)
+void printData(const srm::Coord3D* coord)
 {
    std::cout << "[ ";
    std::cout << coord->getValues()[0] << ", ";
@@ -713,7 +690,7 @@ void printData(srm::Coord3D* coord)
    std::cout << std::endl;
 }
 
-void printData(doubleArray3& coord)
+void printData(const doubleArray3& coord)
 {
    std::cout << "[ " << coord.var[0] * toRad;
    std::cout << ", ";
@@ -721,7 +698,7 @@ void printData(doubleArray3& coord)
    std::cout << coord.var[2] << " ]" << std::endl;
 }
 
-void printData(std::vector<diffInfo>& diffs)
+void printData(const std::vector<diffInfo>& diffs)
 {
    for (int i = 0; i < diffs.size(); i++) {
       std::cout << i << ", ";
@@ -732,7 +709,7 @@ void printData(std::vector<diffInfo>& diffs)
    }
 }
 
-void printData(srfParams& srfParam)
+void printData(const srfParams& srfParam)
 {
    std::cout << "srfParam.orm=> " << srfParam.orm << std::endl;
    std::cout << "srfParam.rt=> " << srfParam.rt << std::endl;
@@ -784,8 +761,8 @@ void printData(std::ofstream& outStr,
    std::vector<doubleArray3>& compDoubleParam,
    char* datum,
    std::vector<bool>& exceeded,
-   char* source_file_name,
-   char* target_file_name,
+   const char* source_file_name,
+   const char* target_file_name,
    statInfo& results,
    bool more)
 {
