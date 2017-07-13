@@ -112,8 +112,8 @@ int readCSV(std::FILE* infile, srfParams& srf, std::vector<doubleArray3>& inDoub
             {
                srf.datum_name = std::strtok(NULL, ", '\n'");
 
-               srf.orm = ormMap[srf.datum_name.c_str()];
-               srf.rt = rtMap[srf.datum_name.c_str()];
+               srf.orm = ormMap[srf.datum_name];
+               srf.rt = rtMap[srf.datum_name];
 
                break;
             }

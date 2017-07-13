@@ -2,16 +2,16 @@
 #include "map_data.hpp"
 
 #include <map>
-#include <cstring>
+#include <string>
 
 #include "srm_types.h"
 
 #include "types.hpp"
 
-std::map<const char*, int, strCmp> srfParamMap;
-std::map<const char*, int, strCmp> srfTypeMap;
-std::map<const char*, int, strCmp> ormMap;
-std::map<const char*, int, strCmp> rtMap;
+std::map<const std::string, int> srfParamMap;
+std::map<const std::string, int> srfTypeMap;
+std::map<const std::string, int> ormMap;
+std::map<const std::string, int> rtMap;
 
 void initialize_map_data()
 {

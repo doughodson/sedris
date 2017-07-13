@@ -372,7 +372,7 @@ int createSRF(srfParams& srf, srm::BaseSRF_3D** srfHandle, statInfo& results)
 {
    try {
 
-      switch (srfTypeMap[srf.type.c_str()]) {
+      switch (srfTypeMap[srf.type]) {
       case TRANSVERSE_MARCATOR:
          *srfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_TransverseMercator::create(srf.orm,
             srf.rt,
@@ -507,16 +507,16 @@ int testConversion(std::vector<gdDatumCoord>& gdCoord)
    for (int i = 0; i < gdCoord.size(); i++) {
       try {
          srcSrfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_Celestiodetic::create
-            (ormMap[gdCoord[i].datum_name_in.c_str()],
-            rtMap[gdCoord[i].datum_name_in.c_str()]));
+            (ormMap[gdCoord[i].datum_name_in],
+            rtMap[gdCoord[i].datum_name_in]));
       } catch (srm::Exception(ex)) {
          std::cout << "Error SRF creation: ORM/RT not supported=> " << gdCoord[i].datum_name_in << std::endl;
       }
 
       try {
          tgtSrfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_Celestiodetic::create
-            (ormMap[gdCoord[i].datum_name_out.c_str()],
-            rtMap[gdCoord[i].datum_name_out.c_str()]));
+            (ormMap[gdCoord[i].datum_name_out],
+            rtMap[gdCoord[i].datum_name_out]));
       } catch (srm::Exception(ex)) {
          std::cout << "Error SRF creation: ORM/RT not supported=> " << gdCoord[i].datum_name_out << std::endl;
       }
@@ -600,13 +600,13 @@ int testConversion(srfParams& srcSrf,
    createCoord(tgtSrfHandle, &tgtCoordHandle);
    createCoord(tgtSrfHandle, &goldCoordHandle);
 
-   if (srfTypeMap[srcSrf.type.c_str()] == GEODETIC || srfTypeMap[srcSrf.type.c_str()] == SPHERICAL)
+   if (srfTypeMap[srcSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL)
       toRadConv = toRad;
 
-   if (srfTypeMap[tgtSrf.type.c_str()] == GEODETIC)
+   if (srfTypeMap[tgtSrf.type] == GEODETIC)
       radFactor = toRad;
 
-   if (srfTypeMap[tgtSrf.type.c_str()] == GEODETIC || srfTypeMap[srcSrf.type.c_str()] == SPHERICAL)
+   if (srfTypeMap[tgtSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL)
       isCD = true;
 
    for (int i = 0; i<srcCoordVal.size(); i++) {
@@ -623,9 +623,9 @@ int testConversion(srfParams& srcSrf,
                (*srcCoordHandle, ident_hst, *tgtCoordHandle);
          } else {
             // Eliminate TM lambda > 3.5 deg from the central meridian
-            if ((srfTypeMap[srcSrf.type.c_str()] == TRANSVERSE_MARCATOR &&
+            if ((srfTypeMap[srcSrf.type] == TRANSVERSE_MARCATOR &&
                std::fabs(tgtCoordVal[i].var[0] - srcSrf.floatParam[0]) > 3.5) ||
-               (srfTypeMap[tgtSrf.type.c_str()] == TRANSVERSE_MARCATOR &&
+               (srfTypeMap[tgtSrf.type] == TRANSVERSE_MARCATOR &&
                std::fabs(srcCoordVal[i].var[0] - tgtSrf.floatParam[0]) > 3.5)) {
                //Indication of coordinate outside the +-3.5 deg from the central meridian.
                vRegion = SRM_COORDVALRGN_DEFINED;
