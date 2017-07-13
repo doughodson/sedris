@@ -2,6 +2,7 @@
 #include "map_data.hpp"
 
 #include <map>
+#include <cstring>
 
 #include "srm_types.h"
 

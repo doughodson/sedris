@@ -3,6 +3,7 @@
 #define __map_data_HPP__
 
 #include <map>
+#include <cstring>
 
 void initialize_map_data();
 
