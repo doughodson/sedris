@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdio>
 #include <vector>
+#include <string>
 
 #include "BaseSRF.hpp"
 #include "srm_types.h"
@@ -205,18 +206,14 @@ bool load_file(const char* file_name, srfParams& srf, std::vector<doubleArray3>&
    return true;
 }
 
-bool load_file(const char* file_name, std::vector<configInfo>& config)
+void load_configuration_file(const std::string& file_name, std::vector<configInfo>& config)
 {
-   std::FILE* inFile = std::fopen(file_name, "r");
-
+   std::FILE* inFile = std::fopen(file_name.c_str(), "r");
    if (!inFile) {
       std::cout << "Unable to open " << file_name << " file";
-      return false; // terminate with error
+      std::exit(0);
+      return;
    }
-
    readCSV(inFile, config);
-
    std::fclose(inFile);
-
-   return true;
 }

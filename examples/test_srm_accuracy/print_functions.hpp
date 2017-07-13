@@ -9,11 +9,12 @@
 
 void printData(const std::vector<doubleArray3>& inDoubleParam, const int length);
 void printData(const gdDatumCoord& gdCoord);
-void printData(const std::vector<configInfo>& config);
 void printData(const statInfo& results);
 void printData(const doubleArray3& coord);
 void printData(const std::vector<diffInfo>& diffs);
 void printData(const srfParams& srfParam);
+
+void print_configuration_data(const std::vector<configInfo>& config);
 
 void printRecord(std::ofstream& outStr, const int num, const statInfo& results);
 

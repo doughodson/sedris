@@ -4,7 +4,7 @@
 
 #include <map>
 
-void initializeMaps();
+void initialize_map_data();
 
 struct strCmp {
    bool operator()(const char* s1, const char* s2) const {

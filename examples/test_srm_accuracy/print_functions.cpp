@@ -31,14 +31,6 @@ void printData(const gdDatumCoord& gdCoord)
    std::cout << "( " << gdCoord.comp_coord_out[0] << ", " << gdCoord.comp_coord_out[1] << ", " << gdCoord.comp_coord_out[2] << " )" << std::endl;
 }
 
-void printData(const std::vector<configInfo>& config)
-{
-   for (int i = 0; i < static_cast<int>(config.size()); i++) {
-      configInfo data = config.at(i);
-      std::cout << data.path << ", " << data.file_name_1 << ", " << data.file_name_2 << std::endl;
-   }
-}
-
 void printData(const statInfo& results)
 {
    std::cout << "Count => "  << results.count << std::endl;
@@ -85,6 +77,14 @@ void printData(const srfParams& srfParam)
    std::cout << "srfParam.floatParam => " << std::endl;
    for (int i = 0; i < 8; i++)
       std::cout << "srf param [" << i << "]=SRM_ORMCOD_> " << srfParam.floatParam[i] << std::endl;
+}
+
+void print_configuration_data(const std::vector<configInfo>& config)
+{
+   for (int i = 0; i < static_cast<int>(config.size()); i++) {
+      configInfo data = config.at(i);
+      std::cout << data.path << ", " << data.file_name_1 << ", " << data.file_name_2 << std::endl;
+   }
 }
 
 void printRecord(std::ofstream& outStr, const int num, const statInfo& results)

@@ -16,7 +16,7 @@
 #include <cstring>
 #include <vector>
 #include <cmath>
-#include <cstdio>
+#include <string>
 
 #include "types.hpp"
 #include "print_functions.hpp"
@@ -35,7 +35,7 @@ double computeRm(const double a, const double e, const double Rn)
    return ((1.0 - e*e) * (Rn*Rn*Rn) / (a*a));
 }
 
-double computeK0(SRM_ORM_Code orm, const double phi)
+double computeK0(const SRM_ORM_Code orm, const double phi)
 {
    double a{};
    double f{};
@@ -78,7 +78,7 @@ double computeTau(const double e, const double phi)
       std::pow((1.0 + e * std::sin(std::fabs(phi))) / (1.0 - e * std::sin(std::fabs(phi))), e / 2.0));
 }
 
-double computePsK0(SRM_ORM_Code orm, const double phi)
+double computePsK0(const SRM_ORM_Code orm, const double phi)
 {
    double a{};
    double f{};
@@ -111,17 +111,18 @@ double computePsK0(SRM_ORM_Code orm, const double phi)
       (2 * a * computeE(f, e) * computeTau(e, phi)));
 }
 
-double computeError(srm::Coord3D* tgtCoordHandle, SRM_Vector_3D& CoordVal, SRM_Long_Float a, SRM_Long_Float e)
+double computeError(const srm::Coord3D* tgtCoordHandle, const SRM_Vector_3D& CoordVal, const SRM_Long_Float a, const SRM_Long_Float e)
 {
    const double phi{tgtCoordHandle->getValues()[1]};
    const double Rn{computeRn(a, e, phi)};
    const double Rm{computeRn(a, e, Rn)};
 
    double corrected_angle{};
-   if (std::fabs(tgtCoordHandle->getValues()[0] - CoordVal[0] * toRad) > PI)
+   if (std::fabs(tgtCoordHandle->getValues()[0] - CoordVal[0] * toRad) > PI) {
       corrected_angle = TWO_PI - std::fabs(tgtCoordHandle->getValues()[0] - CoordVal[0] * toRad);
-   else
+   } else {
       corrected_angle = tgtCoordHandle->getValues()[0] - CoordVal[0] * toRad;
+   }
 
    double sumSq = std::pow((CoordVal[2] + Rn) * std::cos(phi) * corrected_angle, 2.0);
    sumSq += std::pow((CoordVal[2] + Rm) * (tgtCoordHandle->getValues()[1] - CoordVal[1] * toRad), 2.0);
@@ -131,7 +132,7 @@ double computeError(srm::Coord3D* tgtCoordHandle, SRM_Vector_3D& CoordVal, SRM_L
    return error;
 }
 
-double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const int length, const int method)
+double computeError(const srm::Coord3D* tgtCoordHandle, const doubleArray3& CoordVal, const int length, const int method)
 {
    srm::Coord::Coord_ClassType coordType = tgtCoordHandle->getClassType();
 
@@ -274,7 +275,7 @@ double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const 
    return error;
 }
 
-void computeStat(std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, const bool isCD, statInfo& results)
+void computeStat(const std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, const bool isCD, statInfo& results)
 {
    results.count = diffs.size();
    results.max = 0.0;
@@ -331,18 +332,20 @@ void computeStat(std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, cons
    results.stdDev = std::sqrt(sumSq / corrected_denom);
 }
 
-void computeStat(std::vector<gdDatumCoord>& gdCoord, std::vector<gdDatumStat>& results)
+void computeStat(const std::vector<gdDatumCoord>& gdCoord, std::vector<gdDatumStat>& results)
 {
    int i{};
    int j{};
-   gdDatumStat tmpStat{};
-   gdDatumCoord thisDatum = gdCoord[i];
    while (i < gdCoord.size()) {
+      gdDatumCoord thisDatum = gdCoord[i];
+
+      gdDatumStat tmpStat{};
       std::strcpy(tmpStat.datum_name_in, thisDatum.datum_name_in);
       std::strcpy(tmpStat.datum_name_out, thisDatum.datum_name_out);
       tmpStat.min = thisDatum.diff;
       tmpStat.max = thisDatum.diff;
       tmpStat.count = 1;
+
       gdDatumCoord nextDatum = gdCoord[++i];
 
       while (std::strcmp(thisDatum.datum_name_in, nextDatum.datum_name_in) == 0 &&
@@ -563,12 +566,12 @@ int testConversion(std::vector<gdDatumCoord>& gdCoord)
 
 int testConversion(srfParams& srcSrf,
    srfParams& tgtSrf,
-   std::vector<doubleArray3>& srcCoordVal,
-   std::vector<doubleArray3>& tgtCoordVal,
+   const std::vector<doubleArray3>& srcCoordVal,
+   const std::vector<doubleArray3>& tgtCoordVal,
    std::vector<doubleArray3>& compCoordVal,
    statInfo& results,
    std::vector<bool>& exceeded,
-   char* srfName)
+   const char* srfName)
 {
    srm::BaseSRF_3D* srcSrfHandle{};
    srm::BaseSRF_3D* tgtSrfHandle{};
@@ -682,74 +685,58 @@ int testConversion(srfParams& srcSrf,
    return 1;
 }
 
-void print_error(const char* name)
+int main(int argc, char* argv[])
 {
-   std::fprintf(stderr, "\n%s version 0.1\n", name);
-   std::fprintf(stderr, "  Usage: %s <test config file>\n", name);
-}
-
-static void process_arguments(int argc, char* argv[], char* config_file_name, bool& more)
-{
+   // check program arguments
    if (argc < 2) {
-      print_error(argv[0]);
+      std::cout << "Usage: test_srm_accuracy <test config file>\n";
       std::exit(0);
    }
 
-   std::memcpy(config_file_name, argv[1], std::strlen(argv[1]) + 1);
-   //	memcpy( output_file_name, argv[2], strlen(argv[2])+1 );
+   std::string config_file_name {argv[1]};
 
-   if (argc == 3) {
-      if (*(argv[2]) == 't')
-         more = true;
-      else
-         more = false;
-   }
-}
-
-int main(int argc, char* argv[])
-{
-   char config_file_name[500]{};
-   char full_file_name_1[500]{};
-   char full_file_name_2[500]{};
    bool more{};
+   if (argc == 3) {
+      if (*(argv[2]) == 't') {
+         more = true;
+      } else {
+         more = false;
+      }
+   }
 
-   std::ofstream convResStr{};
-   std::ofstream datumResStr{};
-
+   // load and print configuration file
    std::vector<configInfo> config;
+   load_configuration_file(config_file_name, config);
+   print_configuration_data(config);
 
-   std::cout.precision(15);
+   initialize_map_data();
 
-   //  freopen( "srm_out_052808.txt", "w", stdout );
-
-   initializeMaps();
-   process_arguments(argc, argv, config_file_name, more);
-
+   // open file to store results and print header
+   std::ofstream convResStr{};
    convResStr.open("srm_conv_accuracy_results.csv", std::ios::out);
    if (!convResStr) {
       std::cout << "Cannot create output file srm_conv_accuracy_results.csv" << std::endl;
       std::exit(0);
    }
+   convResStr.precision(15);
+   printConvHeader(convResStr, more);
+
+   // open file to store results and print header
+   std::ofstream datumResStr{};
    datumResStr.open("srm_datum_accuracy_results.csv", std::ios::out);
    if (!datumResStr) {
       std::cout << "Cannot create output file srm_datum_accuracy_results.csv" << std::endl;
       std::exit(0);
    }
-
-   convResStr.precision(15);
    datumResStr.precision(15);
-
-   printConvHeader(convResStr, more);
    printDatumHeader(datumResStr, more);
 
-   if (!load_file(config_file_name, config))
-      std::exit(0);
-
-   // printData( config );
-
+   std::cout.precision(15);
    std::cout << "Running SRM accuracy test... \n" << std::endl;
 
    for (int test_case = 0; test_case < config.size(); test_case++) {
+      char full_file_name_1[500]{};
+      char full_file_name_2[500]{};
       std::strcpy(full_file_name_1, config[test_case].path);
       std::strcpy(full_file_name_2, config[test_case].path);
       std::strcat(full_file_name_1, config[test_case].file_name_1);
@@ -759,13 +746,14 @@ int main(int argc, char* argv[])
             std::vector<gdDatumCoord> gdCoord{};
             std::vector<gdDatumStat> datumStat{};
 
-            if (!load_file(full_file_name_1, full_file_name_2, gdCoord))
-               exit(0);
+            if (!load_file(full_file_name_1, full_file_name_2, gdCoord)) {
+               std::exit(0);
+            }
 
             testConversion(gdCoord);
             computeStat(gdCoord, datumStat);
             printData(datumResStr, datumStat, more);
-      } else { // this is not the datun shift case
+      } else { // this is not the datum shift case
          std::vector<doubleArray3> srcDoubleParam{};
          std::vector<doubleArray3> tgtDoubleParam{};
          srfParams srcSrf{};

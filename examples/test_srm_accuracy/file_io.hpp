@@ -4,6 +4,7 @@
 
 #include <cstdio>
 #include <vector>
+#include <string>
 
 #include "srm_types.h"
 
@@ -15,7 +16,7 @@ int readCSV(std::FILE* infile, srfParams& srf, std::vector<doubleArray3>& inDoub
 
 bool load_file(char* src_file_name, char* tgt_file_name, std::vector<gdDatumCoord>& gdCoord);
 bool load_file(const char* file_name, srfParams& srf, std::vector<doubleArray3>& doubleParam);
-bool load_file(const char* file_name, std::vector<configInfo>& config);
+void load_configuration_file(const std::string& file_name, std::vector<configInfo>& config);
 
 #endif
 

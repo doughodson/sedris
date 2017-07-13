@@ -12,7 +12,7 @@ std::map<const char*, int, strCmp> srfTypeMap;
 std::map<const char*, int, strCmp> ormMap;
 std::map<const char*, int, strCmp> rtMap;
 
-void initializeMaps()
+void initialize_map_data()
 {
    srfParamMap["CENTRAL MERIDIAN"] = CENTRAL_MERIDIAN;
    srfParamMap["ORIGIN LATITUDE"] = ORIGIN_LATITUDE;
