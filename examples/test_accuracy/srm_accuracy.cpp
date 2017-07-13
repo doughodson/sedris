@@ -742,7 +742,7 @@ void printData(srfParams& srfParam)
       std::cout << "srf param [" << i << "]=SRM_ORMCOD_> " << srfParam.floatParam[i] << std::endl;
 }
 
-void printRecord(std::ofstream& outStr, const int num, const statInfo results)
+void printRecord(std::ofstream& outStr, const int num, const statInfo& results)
 {
    outStr << "Coordinate " << num << ", ";
    outStr << std::endl;
@@ -1119,14 +1119,13 @@ double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const 
 
    SRM_Long_Float a = tgtCoordHandle->getSRF()->getA();
    SRM_Long_Float f = tgtCoordHandle->getSRF()->getF();
-   SRM_Long_Float e = std::sqrt(2 * f - f*f);
+   SRM_Long_Float e = std::sqrt(2 * f - f * f);
 
    double error{};
-   double sumSq{};
    switch (coordType) {
    case srm::Coord::COORD_TYP_CC:
    {
-      sumSq = std::pow((tgtCoordHandle->getValues())[0] - CoordVal.var[0], 2.0);
+      double sumSq = std::pow((tgtCoordHandle->getValues())[0] - CoordVal.var[0], 2.0);
       sumSq += std::pow((tgtCoordHandle->getValues())[1] - CoordVal.var[1], 2.0);
       sumSq += std::pow((tgtCoordHandle->getValues())[2] - CoordVal.var[2], 2.0);
       error = std::sqrt(sumSq);
@@ -1134,8 +1133,7 @@ double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const 
    }
    case srm::Coord::COORD_TYP_CD:
    {
-      switch (method)
-      {
+      switch (method) {
       case 0: // SRM spec - Paul's formulation
       {
          const double phi = tgtCoordHandle->getValues()[1];
@@ -1143,9 +1141,9 @@ double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const 
          const double Rm = computeRm(a, e, Rn);
          const double h = tgtCoordHandle->getValues()[2];
 
-         sumSq = pow((Rn + h)*cos(phi)*fmod(tgtCoordHandle->getValues()[0] - CoordVal.var[0] * toRad, TWO_PI), 2.0);
-         sumSq += pow((Rm + h)*(tgtCoordHandle->getValues()[1] - CoordVal.var[1] * toRad), 2.0);
-         sumSq += pow(tgtCoordHandle->getValues()[2] - CoordVal.var[2], 2.0);
+         double sumSq = std::pow((Rn + h) * std::cos(phi) * std::fmod(tgtCoordHandle->getValues()[0] - CoordVal.var[0] * toRad, TWO_PI), 2.0);
+         sumSq += std::pow((Rm + h)*(tgtCoordHandle->getValues()[1] - CoordVal.var[1] * toRad), 2.0);
+         sumSq += std::pow(tgtCoordHandle->getValues()[2] - CoordVal.var[2], 2.0);
 
          error = std::sqrt(sumSq);
 
@@ -1162,7 +1160,7 @@ double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const 
          //				printData(coordHandle);
          //				printData(CoordVal);
 
-         sumSq = std::pow((Rn + h) * std::cos(phi) * std::fmod(tgtCoordHandle->getValues()[0] - CoordVal.var[0] * toRad, TWO_PI), 2);
+         double sumSq = std::pow((Rn + h) * std::cos(phi) * std::fmod(tgtCoordHandle->getValues()[0] - CoordVal.var[0] * toRad, TWO_PI), 2);
          sumSq += std::pow((Rm + h) * (tgtCoordHandle->getValues()[1] - CoordVal.var[1] * toRad), 2);
          sumSq += std::pow(h - ha, 2);
          error = std::sqrt(sumSq);
@@ -1245,7 +1243,7 @@ double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const 
    case srm::Coord::COORD_TYP_PS:
    case srm::Coord::COORD_TYP_LCC:
    {
-      sumSq = std::pow((tgtCoordHandle->getValues())[0] - CoordVal.var[0], 2.0);
+      double sumSq = std::pow((tgtCoordHandle->getValues())[0] - CoordVal.var[0], 2.0);
       sumSq += std::pow((tgtCoordHandle->getValues())[1] - CoordVal.var[1], 2.0);
       sumSq += std::pow((tgtCoordHandle->getValues())[2] - CoordVal.var[2], 2.0);
       error = std::sqrt(sumSq);
@@ -1260,19 +1258,13 @@ double computeError(srm::Coord3D* tgtCoordHandle, doubleArray3& CoordVal, const 
 
 void computeStat(std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, const bool isCD, statInfo& results)
 {
-   double sum{};
-   double sumSq{};
-   double mDiff{};
-   double corrected_denom{};
-
    results.count = diffs.size();
-
    results.max = 0.0;
    results.min = 999999999999.99;
    results.num_exceeded = 0;
-
    results.isCD = isCD;
 
+   double corrected_denom{};
    if (results.count == 0) {
       corrected_denom = 1.0;
       results.dataPoint = 0;
@@ -1285,6 +1277,7 @@ void computeStat(std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, cons
       results.compOut = diffs[0].compOut;
    }
 
+   double sum{};
    for (int i = 0; i < diffs.size(); i++) {
       if (diffs[i].diff > MAX_DIFF) {
          results.num_exceeded += 1;
@@ -1311,8 +1304,9 @@ void computeStat(std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, cons
 
    results.mean = sum / corrected_denom;
 
+   double sumSq{};
    for (int j = 0; j < diffs.size(); j++) {
-      mDiff = diffs[j].diff - results.mean;
+      const double mDiff = diffs[j].diff - results.mean;
       sumSq += mDiff * mDiff;
    }
 
@@ -1321,21 +1315,17 @@ void computeStat(std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, cons
 
 void computeStat(std::vector<gdDatumCoord>& gdCoord, std::vector<gdDatumStat>& results)
 {
-   gdDatumCoord thisDatum{};
-   gdDatumCoord nextDatum{};
-   gdDatumStat tmpStat{};
    int i{};
    int j{};
-
-   thisDatum = gdCoord[i];
-
+   gdDatumStat tmpStat{};
+   gdDatumCoord thisDatum = gdCoord[i];
    while (i < gdCoord.size()) {
       std::strcpy(tmpStat.datum_name_in, thisDatum.datum_name_in);
       std::strcpy(tmpStat.datum_name_out, thisDatum.datum_name_out);
       tmpStat.min = thisDatum.diff;
       tmpStat.max = thisDatum.diff;
       tmpStat.count = 1;
-      nextDatum = gdCoord[++i];
+      gdDatumCoord nextDatum = gdCoord[++i];
 
       while (std::strcmp(thisDatum.datum_name_in, nextDatum.datum_name_in) == 0 &&
          std::strcmp(thisDatum.datum_name_out, nextDatum.datum_name_out) == 0 &&

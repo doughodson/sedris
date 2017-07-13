@@ -371,7 +371,7 @@ void printRecord(std::ofstream &outStr, int num, doubleArray6 record)
    outStr << std::endl;
 }
 
-void printRecord(std::ofstream& outStr, const char* text, const doubleArray6 record)
+void printRecord(std::ofstream& outStr, const char* text, const doubleArray6& record)
 {
    outStr << text << ", ";
    for (int i = 0; i < 6; i++)
