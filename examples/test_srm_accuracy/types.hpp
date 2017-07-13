@@ -71,8 +71,6 @@ typedef struct
 {
    std::string  type;
    std::string  datum_name;
-//   char           type[50];
-//   char           datum_name[20];
    SRM_ORM_Code orm;
    SRM_RT_Code  rt;
    double       floatParam[DATUM];
