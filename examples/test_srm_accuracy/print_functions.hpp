@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 
 #include "types.hpp"
 
@@ -28,8 +29,8 @@ void printData(std::ofstream& outStr,
    std::vector<doubleArray3>& compDoubleParam,
    char* datum,
    std::vector<bool>& exceeded,
-   const char* source_file_name,
-   const char* target_file_name,
+   const std::string& source_file_name,
+   const std::string& target_file_name,
    statInfo& results,
    bool more);
 

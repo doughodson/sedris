@@ -571,7 +571,7 @@ int testConversion(srfParams& srcSrf,
    std::vector<doubleArray3>& compCoordVal,
    statInfo& results,
    std::vector<bool>& exceeded,
-   const char* srfName)
+   const std::string& srfName)
 {
    srm::BaseSRF_3D* srcSrfHandle{};
    srm::BaseSRF_3D* tgtSrfHandle{};
@@ -735,14 +735,11 @@ int main(int argc, char* argv[])
    std::cout << "Running SRM accuracy test... \n" << std::endl;
 
    for (int test_case = 0; test_case < config.size(); test_case++) {
-      char full_file_name_1[500]{};
-      char full_file_name_2[500]{};
-      std::strcpy(full_file_name_1, config[test_case].path);
-      std::strcpy(full_file_name_2, config[test_case].path);
-      std::strcat(full_file_name_1, config[test_case].file_name_1);
-      std::strcat(full_file_name_2, config[test_case].file_name_2);
 
-      if (std::strstr(full_file_name_1, "NGA_3parDT")) {
+      std::string full_file_name_1 = config[test_case].path + config[test_case].file_name_1;
+      std::string full_file_name_2 = config[test_case].path + config[test_case].file_name_2;
+
+      if (std::strstr(full_file_name_1.c_str(), "NGA_3parDT")) {
             std::vector<gdDatumCoord> gdCoord{};
             std::vector<gdDatumStat> datumStat{};
 
@@ -765,11 +762,13 @@ int main(int argc, char* argv[])
             tgtSrf.floatParam[i] = 1234.4321;
          }
 
-         if (!load_file(full_file_name_1, srcSrf, srcDoubleParam))
+         if (!load_file(full_file_name_1, srcSrf, srcDoubleParam)) {
             std::exit(0);
+         }
 
-         if (!load_file(full_file_name_2, tgtSrf, tgtDoubleParam))
+         if (!load_file(full_file_name_2, tgtSrf, tgtDoubleParam)) {
             std::exit(0);
+         }
 
          {
             statInfo results{};

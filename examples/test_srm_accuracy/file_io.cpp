@@ -58,28 +58,27 @@ int readCSV(std::FILE* infileSrc, std::FILE* infileTgt, std::vector<gdDatumCoord
    return 1;
 }
 
-int readCSV(std::FILE* infile, std::vector<configInfo>& config)
+bool load_file(const std::string& src_file_name, const std::string& tgt_file_name, std::vector<gdDatumCoord>& gdCoord)
 {
-   //	declare string buffer
-   char buffer[500]{};
-   configInfo data{};
+   std::FILE* inFile = std::fopen(src_file_name.c_str(), "r");
+   std::FILE* outFile = std::fopen(tgt_file_name.c_str(), "r");
 
-   if (std::feof(infile))
-      return 0;
-
-   std::fgets(buffer, 500, infile);
-
-   while (!std::feof(infile)) {
-      std::strcpy(data.path, std::strtok(buffer, " ,"));
-      std::strcpy(data.file_name_1, std::strtok(NULL, " ,"));
-      std::strcpy(data.file_name_2, std::strtok(NULL, " ,'\n'"));
-
-      config.push_back(data);
-
-      std::fgets(buffer, 500, infile);
+   if (!inFile) {
+      std::cout << "Unable to open " << src_file_name << " file";
+      return false; // terminate with error
    }
 
-   return 1;
+   if (!outFile) {
+      std::cout << "Unable to open " << tgt_file_name << " file";
+      return false; // terminate with error
+   }
+
+   readCSV(inFile, outFile, gdCoord);
+
+   std::fclose(inFile);
+   std::fclose(outFile);
+
+   return true;
 }
 
 int readCSV(std::FILE* infile, srfParams& srf, std::vector<doubleArray3>& inDoubleParam)
@@ -168,32 +167,9 @@ int readCSV(std::FILE* infile, srfParams& srf, std::vector<doubleArray3>& inDoub
    return 1;
 }
 
-bool load_file(char* src_file_name, char* tgt_file_name, std::vector<gdDatumCoord>& gdCoord)
+bool load_file(const std::string& file_name, srfParams& srf, std::vector<doubleArray3>& doubleParam)
 {
-   std::FILE* inFile = std::fopen(src_file_name, "r");
-   std::FILE* outFile = std::fopen(tgt_file_name, "r");
-
-   if (!inFile) {
-      std::cout << "Unable to open " << src_file_name << " file";
-      return false; // terminate with error
-   }
-
-   if (!outFile) {
-      std::cout << "Unable to open " << tgt_file_name << " file";
-      return false; // terminate with error
-   }
-
-   readCSV(inFile, outFile, gdCoord);
-
-   std::fclose(inFile);
-   std::fclose(outFile);
-
-   return true;
-}
-
-bool load_file(const char* file_name, srfParams& srf, std::vector<doubleArray3>& doubleParam)
-{
-   std::FILE* inFile = std::fopen(file_name, "r");
+   std::FILE* inFile = std::fopen(file_name.c_str(), "r");
 
    if (!inFile) {
       std::cout << "Unable to open " << file_name << " file";
@@ -207,6 +183,30 @@ bool load_file(const char* file_name, srfParams& srf, std::vector<doubleArray3>&
    return true;
 }
 
+int read_configuration_file(std::FILE* infile, std::vector<configInfo>& config)
+{
+   //	declare string buffer
+   char buffer[500]{};
+   configInfo data{};
+
+   if (std::feof(infile))
+      return 0;
+
+   std::fgets(buffer, 500, infile);
+
+   while (!std::feof(infile)) {
+      data.path = std::strtok(buffer, " ,");
+      data.file_name_1 = std::strtok(NULL, " ,");
+      data.file_name_2 = std::strtok(NULL, " ,'\n'");
+
+      config.push_back(data);
+
+      std::fgets(buffer, 500, infile);
+   }
+
+   return 1;
+}
+
 void load_configuration_file(const std::string& file_name, std::vector<configInfo>& config)
 {
    std::FILE* inFile = std::fopen(file_name.c_str(), "r");
@@ -215,6 +215,7 @@ void load_configuration_file(const std::string& file_name, std::vector<configInf
       std::exit(0);
       return;
    }
-   readCSV(inFile, config);
+   read_configuration_file(inFile, config);
    std::fclose(inFile);
 }
+

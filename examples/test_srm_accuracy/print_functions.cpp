@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <ctime>
+#include <string>
 
 void printData(const std::vector<doubleArray3>& inDoubleParam, const int length)
 {
@@ -129,8 +130,8 @@ void printData(std::ofstream& outStr,
    std::vector<doubleArray3>& compDoubleParam,
    char* datum,
    std::vector<bool>& exceeded,
-   const char* source_file_name,
-   const char* target_file_name,
+   const std::string& source_file_name,
+   const std::string& target_file_name,
    statInfo& results,
    bool more)
 {

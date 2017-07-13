@@ -5,6 +5,7 @@
 #include "srm_types.h"
 
 #include <cmath>
+#include <string>
 
 #define MAX_DIFF 0.001
 
@@ -61,9 +62,9 @@ typedef struct
 
 typedef struct
 {
-   char path[100];
-   char file_name_1[50];
-   char file_name_2[50];
+   std::string path;
+   std::string file_name_1;
+   std::string file_name_2;
 } configInfo;
 
 typedef struct
