@@ -69,30 +69,32 @@ typedef struct
 
 typedef struct
 {
-   char           type[50];
-   char           datum_name[20];
-   SRM_ORM_Code   orm;
-   SRM_RT_Code    rt;
-   double         floatParam[DATUM];
+   std::string  type;
+   std::string  datum_name;
+//   char           type[50];
+//   char           datum_name[20];
+   SRM_ORM_Code orm;
+   SRM_RT_Code  rt;
+   double       floatParam[DATUM];
 } srfParams;
 
 typedef struct
 {
-   char           datum_name_in[20];
-   char           datum_name_out[20];
-   double         gd_coord_in[3];
-   double         gd_coord_out[3];
-   double         comp_coord_out[3];
-   double         diff;
+   std::string datum_name_in;
+   std::string datum_name_out;
+   double      gd_coord_in[3];
+   double      gd_coord_out[3];
+   double      comp_coord_out[3];
+   double      diff;
 } gdDatumCoord;
 
 typedef struct
 {
-   char           datum_name_in[20];
-   char           datum_name_out[20];
-   int            count;
-   double         min;
-   double         max;
+   std::string datum_name_in;
+   std::string datum_name_out;
+   int         count;
+   double      min;
+   double      max;
 } gdDatumStat;
 
 typedef struct
@@ -111,7 +113,7 @@ typedef struct
    double stdDev;
    bool exceededThreshold;
    int num_exceeded;
-   char message[500];
+   std::string message;
    // other data
    doubleArray3 compOut;
    int dataPoint;

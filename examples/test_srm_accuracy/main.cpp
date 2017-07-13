@@ -340,16 +340,16 @@ void computeStat(const std::vector<gdDatumCoord>& gdCoord, std::vector<gdDatumSt
       gdDatumCoord thisDatum = gdCoord[i];
 
       gdDatumStat tmpStat{};
-      std::strcpy(tmpStat.datum_name_in, thisDatum.datum_name_in);
-      std::strcpy(tmpStat.datum_name_out, thisDatum.datum_name_out);
+      tmpStat.datum_name_in = thisDatum.datum_name_in;
+      tmpStat.datum_name_out = thisDatum.datum_name_out;
       tmpStat.min = thisDatum.diff;
       tmpStat.max = thisDatum.diff;
       tmpStat.count = 1;
 
       gdDatumCoord nextDatum = gdCoord[++i];
 
-      while (std::strcmp(thisDatum.datum_name_in, nextDatum.datum_name_in) == 0 &&
-         std::strcmp(thisDatum.datum_name_out, nextDatum.datum_name_out) == 0 &&
+      while (std::strcmp(thisDatum.datum_name_in.c_str(), nextDatum.datum_name_in.c_str()) == 0 &&
+         std::strcmp(thisDatum.datum_name_out.c_str(), nextDatum.datum_name_out.c_str()) == 0 &&
          i < gdCoord.size())
       {
          tmpStat.count++;
@@ -372,7 +372,7 @@ int createSRF(srfParams& srf, srm::BaseSRF_3D** srfHandle, statInfo& results)
 {
    try {
 
-      switch (srfTypeMap[srf.type]) {
+      switch (srfTypeMap[srf.type.c_str()]) {
       case TRANSVERSE_MARCATOR:
          *srfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_TransverseMercator::create(srf.orm,
             srf.rt,
@@ -406,7 +406,7 @@ int createSRF(srfParams& srf, srm::BaseSRF_3D** srfHandle, statInfo& results)
                srf.floatParam[STANDARD_PARALLEL_ONE] = srf.floatParam[ORIGIN_LATITUDE];
                srf.floatParam[STANDARD_PARALLEL_TWO] = srf.floatParam[ORIGIN_LATITUDE];
             } else {
-               std::strcpy(results.message, "Exception: Incompatible SRF Parameter Set");
+               results.message = "Exception: Incompatible SRF Parameter Set";
                return 0;
             }
          }
@@ -423,7 +423,7 @@ int createSRF(srfParams& srf, srm::BaseSRF_3D** srfHandle, statInfo& results)
       }
 
       case NEY:
-         std::strcpy(results.message, "Ney SRF not supported");
+         results.message = "Ney SRF not supported";
          return 0;
          break;
 
@@ -459,7 +459,7 @@ int createSRF(srfParams& srf, srm::BaseSRF_3D** srfHandle, statInfo& results)
          break;
 
       case SPHERICAL:  // using Inertial ORM/RT
-         std::strcpy(results.message, "Spherical SRF not supported");
+         results.message = "Spherical SRF not supported";
          return 0;
          break;
 
@@ -468,20 +468,19 @@ int createSRF(srfParams& srf, srm::BaseSRF_3D** srfHandle, statInfo& results)
          break;
 
       case ELLIPSOIDAL:
-         std::strcpy(results.message, "Ellipsoidal SRF not supported");
+         results.message = "Ellipsoidal SRF not supported";
          return 0;
          break;
 
       default:
-         std::strcpy(results.message, "SRF not supported");
+         results.message = "SRF not supported";
          return 0;
          break;
       }
 
    }
    catch (srm::Exception(ex)) {
-      std::strcpy(results.message, "Exception: ");
-      std::strcat(results.message, ex.getWhat());
+      results.message = "Exception: " + std::string(ex.getWhat());
       return 0;
    }
 
@@ -508,16 +507,16 @@ int testConversion(std::vector<gdDatumCoord>& gdCoord)
    for (int i = 0; i < gdCoord.size(); i++) {
       try {
          srcSrfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_Celestiodetic::create
-            (ormMap[gdCoord[i].datum_name_in],
-            rtMap[gdCoord[i].datum_name_in]));
+            (ormMap[gdCoord[i].datum_name_in.c_str()],
+            rtMap[gdCoord[i].datum_name_in.c_str()]));
       } catch (srm::Exception(ex)) {
          std::cout << "Error SRF creation: ORM/RT not supported=> " << gdCoord[i].datum_name_in << std::endl;
       }
 
       try {
          tgtSrfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_Celestiodetic::create
-            (ormMap[gdCoord[i].datum_name_out],
-            rtMap[gdCoord[i].datum_name_out]));
+            (ormMap[gdCoord[i].datum_name_out.c_str()],
+            rtMap[gdCoord[i].datum_name_out.c_str()]));
       } catch (srm::Exception(ex)) {
          std::cout << "Error SRF creation: ORM/RT not supported=> " << gdCoord[i].datum_name_out << std::endl;
       }
@@ -601,13 +600,13 @@ int testConversion(srfParams& srcSrf,
    createCoord(tgtSrfHandle, &tgtCoordHandle);
    createCoord(tgtSrfHandle, &goldCoordHandle);
 
-   if (srfTypeMap[srcSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL)
+   if (srfTypeMap[srcSrf.type.c_str()] == GEODETIC || srfTypeMap[srcSrf.type.c_str()] == SPHERICAL)
       toRadConv = toRad;
 
-   if (srfTypeMap[tgtSrf.type] == GEODETIC)
+   if (srfTypeMap[tgtSrf.type.c_str()] == GEODETIC)
       radFactor = toRad;
 
-   if (srfTypeMap[tgtSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL)
+   if (srfTypeMap[tgtSrf.type.c_str()] == GEODETIC || srfTypeMap[srcSrf.type.c_str()] == SPHERICAL)
       isCD = true;
 
    for (int i = 0; i<srcCoordVal.size(); i++) {
@@ -624,9 +623,9 @@ int testConversion(srfParams& srcSrf,
                (*srcCoordHandle, ident_hst, *tgtCoordHandle);
          } else {
             // Eliminate TM lambda > 3.5 deg from the central meridian
-            if ((srfTypeMap[srcSrf.type] == TRANSVERSE_MARCATOR &&
+            if ((srfTypeMap[srcSrf.type.c_str()] == TRANSVERSE_MARCATOR &&
                std::fabs(tgtCoordVal[i].var[0] - srcSrf.floatParam[0]) > 3.5) ||
-               (srfTypeMap[tgtSrf.type] == TRANSVERSE_MARCATOR &&
+               (srfTypeMap[tgtSrf.type.c_str()] == TRANSVERSE_MARCATOR &&
                std::fabs(srcCoordVal[i].var[0] - tgtSrf.floatParam[0]) > 3.5)) {
                //Indication of coordinate outside the +-3.5 deg from the central meridian.
                vRegion = SRM_COORDVALRGN_DEFINED;

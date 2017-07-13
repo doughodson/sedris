@@ -38,13 +38,13 @@ int readCSV(std::FILE* infileSrc, std::FILE* infileTgt, std::vector<gdDatumCoord
 
    while (!std::feof(infileSrc) && !std::feof(infileTgt)) {
       std::strtok(srcBuffer, " ,");
-      std::strcpy(gd.datum_name_in, std::strtok(NULL, " ,"));
+      gd.datum_name_in = std::strtok(NULL, " ,");
       gd.gd_coord_in[0] = std::atof(std::strtok(NULL, " ,"));
       gd.gd_coord_in[1] = std::atof(std::strtok(NULL, " ,"));
       gd.gd_coord_in[2] = std::atof(std::strtok(NULL, " ,"));
 
       std::strtok(tgtBuffer, " ,");
-      std::strcpy(gd.datum_name_out, std::strtok(NULL, " ,"));
+      gd.datum_name_out = std::strtok(NULL, " ,");
       gd.gd_coord_out[0] = std::atof(std::strtok(NULL, " ,"));
       gd.gd_coord_out[1] = std::atof(std::strtok(NULL, " ,"));
       gd.gd_coord_out[2] = std::atof(std::strtok(NULL, " ,"));
@@ -105,15 +105,15 @@ int readCSV(std::FILE* infile, srfParams& srf, std::vector<doubleArray3>& inDoub
             {
             case COORDINATES:
             case PROJECTION:
-               std::strcpy(srf.type, std::strtok(NULL, ", '\n'"));
+               srf.type = std::strtok(NULL, ", '\n'");
                break;
 
             case DATUM:
             {
-               std::strcpy(srf.datum_name, std::strtok(NULL, ", '\n'"));
+               srf.datum_name = std::strtok(NULL, ", '\n'");
 
-               srf.orm = ormMap[srf.datum_name];
-               srf.rt = rtMap[srf.datum_name];
+               srf.orm = ormMap[srf.datum_name.c_str()];
+               srf.rt = rtMap[srf.datum_name.c_str()];
 
                break;
             }
