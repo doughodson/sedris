@@ -1,7 +1,7 @@
 Coordinate conversion accuracy assessment for SRM C++
 (The results are given as the Euclidean distance (in meters) between the computed coordinate and the golden data)
 
-Test conducted: Thu Jul 13 14:55:07 2017
+Test conducted: Fri Jul 14 13:26:12 2017
 
 ORM/RT, Conversion, Count, MIN (m), MAX (m)
 

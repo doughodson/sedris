@@ -55,67 +55,67 @@
 #define SPHERICAL 7
 #define ELLIPSOIDAL 8
 
-typedef struct
+struct doubleArray3
 {
-   SRM_Vector_3D var;
-} doubleArray3;
+   SRM_Vector_3D var{};
+};
 
-typedef struct
+struct configInfo
 {
    std::string path;
    std::string file_name_1;
    std::string file_name_2;
-} configInfo;
+};
 
-typedef struct
+struct srfParams
 {
    std::string  type;
    std::string  datum_name;
-   SRM_ORM_Code orm;
-   SRM_RT_Code  rt;
-   double       floatParam[DATUM];
-} srfParams;
+   SRM_ORM_Code orm{};
+   SRM_RT_Code  rt{};
+   double       floatParam[DATUM]{};
+};
 
-typedef struct
+struct gdDatumCoord
 {
    std::string datum_name_in;
    std::string datum_name_out;
-   double      gd_coord_in[3];
-   double      gd_coord_out[3];
-   double      comp_coord_out[3];
-   double      diff;
-} gdDatumCoord;
+   double      gd_coord_in[3]{};
+   double      gd_coord_out[3]{};
+   double      comp_coord_out[3]{};
+   double      diff{};
+};
 
-typedef struct
+struct gdDatumStat
 {
    std::string datum_name_in;
    std::string datum_name_out;
-   int         count;
-   double      min;
-   double      max;
-} gdDatumStat;
+   int         count{};
+   double      min{};
+   double      max{};
+};
 
-typedef struct
+struct diffInfo
 {
-   double diff;
-   int    dataPoint;
-   doubleArray3 compOut;
-} diffInfo;
+   double diff{};
+   int    dataPoint{};
+   doubleArray3 compOut{};
+};
 
-typedef struct
+struct statInfo
 {
-   int count;
-   double min;
-   double max;
-   double mean;
-   double stdDev;
-   bool exceededThreshold;
-   int num_exceeded;
+   int count{};
+   double min{};
+   double max{};
+   double mean{};
+   double stdDev{};
+   bool exceededThreshold{};
+   int num_exceeded{};
    std::string message;
    // other data
-   doubleArray3 compOut;
-   int dataPoint;
-   bool isCD;
-} statInfo;
+   doubleArray3 compOut{};
+   int dataPoint{};
+   bool isCD{};
+};
 
 #endif
