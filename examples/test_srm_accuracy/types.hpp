@@ -18,17 +18,17 @@
 #define TWO_PI    std::atan(1.0)*8.0
 
 #define WGS84_A    6.3781370000000e6
-#define WGS84_F    1.0/2.9825722356300e2
-#define WGS84_e    std::sqrt(2*WGS84_F - WGS84_F*WGS84_F)
+#define WGS84_F    1.0 / 2.9825722356300e2
+#define WGS84_e    std::sqrt(2 * WGS84_F - WGS84_F * WGS84_F)
 #define MAX_A      6400000.0
-#define MAX_F      1.0/150.0
-#define MAX_e      std::sqrt(2*MAX_F - MAX_F*MAX_F)
-#define SPHR_A     20000000.0/PI
+#define MAX_F      1.0 / 150.0
+#define MAX_e      std::sqrt(2*MAX_F - MAX_F * MAX_F)
+#define SPHR_A     20000000.0 / PI
 #define SPHR_F     0.0
 #define SPHR_e     0.0
 
-#define NEY_P1     70.*toRad
-#define NEY_P2     (89.0+(59.0/60.0)+(58.0/3600.0))*toRad 
+#define NEY_P1     70.0 * toRad
+#define NEY_P2     (89.0 + (59.0 / 60.0) + (58.0 / 3600.0)) * toRad 
 
 #define CENTRAL_MERIDIAN 0
 #define ORIGIN_LATITUDE 1

@@ -183,7 +183,7 @@ bool load_file(const std::string& file_name, srfParams& srf, std::vector<doubleA
    return true;
 }
 
-int read_configuration_file(std::FILE* infile, std::vector<configInfo>& config)
+int read_configuration_file(std::FILE* infile, std::vector<configInfo>* config)
 {
    //	declare string buffer
    char buffer[500]{};
@@ -199,7 +199,7 @@ int read_configuration_file(std::FILE* infile, std::vector<configInfo>& config)
       data.file_name_1 = std::strtok(NULL, " ,");
       data.file_name_2 = std::strtok(NULL, " ,'\n'");
 
-      config.push_back(data);
+      config->push_back(data);
 
       std::fgets(buffer, 500, infile);
    }
@@ -207,7 +207,7 @@ int read_configuration_file(std::FILE* infile, std::vector<configInfo>& config)
    return 1;
 }
 
-void load_configuration_file(const std::string& file_name, std::vector<configInfo>& config)
+void load_configuration_file(const std::string& file_name, std::vector<configInfo>* config)
 {
    std::FILE* inFile = std::fopen(file_name.c_str(), "r");
    if (!inFile) {

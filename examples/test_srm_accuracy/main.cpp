@@ -705,13 +705,13 @@ int main(int argc, char* argv[])
 
    // load and print configuration file
    std::vector<configInfo> config;
-   load_configuration_file(config_file_name, config);
+   load_configuration_file(config_file_name, &config);
    print_configuration_data(config);
 
    initialize_map_data();
 
    // open file to store results and print header
-   std::ofstream convResStr{};
+   std::ofstream convResStr;
    convResStr.open("srm_conv_accuracy_results.csv", std::ios::out);
    if (!convResStr) {
       std::cout << "Cannot create output file srm_conv_accuracy_results.csv" << std::endl;
@@ -721,7 +721,7 @@ int main(int argc, char* argv[])
    printConvHeader(convResStr, more);
 
    // open file to store results and print header
-   std::ofstream datumResStr{};
+   std::ofstream datumResStr;
    datumResStr.open("srm_datum_accuracy_results.csv", std::ios::out);
    if (!datumResStr) {
       std::cout << "Cannot create output file srm_datum_accuracy_results.csv" << std::endl;
@@ -782,9 +782,9 @@ int main(int argc, char* argv[])
          }
  
          {
-            statInfo results{};
-            std::vector<bool> exceeded{};
-            std::vector<doubleArray3> compDoubleParamTs{};
+            statInfo results;
+            std::vector<bool> exceeded;
+            std::vector<doubleArray3> compDoubleParamTs;
 
             testConversion(tgtSrf, srcSrf, tgtDoubleParam, srcDoubleParam, compDoubleParamTs,
               results, exceeded, config[test_case].file_name_2);
