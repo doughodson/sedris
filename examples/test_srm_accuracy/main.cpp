@@ -742,14 +742,13 @@ int main(int argc, char* argv[])
             std::vector<gdDatumCoord> gdCoord{};
             std::vector<gdDatumStat> datumStat{};
 
-            if (!load_file(full_file_name_1, full_file_name_2, gdCoord)) {
-               std::exit(0);
-            }
+            load_gdDatumCoords(full_file_name_1, full_file_name_2, &gdCoord);
 
             testConversion(gdCoord);
             computeStat(gdCoord, datumStat);
             printData(datumResStr, datumStat, more);
       } else { // this is not the datum shift case
+
          std::vector<doubleArray3> srcDoubleParam{};
          std::vector<doubleArray3> tgtDoubleParam{};
          srfParams srcSrf{};
@@ -761,13 +760,8 @@ int main(int argc, char* argv[])
             tgtSrf.floatParam[i] = 1234.4321;
          }
 
-         if (!load_file(full_file_name_1, srcSrf, srcDoubleParam)) {
-            std::exit(0);
-         }
-
-         if (!load_file(full_file_name_2, tgtSrf, tgtDoubleParam)) {
-            std::exit(0);
-         }
+         load_file(full_file_name_1, &srcSrf, &srcDoubleParam);
+         load_file(full_file_name_2, &tgtSrf, &tgtDoubleParam);
 
          {
             statInfo results{};

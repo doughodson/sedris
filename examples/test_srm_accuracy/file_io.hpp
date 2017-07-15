@@ -10,9 +10,9 @@
 
 #include "types.hpp"
 
-bool load_file(const std::string& src_file_name, const std::string& tgt_file_name, std::vector<gdDatumCoord>& gdCoord);
+void load_gdDatumCoords(const std::string& src_file_name, const std::string& tgt_file_name, std::vector<gdDatumCoord>*);
 
-bool load_file(const std::string& file_name, srfParams& srf, std::vector<doubleArray3>& doubleParam);
+void load_file(const std::string& file_name, srfParams*, std::vector<doubleArray3>*);
 
 void load_configuration_file(const std::string& file_name, std::vector<configInfo>* config);
 
