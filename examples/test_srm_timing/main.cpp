@@ -24,6 +24,7 @@
 
 #include <cstdlib>
 #include <cmath>
+#include <cstring>
 
 #include <time.h>
 
