@@ -1,102 +1,102 @@
 Coordinate conversion accuracy assessment for SRM C++
 (The results are given as the Euclidean distance (in meters) between the computed coordinate and the golden data)
 
-Test conducted: Fri Jul 14 17:31:33 2017
+Test conducted: Mon Jul 17 17:24:20 2017
 
 ORM/RT, Conversion, Count, MIN (m), MAX (m)
 
-WGE, Lon_Lat.csv to LCC_14.csv, 300, 2.13240331818449e-008, 8.58716827501176e-006
-WGE, LCC_14.csv to Lon_Lat.csv, 300, 4.03066383241271e-008, 1.24890205793329e-005
+WGE, Lon_Lat.csv to LCC_14.csv, 300, 2.13240331818449e-08, 8.58716827501176e-06
+WGE, LCC_14.csv to Lon_Lat.csv, 300, 4.03066383241271e-08, 1.24890205793329e-05
 WGE, Lon_Lat.csv to LCC_14a.csv, Exception: Incompatible SRF Parameter Set
 WGE, LCC_14a.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
 WGE, Lon_Lat.csv to LCC_15.csv, Exception: Incompatible SRF Parameter Set
 WGE, LCC_15.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-WGE, Lon_Lat.csv to LCC_16.csv, 300, 2.0340392056705e-008, 1.8445687545297e-005
-WGE, LCC_16.csv to Lon_Lat.csv, 300, 1.41623091030368e-009, 1.25698011327112e-005
-WGE, Lon_Lat.csv to LCC_16a.csv, 300, 2.90058767467689e-008, 1.84648657514542e-005
-WGE, LCC_16a.csv to Lon_Lat.csv, 300, 2.0524615214607e-008, 1.25877785645609e-005
-WGE, Lon_Lat.csv to LCC_17.csv, 300, 6.08218530835796e-008, 2.6856378414915e-006
-WGE, LCC_17.csv to Lon_Lat.csv, 300, 0, 1.21501453261613e-005
+WGE, Lon_Lat.csv to LCC_16.csv, 300, 2.0340392056705e-08, 1.8445687545297e-05
+WGE, LCC_16.csv to Lon_Lat.csv, 300, 1.41623091030368e-09, 1.25698011327112e-05
+WGE, Lon_Lat.csv to LCC_16a.csv, 300, 2.90058767467689e-08, 1.84648657514542e-05
+WGE, LCC_16a.csv to Lon_Lat.csv, 300, 2.0524615214607e-08, 1.25877785645609e-05
+WGE, Lon_Lat.csv to LCC_17.csv, 300, 6.08218530835796e-08, 2.6856378414915e-06
+WGE, LCC_17.csv to Lon_Lat.csv, 300, 0, 1.21501453261613e-05
 WGE, Lon_Lat.csv to LCC_18.csv, 300, 0.000193919137579711, 0.0106954371335795
-WGE, LCC_18.csv to Lon_Lat.csv, 300, 6.56677351808393e-007, 0.00020052734507579
-WGE, Lon_Lat.csv to LCC_19.csv, 300, 7.36706657881122e-008, 2.92203363655419e-006
-WGE, LCC_19.csv to Lon_Lat.csv, 300, 5.66966403513896e-009, 1.29185181927641e-005
-WGE, Lon_Lat.csv to LCC_20.csv, 300, 1.15198240399854e-007, 0.000301474791460471
-WGE, LCC_20.csv to Lon_Lat.csv, 300, 3.82382345781995e-008, 1.20297991798806e-005
+WGE, LCC_18.csv to Lon_Lat.csv, 300, 6.56677351808393e-07, 0.00020052734507579
+WGE, Lon_Lat.csv to LCC_19.csv, 300, 7.36706657881122e-08, 2.92203363655419e-06
+WGE, LCC_19.csv to Lon_Lat.csv, 300, 5.66966403513896e-09, 1.29185181927641e-05
+WGE, Lon_Lat.csv to LCC_20.csv, 300, 1.15198240399854e-07, 0.000301474791460471
+WGE, LCC_20.csv to Lon_Lat.csv, 300, 3.82382345781994e-08, 1.20297991798806e-05
 WGE, Lon_Lat.csv to LCC_21.csv, Exception: Incompatible SRF Parameter Set
 WGE, LCC_21.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
 WGE, Lon_Lat.csv to LCC_22.csv, 300, 0.00712329229267342, 0.0223092550684476
-WGE, LCC_22.csv to Lon_Lat.csv, 300, 1.27726930452513e-007, 0.000217996382087533
+WGE, LCC_22.csv to Lon_Lat.csv, 300, 1.27726930452513e-07, 0.000217996382087533
 WGE, Lon_Lat.csv to LCC_23.csv, Exception: Incompatible SRF Parameter Set
 WGE, LCC_23.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-WGE, Lon_Lat.csv to Mercator_5.csv, 300, 5.84963709115982e-006, 0.000889838769685864
-WGE, Mercator_5.csv to Lon_Lat.csv, 300, 0, 1.21723537268119e-005
-WGE, Lon_Lat.csv to Mercator_5a.csv, 300, 5.84870576858521e-006, 0.000889841563220014
-WGE, Mercator_5a.csv to Lon_Lat.csv, 300, 0, 1.21723083327883e-005
-WGE, Lon_Lat.csv to Mercator_6.csv, 300, 4.48152422904968e-006, 0.000771478778523631
-WGE, Mercator_6.csv to Lon_Lat.csv, 300, 0, 1.20151181231447e-005
-WGE, Lon_Lat.csv to Mercator_7.csv, 300, 4.1937455534935e-006, 0.000623286427856643
-WGE, Mercator_7.csv to Lon_Lat.csv, 300, 0, 1.23203173273583e-005
-WGE, Lon_Lat.csv to Mercator_8.csv, 300, 5.84992207100176e-006, 0.000889838798205425
-WGE, Mercator_8.csv to Lon_Lat.csv, 300, 0, 1.21742965875402e-005
-WGE, Lon_Lat.csv to Mercator_8a.csv, 300, 4.48206853197667e-006, 0.000771478762629057
-WGE, Mercator_8a.csv to Lon_Lat.csv, 300, 0, 1.20138140374864e-005
-WGE, Lon_Lat.csv to Mercator_8b.csv, 300, 4.48206853197667e-006, 0.000771481556767063
-WGE, Mercator_8b.csv to Lon_Lat.csv, 300, 0, 1.20124245861344e-005
+WGE, Lon_Lat.csv to Mercator_5.csv, 300, 5.84963709115982e-06, 0.000889838769685864
+WGE, Mercator_5.csv to Lon_Lat.csv, 300, 0, 1.21723537268119e-05
+WGE, Lon_Lat.csv to Mercator_5a.csv, 300, 5.84870576858521e-06, 0.000889841563220014
+WGE, Mercator_5a.csv to Lon_Lat.csv, 300, 0, 1.21723083327883e-05
+WGE, Lon_Lat.csv to Mercator_6.csv, 300, 4.48152422904968e-06, 0.000771478778523631
+WGE, Mercator_6.csv to Lon_Lat.csv, 300, 0, 1.20151181231447e-05
+WGE, Lon_Lat.csv to Mercator_7.csv, 300, 4.1937455534935e-06, 0.000623286427856643
+WGE, Mercator_7.csv to Lon_Lat.csv, 300, 0, 1.23203173273583e-05
+WGE, Lon_Lat.csv to Mercator_8.csv, 300, 5.84992207100176e-06, 0.000889838798205425
+WGE, Mercator_8.csv to Lon_Lat.csv, 300, 0, 1.21742965875402e-05
+WGE, Lon_Lat.csv to Mercator_8a.csv, 300, 4.48206853197667e-06, 0.000771478762629057
+WGE, Mercator_8a.csv to Lon_Lat.csv, 300, 0, 1.20138140374864e-05
+WGE, Lon_Lat.csv to Mercator_8b.csv, 300, 4.48206853197667e-06, 0.000771481556767063
+WGE, Mercator_8b.csv to Lon_Lat.csv, 300, 0, 1.20124245861344e-05
 WGE, Lon_Lat.csv to Ney_24.csv, Ney SRF not supported
 WGE, Ney_24.csv to Lon_Lat.csv, Ney SRF not supported
 WGE, Lon_Lat.csv to Ney_25.csv, Ney SRF not supported
 WGE, Ney_25.csv to Lon_Lat.csv, Ney SRF not supported
-WGE, Lon_Lat.csv to PolarStereo_09.csv, 252, 3.24503000950183e-006, 0.000593949109315872
-WGE, PolarStereo_09.csv to Lon_Lat.csv, 222, 5.68354450217515e-009, 1.25191795172517e-005
-WGE, Lon_Lat.csv to PolarStereo_09a.csv, 252, 3.24470232135649e-006, 0.000593949109315872
-WGE, PolarStereo_09a.csv to Lon_Lat.csv, 222, 7.10016747929793e-009, 1.25191795172517e-005
-WGE, Lon_Lat.csv to PolarStereo_09b.csv, 252, 1.82832094951018e-006, 0.000415864400565624
-WGE, PolarStereo_09b.csv to Lon_Lat.csv, 207, 5.68354450217515e-009, 1.25707206817488e-005
-WGE, Lon_Lat.csv to PolarStereo_10.csv, 252, 2.76852459695566e-006, 0.000554215162992477
-WGE, PolarStereo_10.csv to Lon_Lat.csv, 218, 1.90389017662794e-008, 1.26290800899322e-005
-WGE, Lon_Lat.csv to PolarStereo_11.csv, 252, 3.29044490038816e-006, 0.000593848751240368
-WGE, PolarStereo_11.csv to Lon_Lat.csv, 222, 5.68354450217515e-009, 1.24838327872033e-005
-WGE, Lon_Lat.csv to PolarStereo_11a.csv, 252, 2.74415776993775e-006, 0.000554351230690603
-WGE, PolarStereo_11a.csv to Lon_Lat.csv, 217, 4.40210383716472e-008, 1.23630651572042e-005
-WGE, Lon_Lat.csv to PolarStereo_11b.csv, 252, 2.74415776993775e-006, 0.000554352185579288
-WGE, PolarStereo_11b.csv to Lon_Lat.csv, 217, 4.40210383716472e-008, 1.23630651572042e-005
-WGE, Lon_Lat.csv to PolarStereo_12.csv, 252, 3.24503000950183e-006, 0.000593949109315872
-WGE, PolarStereo_12.csv to Lon_Lat.csv, 222, 5.68354450217515e-009, 1.25191795172517e-005
-WGE, Lon_Lat.csv to PolarStereo_12a.csv, 252, 2.76847898295299e-006, 0.000554215162992477
-WGE, PolarStereo_12a.csv to Lon_Lat.csv, 218, 1.90389017662794e-008, 1.26304876341184e-005
-WGE, Lon_Lat.csv to PolarStereo_13.csv, 111, 1.93715306662598e-005, 0.000593847981628334
-WGE, PolarStereo_13.csv to Lon_Lat.csv, 81, 5.68354450217515e-009, 1.15699369682295e-005
-WGE, Lon_Lat.csv to PolarStereo_13a.csv, 111, 1.79791170547743e-005, 0.000554352686619455
-WGE, PolarStereo_13a.csv to Lon_Lat.csv, 76, 5.1750596768431e-008, 1.17300877992362e-005
-WGE, Lon_Lat.csv to TransMerc_26.csv, 66, 2.84006076064948e-010, 0.000267375318799254
-WGE, TransMerc_26.csv to Lon_Lat.csv, 66, 2.85436789319599e-010, 0.000190458063901174
-WGE, Lon_Lat.csv to TransMerc_26a.csv, 66, 1.52496751417185e-007, 0.000267375592121457
-WGE, TransMerc_26a.csv to Lon_Lat.csv, 64, 3.82213996834345e-007, 0.000190075617622058
-WGE, Lon_Lat.csv to TransMerc_27.csv, 71, 1.00675970484202e-006, 0.000438463699538342
-WGE, TransMerc_27.csv to Lon_Lat.csv, 71, 8.00617528098647e-008, 0.000180355768350544
-Test_SRMmax, Lon_Lat.csv to LCC_37.csv, 300, 4.00301003607385e-008, 8.2040331937941e-006
-Test_SRMmax, LCC_37.csv to Lon_Lat.csv, 300, 1.82679970804035e-008, 0.000381462687836058
+WGE, Lon_Lat.csv to PolarStereo_09.csv, 252, 3.24503000950183e-06, 0.000593949109315872
+WGE, PolarStereo_09.csv to Lon_Lat.csv, 222, 5.68354450217515e-09, 1.25191795172517e-05
+WGE, Lon_Lat.csv to PolarStereo_09a.csv, 252, 3.24470232135649e-06, 0.000593949109315872
+WGE, PolarStereo_09a.csv to Lon_Lat.csv, 222, 7.10016747929793e-09, 1.25191795172517e-05
+WGE, Lon_Lat.csv to PolarStereo_09b.csv, 252, 1.82832094951018e-06, 0.000415864400565624
+WGE, PolarStereo_09b.csv to Lon_Lat.csv, 207, 5.68354450217515e-09, 1.25707206817488e-05
+WGE, Lon_Lat.csv to PolarStereo_10.csv, 252, 2.76852459695566e-06, 0.000554215162992477
+WGE, PolarStereo_10.csv to Lon_Lat.csv, 218, 1.90389017662794e-08, 1.26290800899322e-05
+WGE, Lon_Lat.csv to PolarStereo_11.csv, 252, 3.29044490038816e-06, 0.000593848751240368
+WGE, PolarStereo_11.csv to Lon_Lat.csv, 222, 5.68354450217515e-09, 1.24838327872033e-05
+WGE, Lon_Lat.csv to PolarStereo_11a.csv, 252, 2.74415776993775e-06, 0.000554351230690603
+WGE, PolarStereo_11a.csv to Lon_Lat.csv, 217, 4.40210383716472e-08, 1.23630651572042e-05
+WGE, Lon_Lat.csv to PolarStereo_11b.csv, 252, 2.74415776993775e-06, 0.000554352185579288
+WGE, PolarStereo_11b.csv to Lon_Lat.csv, 217, 4.40210383716472e-08, 1.23630651572042e-05
+WGE, Lon_Lat.csv to PolarStereo_12.csv, 252, 3.24503000950183e-06, 0.000593949109315872
+WGE, PolarStereo_12.csv to Lon_Lat.csv, 222, 5.68354450217515e-09, 1.25191795172517e-05
+WGE, Lon_Lat.csv to PolarStereo_12a.csv, 252, 2.76847898295299e-06, 0.000554215162992477
+WGE, PolarStereo_12a.csv to Lon_Lat.csv, 218, 1.90389017662794e-08, 1.26304876341184e-05
+WGE, Lon_Lat.csv to PolarStereo_13.csv, 111, 1.93715306662598e-05, 0.000593847981628334
+WGE, PolarStereo_13.csv to Lon_Lat.csv, 81, 5.68354450217515e-09, 1.15699369682295e-05
+WGE, Lon_Lat.csv to PolarStereo_13a.csv, 111, 1.79791170547743e-05, 0.000554352686619455
+WGE, PolarStereo_13a.csv to Lon_Lat.csv, 76, 5.1750596768431e-08, 1.17300877992362e-05
+WGE, Lon_Lat.csv to TransMerc_26.csv, 66, 2.84006076064948e-10, 0.000267375318799254
+WGE, TransMerc_26.csv to Lon_Lat.csv, 66, 2.85436789319599e-10, 0.000190458063901174
+WGE, Lon_Lat.csv to TransMerc_26a.csv, 66, 1.52496751417185e-07, 0.000267375592121457
+WGE, TransMerc_26a.csv to Lon_Lat.csv, 64, 3.82213996834345e-07, 0.000190075617622058
+WGE, Lon_Lat.csv to TransMerc_27.csv, 71, 1.00675970484202e-06, 0.000438463699538342
+WGE, TransMerc_27.csv to Lon_Lat.csv, 71, 8.00617528098647e-08, 0.000180355768350544
+Test_SRMmax, Lon_Lat.csv to LCC_37.csv, 300, 4.00301003607385e-08, 8.2040331937941e-06
+Test_SRMmax, LCC_37.csv to Lon_Lat.csv, 300, 1.82679970804035e-08, 0.000381462687836058
 Test_SRMmax, Lon_Lat.csv to LCC_37a.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, LCC_37a.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, Lon_Lat.csv to LCC_38.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, LCC_38.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-Test_SRMmax, Lon_Lat.csv to LCC_39.csv, 300, 1.13682408032321e-008, 1.8919974499761e-005
-Test_SRMmax, LCC_39.csv to Lon_Lat.csv, 300, 1.42108547093127e-009, 0.000381626059513001
-Test_SRMmax, Lon_Lat.csv to LCC_39a.csv, 300, 4.45966418602052e-008, 1.91195965433893e-005
-Test_SRMmax, LCC_39a.csv to Lon_Lat.csv, 300, 8.98773367620411e-009, 0.000381317741536213
-Test_SRMmax, Lon_Lat.csv to LCC_40.csv, 300, 5.43049713116633e-008, 2.5686038693981e-006
-Test_SRMmax, LCC_40.csv to Lon_Lat.csv, 300, 4.26325641279381e-009, 0.000381478305536646
+Test_SRMmax, Lon_Lat.csv to LCC_39.csv, 300, 1.13682408032321e-08, 1.8919974499761e-05
+Test_SRMmax, LCC_39.csv to Lon_Lat.csv, 300, 1.42108547093127e-09, 0.000381626059513001
+Test_SRMmax, Lon_Lat.csv to LCC_39a.csv, 300, 4.45966418602052e-08, 1.91195965433893e-05
+Test_SRMmax, LCC_39a.csv to Lon_Lat.csv, 300, 8.98773367620411e-09, 0.000381317741536213
+Test_SRMmax, Lon_Lat.csv to LCC_40.csv, 300, 5.43049713116633e-08, 2.5686038693981e-06
+Test_SRMmax, LCC_40.csv to Lon_Lat.csv, 300, 4.26325641279381e-09, 0.000381478305536646
 Test_SRMmax, Lon_Lat.csv to LCC_41.csv, 300, 0.000102239843527107, 0.0109343205018206
-Test_SRMmax, LCC_41.csv to Lon_Lat.csv, 300, 6.02277446015057e-007, 0.00045460111035174
-Test_SRMmax, Lon_Lat.csv to LCC_42.csv, 300, 6.63392251099685e-008, 2.95081619911308e-006
-Test_SRMmax, LCC_42.csv to Lon_Lat.csv, 300, 3.55271367732818e-008, 0.00038197005458941
-Test_SRMmax, Lon_Lat.csv to LCC_43.csv, 300, 8.91932837204105e-008, 0.000300670143941091
-Test_SRMmax, LCC_43.csv to Lon_Lat.csv, 300, 8.52651282558762e-009, 0.000381102776304334
+Test_SRMmax, LCC_41.csv to Lon_Lat.csv, 300, 6.02277446015057e-07, 0.00045460111035174
+Test_SRMmax, Lon_Lat.csv to LCC_42.csv, 300, 6.63392251099685e-08, 2.95081619911308e-06
+Test_SRMmax, LCC_42.csv to Lon_Lat.csv, 300, 3.55271367732818e-08, 0.00038197005458941
+Test_SRMmax, Lon_Lat.csv to LCC_43.csv, 300, 8.91932837204105e-08, 0.000300670143941091
+Test_SRMmax, LCC_43.csv to Lon_Lat.csv, 300, 8.52651282558762e-09, 0.000381102776304334
 Test_SRMmax, Lon_Lat.csv to LCC_44.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, LCC_44.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, Lon_Lat.csv to LCC_45.csv, 300, 0.00713659264489731, 0.022432026154555
-Test_SRMmax, LCC_45.csv to Lon_Lat.csv, 300, 6.25378694677068e-007, 0.000477747507327764
+Test_SRMmax, LCC_45.csv to Lon_Lat.csv, 300, 6.25378694677068e-07, 0.000477747507327764
 Test_SRMmax, Lon_Lat.csv to LCC_46.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, LCC_46.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, Lon_Lat.csv to Mercator_28.csv, 300, 0.000211504413986261, 0.052903074771642
@@ -118,110 +118,110 @@ Test_SRMmax, Ney_48.csv to Lon_Lat.csv, Ney SRF not supported
 Test_SRMmax, Lon_Lat.csv to Ney_47.csv, Ney SRF not supported
 Test_SRMmax, Ney_47.csv to Lon_Lat.csv, Ney SRF not supported
 Test_SRMmax, Lon_Lat.csv to PolarStereo_32.csv, 252, 0.000419227183734209, 0.0258556762710214
-Test_SRMmax, PolarStereo_32.csv to Lon_Lat.csv, 209, 4.83169060116632e-008, 0.000381510988226839
+Test_SRMmax, PolarStereo_32.csv to Lon_Lat.csv, 209, 4.83169060116632e-08, 0.000381510988226839
 Test_SRMmax, Lon_Lat.csv to PolarStereo_32a.csv, 252, 0.000419227518807633, 0.025855676678475
-Test_SRMmax, PolarStereo_32a.csv to Lon_Lat.csv, 209, 4.83169060116632e-008, 0.000381510988226839
+Test_SRMmax, PolarStereo_32a.csv to Lon_Lat.csv, 209, 4.83169060116632e-08, 0.000381510988226839
 Test_SRMmax, Lon_Lat.csv to PolarStereo_32b.csv, 252, 0.000293175118506853, 0.0180986733175814
-Test_SRMmax, PolarStereo_32b.csv to Lon_Lat.csv, 224, 1.17076112318132e-007, 0.000381294929164567
+Test_SRMmax, PolarStereo_32b.csv to Lon_Lat.csv, 224, 1.17076112318132e-07, 0.000381294929164567
 Test_SRMmax, Lon_Lat.csv to PolarStereo_33.csv, 252, 0.000391122383928154, 0.0241264067590237
-Test_SRMmax, PolarStereo_33.csv to Lon_Lat.csv, 215, 4.72390699207254e-008, 0.000381292229438721
+Test_SRMmax, PolarStereo_33.csv to Lon_Lat.csv, 215, 4.72390699207254e-08, 0.000381292229438721
 Test_SRMmax, Lon_Lat.csv to PolarStereo_34.csv, 252, 0.000419260025089067, 0.0258553030090173
-Test_SRMmax, PolarStereo_34.csv to Lon_Lat.csv, 212, 4.83169060116632e-008, 0.000381505348734792
+Test_SRMmax, PolarStereo_34.csv to Lon_Lat.csv, 212, 4.83169060116632e-08, 0.000381505348734792
 Test_SRMmax, Lon_Lat.csv to PolarStereo_34a.csv, 252, 0.000391181046514013, 0.0241266514088484
-Test_SRMmax, PolarStereo_34a.csv to Lon_Lat.csv, 211, 4.70516656740039e-008, 0.000381437207885361
+Test_SRMmax, PolarStereo_34a.csv to Lon_Lat.csv, 211, 4.70516656740039e-08, 0.000381437207885361
 Test_SRMmax, Lon_Lat.csv to PolarStereo_34b.csv, 252, 0.000391181057623189, 0.0241266514683685
-Test_SRMmax, PolarStereo_34b.csv to Lon_Lat.csv, 211, 4.88003730286029e-008, 0.000381437207885361
+Test_SRMmax, PolarStereo_34b.csv to Lon_Lat.csv, 211, 4.88003730286029e-08, 0.000381437207885361
 Test_SRMmax, Lon_Lat.csv to PolarStereo_35.csv, 252, 0.000419227183734209, 0.0258556762710214
-Test_SRMmax, PolarStereo_35.csv to Lon_Lat.csv, 209, 4.83169060116632e-008, 0.000381510988887677
+Test_SRMmax, PolarStereo_35.csv to Lon_Lat.csv, 209, 4.83169060116632e-08, 0.000381510988887677
 Test_SRMmax, Lon_Lat.csv to PolarStereo_35a.csv, 252, 0.000391122060387177, 0.0241264067590237
-Test_SRMmax, PolarStereo_35a.csv to Lon_Lat.csv, 215, 4.70516656740039e-008, 0.000381292230479203
+Test_SRMmax, PolarStereo_35a.csv to Lon_Lat.csv, 215, 4.70516656740039e-08, 0.000381292230479203
 Test_SRMmax, Lon_Lat.csv to PolarStereo_36.csv, 111, 0.000419255174617067, 0.0217789885120279
-Test_SRMmax, PolarStereo_36.csv to Lon_Lat.csv, 71, 4.83169060116632e-008, 0.000353766564523353
+Test_SRMmax, PolarStereo_36.csv to Lon_Lat.csv, 71, 4.83169060116632e-08, 0.000353766564523353
 Test_SRMmax, Lon_Lat.csv to PolarStereo_36a.csv, 111, 0.000391147296967487, 0.0203223100985048
-Test_SRMmax, PolarStereo_36a.csv to Lon_Lat.csv, 70, 4.84264978830621e-008, 0.000353834827195502
-Test_SRMmax, Lon_Lat.csv to TransMerc_49.csv, 66, 5.64884257905767e-010, 0.000637113116681576
-Test_SRMmax, TransMerc_49.csv to Lon_Lat.csv, 66, 5.70551786294043e-010, 0.00276694164617706
-Test_SRMmax, Lon_Lat.csv to TransMerc_49a.csv, 66, 4.40049916505814e-008, 0.000637069344520569
-Test_SRMmax, TransMerc_49a.csv to Lon_Lat.csv, 64, 4.17335096440208e-008, 0.00276698574508127
-Test_SRMmax, Lon_Lat.csv to TransMerc_50.csv, 71, 8.10250639936374e-006, 0.000636643704189173
-Test_SRMmax, TransMerc_50.csv to Lon_Lat.csv, 71, 6.1719543180262e-007, 0.00277182643509929
-Test_sphere, Lon_Lat.csv to LCC_60.csv, 300, 2.48064112987846e-008, 8.55591405705342e-006
-Test_sphere, LCC_60.csv to Lon_Lat.csv, 300, 1.41357985842823e-009, 6.7682876751463e-007
+Test_SRMmax, PolarStereo_36a.csv to Lon_Lat.csv, 70, 4.84264978830621e-08, 0.000353834827195502
+Test_SRMmax, Lon_Lat.csv to TransMerc_49.csv, 66, 5.64884257905767e-10, 0.000637113116681576
+Test_SRMmax, TransMerc_49.csv to Lon_Lat.csv, 66, 5.70551786294043e-10, 0.00276694164617706
+Test_SRMmax, Lon_Lat.csv to TransMerc_49a.csv, 66, 4.40049916505814e-08, 0.000637069344520569
+Test_SRMmax, TransMerc_49a.csv to Lon_Lat.csv, 64, 4.17335096440208e-08, 0.00276698574508127
+Test_SRMmax, Lon_Lat.csv to TransMerc_50.csv, 71, 8.10250639936374e-06, 0.000636643704189173
+Test_SRMmax, TransMerc_50.csv to Lon_Lat.csv, 71, 6.1719543180262e-07, 0.00277182643509928
+Test_sphere, Lon_Lat.csv to LCC_60.csv, 300, 2.48064112987846e-08, 8.55591405705342e-06
+Test_sphere, LCC_60.csv to Lon_Lat.csv, 300, 1.41357985842823e-09, 6.7682876751463e-07
 Test_sphere, Lon_Lat.csv to LCC_60a.csv, Exception: Incompatible SRF Parameter Set
 Test_sphere, LCC_60a.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
 Test_sphere, Lon_Lat.csv to LCC_61.csv, Exception: Incompatible SRF Parameter Set
 Test_sphere, LCC_61.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-Test_sphere, Lon_Lat.csv to LCC_62.csv, 300, 3.82377841472572e-008, 1.75829787331984e-005
-Test_sphere, LCC_62.csv to Lon_Lat.csv, 300, 1.41357985842823e-009, 8.00331965212582e-007
-Test_sphere, Lon_Lat.csv to LCC_62a.csv, 300, 4.09364282598224e-008, 1.76617737785848e-005
-Test_sphere, LCC_62a.csv to Lon_Lat.csv, 300, 0, 6.97612804339384e-007
-Test_sphere, Lon_Lat.csv to LCC_63.csv, 300, 4.06060914631777e-008, 2.40082170869609e-006
-Test_sphere, LCC_63.csv to Lon_Lat.csv, 300, 4.24073957528469e-009, 8.70806784549999e-007
+Test_sphere, Lon_Lat.csv to LCC_62.csv, 300, 3.82377841472572e-08, 1.75829787331984e-05
+Test_sphere, LCC_62.csv to Lon_Lat.csv, 300, 1.41357985842823e-09, 8.00331965212582e-07
+Test_sphere, Lon_Lat.csv to LCC_62a.csv, 300, 4.09364282598224e-08, 1.76617737785848e-05
+Test_sphere, LCC_62a.csv to Lon_Lat.csv, 300, 0, 6.97612804339384e-07
+Test_sphere, Lon_Lat.csv to LCC_63.csv, 300, 4.06060914631777e-08, 2.40082170869609e-06
+Test_sphere, LCC_63.csv to Lon_Lat.csv, 300, 4.24073957528469e-09, 8.70806784549999e-07
 Test_sphere, Lon_Lat.csv to LCC_64.csv, 300, 0.000335339972999856, 0.0109215172815256
-Test_sphere, LCC_64.csv to Lon_Lat.csv, 300, 1.85178961454098e-007, 0.000137402355019768
-Test_sphere, Lon_Lat.csv to LCC_65.csv, 300, 1.66778428175798e-007, 2.8973120133297e-006
-Test_sphere, LCC_65.csv to Lon_Lat.csv, 300, 6.36110936292703e-009, 2.88245995764459e-006
-Test_sphere, Lon_Lat.csv to LCC_66.csv, 300, 2.06787170015038e-008, 0.000301961934077077
-Test_sphere, LCC_66.csv to Lon_Lat.csv, 300, 2.12036978764234e-008, 1.15954760345443e-006
+Test_sphere, LCC_64.csv to Lon_Lat.csv, 300, 1.85178961454098e-07, 0.000137402355019768
+Test_sphere, Lon_Lat.csv to LCC_65.csv, 300, 1.66778428175798e-07, 2.8973120133297e-06
+Test_sphere, LCC_65.csv to Lon_Lat.csv, 300, 6.36110936292703e-09, 2.88245995764459e-06
+Test_sphere, Lon_Lat.csv to LCC_66.csv, 300, 2.06787170015038e-08, 0.000301961934077077
+Test_sphere, LCC_66.csv to Lon_Lat.csv, 300, 2.12036978764234e-08, 1.15954760345443e-06
 Test_sphere, Lon_Lat.csv to LCC_67.csv, Exception: Incompatible SRF Parameter Set
 Test_sphere, LCC_67.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
 Test_sphere, Lon_Lat.csv to LCC_68.csv, 300, 0.0070968184314018, 0.0223665487693742
-Test_sphere, LCC_68.csv to Lon_Lat.csv, 300, 8.36485881224905e-007, 0.000212723598495499
+Test_sphere, LCC_68.csv to Lon_Lat.csv, 300, 8.36485881224905e-07, 0.000212723598495499
 Test_sphere, Lon_Lat.csv to LCC_69.csv, Exception: Incompatible SRF Parameter Set
 Test_sphere, LCC_69.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-Test_sphere, Lon_Lat.csv to Mercator_51.csv, 300, 8.38190317153931e-009, 1.43872312857315e-005
-Test_sphere, Mercator_51.csv to Lon_Lat.csv, 300, 0, 5.88665231080862e-007
-Test_sphere, Lon_Lat.csv to Mercator_51a.csv, 300, 7.45058059692383e-009, 1.43909339629506e-005
-Test_sphere, Mercator_51a.csv to Lon_Lat.csv, 300, 0, 5.86704275972557e-007
-Test_sphere, Lon_Lat.csv to Mercator_52.csv, 300, 8.38190317153931e-009, 1.31788769695393e-005
-Test_sphere, Mercator_52.csv to Lon_Lat.csv, 300, 0, 6.09661764990871e-007
-Test_sphere, Lon_Lat.csv to Mercator_53.csv, 300, 7.45058059692383e-009, 1.05739358418097e-005
-Test_sphere, Mercator_53.csv to Lon_Lat.csv, 300, 0, 8.09910131511116e-007
-Test_sphere, Lon_Lat.csv to Mercator_54.csv, 300, 1.13086388674259e-007, 1.4390175849312e-005
-Test_sphere, Mercator_54.csv to Lon_Lat.csv, 300, 0, 6.56032335135805e-007
-Test_sphere, Lon_Lat.csv to Mercator_54a.csv, 300, 5.72763383388519e-008, 1.3185663827354e-005
-Test_sphere, Mercator_54a.csv to Lon_Lat.csv, 300, 0, 7.81684523643472e-007
-Test_sphere, Lon_Lat.csv to Mercator_54b.csv, 300, 5.58793544769287e-008, 1.31893864875032e-005
-Test_sphere, Mercator_54b.csv to Lon_Lat.csv, 300, 0, 7.8264836762106e-007
+Test_sphere, Lon_Lat.csv to Mercator_51.csv, 300, 8.38190317153931e-09, 1.43872312857315e-05
+Test_sphere, Mercator_51.csv to Lon_Lat.csv, 300, 0, 5.88665231080862e-07
+Test_sphere, Lon_Lat.csv to Mercator_51a.csv, 300, 7.45058059692383e-09, 1.43909339629506e-05
+Test_sphere, Mercator_51a.csv to Lon_Lat.csv, 300, 0, 5.86704275972557e-07
+Test_sphere, Lon_Lat.csv to Mercator_52.csv, 300, 8.38190317153931e-09, 1.31788769695393e-05
+Test_sphere, Mercator_52.csv to Lon_Lat.csv, 300, 0, 6.09661764990871e-07
+Test_sphere, Lon_Lat.csv to Mercator_53.csv, 300, 7.45058059692383e-09, 1.05739358418097e-05
+Test_sphere, Mercator_53.csv to Lon_Lat.csv, 300, 0, 8.09910131511116e-07
+Test_sphere, Lon_Lat.csv to Mercator_54.csv, 300, 1.13086388674259e-07, 1.4390175849312e-05
+Test_sphere, Mercator_54.csv to Lon_Lat.csv, 300, 0, 6.56032335135805e-07
+Test_sphere, Lon_Lat.csv to Mercator_54a.csv, 300, 5.72763383388519e-08, 1.3185663827354e-05
+Test_sphere, Mercator_54a.csv to Lon_Lat.csv, 300, 0, 7.81684523643472e-07
+Test_sphere, Lon_Lat.csv to Mercator_54b.csv, 300, 5.58793544769287e-08, 1.31893864875032e-05
+Test_sphere, Mercator_54b.csv to Lon_Lat.csv, 300, 0, 7.8264836762106e-07
 Test_sphere, Lon_Lat.csv to Ney_71.csv, Ney SRF not supported
 Test_sphere, Ney_71.csv to Lon_Lat.csv, Ney SRF not supported
 Test_sphere, Lon_Lat.csv to Ney_70.csv, Ney SRF not supported
 Test_sphere, Ney_70.csv to Lon_Lat.csv, Ney SRF not supported
-Test_sphere, Lon_Lat.csv to PolarStereo_55.csv, 252, 0, 1.53918545516748e-006
-Test_sphere, PolarStereo_55.csv to Lon_Lat.csv, 223, 1.41357985842823e-009, 5.90478443121976e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_55a.csv, 252, 0, 1.53906853216492e-006
-Test_sphere, PolarStereo_55a.csv to Lon_Lat.csv, 223, 1.41357985842823e-009, 5.8919327313949e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_55b.csv, 252, 9.31322574615479e-009, 1.12951966002584e-006
-Test_sphere, PolarStereo_55b.csv to Lon_Lat.csv, 230, 3.6753076319134e-008, 8.84277910477777e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_56.csv, 252, 7.45058059692383e-009, 1.55498855747283e-006
-Test_sphere, PolarStereo_56.csv to Lon_Lat.csv, 219, 6.71450432753409e-009, 6.87940544355078e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_57.csv, 252, 7.36275143029257e-009, 1.0130872771783e-006
-Test_sphere, PolarStereo_57.csv to Lon_Lat.csv, 226, 4.17531075498485e-008, 6.38497980261261e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_57a.csv, 252, 2.73910186623274e-008, 1.27393239999503e-006
-Test_sphere, PolarStereo_57a.csv to Lon_Lat.csv, 220, 3.71793914734713e-008, 6.87940544355078e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_57b.csv, 252, 2.7444958415195e-008, 1.27398732855429e-006
-Test_sphere, PolarStereo_57b.csv to Lon_Lat.csv, 220, 3.71793914734713e-008, 6.87761099580543e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_58.csv, 252, 0, 1.53918545516748e-006
-Test_sphere, PolarStereo_58.csv to Lon_Lat.csv, 223, 1.41357985842823e-009, 5.90478443121976e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_58a.csv, 252, 7.45058059692383e-009, 1.55437737703323e-006
-Test_sphere, PolarStereo_58a.csv to Lon_Lat.csv, 219, 6.71450432753409e-009, 6.87857700544537e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_59.csv, 111, 3.32947820425034e-008, 1.02833743974259e-006
-Test_sphere, PolarStereo_59.csv to Lon_Lat.csv, 85, 4.17531075498485e-008, 5.57915983642289e-007
-Test_sphere, Lon_Lat.csv to PolarStereo_59a.csv, 111, 4.87500888418496e-008, 1.18568008002427e-006
-Test_sphere, PolarStereo_59a.csv to Lon_Lat.csv, 79, 5.5129614478701e-008, 6.89701329812756e-007
-Test_sphere, Lon_Lat.csv to TransMerc_72.csv, 66, 1.04736353697907e-007, 5.46922105947038e-007
-Test_sphere, TransMerc_72.csv to Lon_Lat.csv, 66, 1.41357985842823e-009, 8.72275217799877e-005
-Test_sphere, Lon_Lat.csv to TransMerc_72a.csv, 66, 3.82979508707692e-008, 5.63097530911155e-007
-Test_sphere, TransMerc_72a.csv to Lon_Lat.csv, 64, 7.06789929214115e-009, 8.72081856744038e-005
-Test_sphere, Lon_Lat.csv to TransMerc_73.csv, 71, 6.12727636553166e-008, 7.92042096858426e-007
-Test_sphere, TransMerc_73.csv to Lon_Lat.csv, 71, 7.63333123551244e-008, 0.000495939619424579
-WGE, geodetic_101.csv to rectangular_103.csv, 471, 1.4531100695922e-007, 0.000101478665333062
+Test_sphere, Lon_Lat.csv to PolarStereo_55.csv, 252, 0, 1.53918545516748e-06
+Test_sphere, PolarStereo_55.csv to Lon_Lat.csv, 223, 1.41357985842823e-09, 5.90478443121976e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_55a.csv, 252, 0, 1.53906853216492e-06
+Test_sphere, PolarStereo_55a.csv to Lon_Lat.csv, 223, 1.41357985842823e-09, 5.8919327313949e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_55b.csv, 252, 9.31322574615479e-09, 1.12951966002584e-06
+Test_sphere, PolarStereo_55b.csv to Lon_Lat.csv, 230, 3.6753076319134e-08, 8.84277910477777e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_56.csv, 252, 7.45058059692383e-09, 1.55498855747283e-06
+Test_sphere, PolarStereo_56.csv to Lon_Lat.csv, 219, 6.71450432753409e-09, 6.87940544355078e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_57.csv, 252, 7.36275143029257e-09, 1.0130872771783e-06
+Test_sphere, PolarStereo_57.csv to Lon_Lat.csv, 226, 4.17531075498485e-08, 6.38497980261261e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_57a.csv, 252, 2.73910186623274e-08, 1.27393239999503e-06
+Test_sphere, PolarStereo_57a.csv to Lon_Lat.csv, 220, 3.71793914734713e-08, 6.87940544355078e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_57b.csv, 252, 2.7444958415195e-08, 1.27398732855429e-06
+Test_sphere, PolarStereo_57b.csv to Lon_Lat.csv, 220, 3.71793914734713e-08, 6.87761099580543e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_58.csv, 252, 0, 1.53918545516748e-06
+Test_sphere, PolarStereo_58.csv to Lon_Lat.csv, 223, 1.41357985842823e-09, 5.90478443121976e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_58a.csv, 252, 7.45058059692383e-09, 1.55437737703323e-06
+Test_sphere, PolarStereo_58a.csv to Lon_Lat.csv, 219, 6.71450432753409e-09, 6.87857700544537e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_59.csv, 111, 3.32947820425034e-08, 1.02833743974259e-06
+Test_sphere, PolarStereo_59.csv to Lon_Lat.csv, 85, 4.17531075498485e-08, 5.57915983642289e-07
+Test_sphere, Lon_Lat.csv to PolarStereo_59a.csv, 111, 4.87500888418496e-08, 1.18568008002427e-06
+Test_sphere, PolarStereo_59a.csv to Lon_Lat.csv, 79, 5.5129614478701e-08, 6.89701329812756e-07
+Test_sphere, Lon_Lat.csv to TransMerc_72.csv, 66, 1.04736353697907e-07, 5.46922105947038e-07
+Test_sphere, TransMerc_72.csv to Lon_Lat.csv, 66, 1.41357985842823e-09, 8.72275217799877e-05
+Test_sphere, Lon_Lat.csv to TransMerc_72a.csv, 66, 3.82979508707692e-08, 5.63097530911155e-07
+Test_sphere, TransMerc_72a.csv to Lon_Lat.csv, 64, 7.06789929214115e-09, 8.72081856744038e-05
+Test_sphere, Lon_Lat.csv to TransMerc_73.csv, 71, 6.12727636553166e-08, 7.92042096858426e-07
+Test_sphere, TransMerc_73.csv to Lon_Lat.csv, 71, 7.63333123551244e-08, 0.000495939619424579
+WGE, geodetic_101.csv to rectangular_103.csv, 471, 1.4531100695922e-07, 0.000101478665333062
 WGE, rectangular_103.csv to geodetic_101.csv, 461, 0, 0.000878061633994873
 WGE, geodetic_101.csv to spherical_104.csv, Spherical SRF not supported
 WGE, spherical_104.csv to geodetic_101.csv, Spherical SRF not supported
 WGE, geodetic_101.csv to ellipsoidal_105.csv, Ellipsoidal SRF not supported
 WGE, ellipsoidal_105.csv to geodetic_101.csv, Ellipsoidal SRF not supported
-Test_SRMmax, geodetic_106.csv to rectangular_108.csv, 471, 1.18884962647384e-007, 0.00159100722568013
+Test_SRMmax, geodetic_106.csv to rectangular_108.csv, 471, 1.18884962647384e-07, 0.00159100722568013
 Test_SRMmax, rectangular_108.csv to geodetic_106.csv, 459, 0, 0.0141402697190643
 Test_SRMmax, geodetic_106.csv to spherical_109.csv, Spherical SRF not supported
 Test_SRMmax, spherical_109.csv to geodetic_106.csv, Spherical SRF not supported

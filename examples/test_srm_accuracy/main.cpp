@@ -275,61 +275,61 @@ double computeError(const srm::Coord3D* tgtCoordHandle, const doubleArray3& Coor
    return error;
 }
 
-void computeStat(const std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, const bool isCD, statInfo& results)
+void computeStat(const std::vector<diffInfo>& diffs, std::vector<bool>& exceeded, const bool isCD, statInfo* results)
 {
-   results.count = diffs.size();
-   results.max = 0.0;
-   results.min = 999999999999.99;
-   results.num_exceeded = 0;
-   results.isCD = isCD;
+   results->count = diffs.size();
+   results->max = 0.0;
+   results->min = 999999999999.99;
+   results->num_exceeded = 0;
+   results->isCD = isCD;
 
    double corrected_denom{};
-   if (results.count == 0) {
+   if (results->count == 0) {
       corrected_denom = 1.0;
-      results.dataPoint = 0;
-      results.compOut.var[0] = 0.0;
-      results.compOut.var[1] = 0.0;
-      results.compOut.var[2] = 0.0;
+      results->dataPoint = 0;
+      results->compOut.var[0] = 0.0;
+      results->compOut.var[1] = 0.0;
+      results->compOut.var[2] = 0.0;
    } else {
-      corrected_denom = results.count;
-      results.dataPoint = diffs[0].dataPoint;
-      results.compOut = diffs[0].compOut;
+      corrected_denom = results->count;
+      results->dataPoint = diffs[0].dataPoint;
+      results->compOut = diffs[0].compOut;
    }
 
    double sum{};
    for (int i = 0; i < diffs.size(); i++) {
       if (diffs[i].diff > MAX_DIFF) {
-         results.num_exceeded += 1;
+         results->num_exceeded += 1;
          exceeded.push_back(true);
       } else
          exceeded.push_back(false);
 
-      if (diffs[i].diff > results.max) {
-         results.max = diffs[i].diff;
-         results.dataPoint = diffs[i].dataPoint;
-         results.compOut = diffs[i].compOut;
+      if (diffs[i].diff > results->max) {
+         results->max = diffs[i].diff;
+         results->dataPoint = diffs[i].dataPoint;
+         results->compOut = diffs[i].compOut;
       }
 
-      if (diffs[i].diff < results.min)
-         results.min = diffs[i].diff;
+      if (diffs[i].diff < results->min)
+         results->min = diffs[i].diff;
 
       sum += diffs[i].diff;
    }
 
-   if (results.max > MAX_DIFF)
-      results.exceededThreshold = true;
+   if (results->max > MAX_DIFF)
+      results->exceededThreshold = true;
    else
-      results.exceededThreshold = false;
+      results->exceededThreshold = false;
 
-   results.mean = sum / corrected_denom;
+   results->mean = sum / corrected_denom;
 
    double sumSq{};
    for (int j = 0; j < diffs.size(); j++) {
-      const double mDiff = diffs[j].diff - results.mean;
+      const double mDiff = diffs[j].diff - results->mean;
       sumSq += mDiff * mDiff;
    }
 
-   results.stdDev = std::sqrt(sumSq / corrected_denom);
+   results->stdDev = std::sqrt(sumSq / corrected_denom);
 }
 
 void computeStat(const std::vector<gdDatumCoord>& gdCoord, std::vector<gdDatumStat>& results)
@@ -487,49 +487,55 @@ int createSRF(srfParams& srf, srm::BaseSRF_3D** srfHandle, statInfo& results)
    return 1;
 }
 
-int createCoord(srm::BaseSRF_3D* srfHandle, srm::Coord3D** coordHandle)
+void createCoord(srm::BaseSRF_3D* srfHandle, srm::Coord3D** coordHandle)
 {
    *coordHandle = static_cast<srm::Coord3D*>(srfHandle->createCoordinate3D(1.0, 1.0, 1.0));
-
-   return 1;
 }
 
-int testConversion(std::vector<gdDatumCoord>& gdCoord)
+void testConversion(std::vector<gdDatumCoord>& gdCoord)
 {
-   srm::BaseSRF_3D* srcSrfHandle{};
-   srm::BaseSRF_3D* tgtSrfHandle{};
+   int gdCoord_size = gdCoord.size();
+   //std::cout << "gdCoord.size: " << gdCoord.size() << "\n";
+   gdCoord_size = 3380;
 
-   srm::Coord3D* srcCoordHandle{};
-   srm::Coord3D* tgtCoordHandle{};
-   SRM_Coordinate_Valid_Region vRegion{};
-   SRM_Vector_3D coord{};
-
-   for (int i = 0; i < gdCoord.size(); i++) {
+   for (int i = 0; i < gdCoord_size; i++) {
+      srm::BaseSRF_3D* srcSrfHandle{};
       try {
          srcSrfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_Celestiodetic::create
             (ormMap[gdCoord[i].datum_name_in],
             rtMap[gdCoord[i].datum_name_in]));
       } catch (srm::Exception(ex)) {
          std::cout << "Error SRF creation: ORM/RT not supported=> " << gdCoord[i].datum_name_in << std::endl;
+         std::cout << "i: " << i << "\n";
+         std::cout << "ormMap : " << ormMap[gdCoord[i].datum_name_in] << std::endl;
+         std::cout << "rtMap : " << rtMap[gdCoord[i].datum_name_in] << std::endl;
+         std::exit(0);
       }
 
+      srm::BaseSRF_3D* tgtSrfHandle{};
       try {
          tgtSrfHandle = static_cast<srm::BaseSRF_3D*>(srm::SRF_Celestiodetic::create
             (ormMap[gdCoord[i].datum_name_out],
             rtMap[gdCoord[i].datum_name_out]));
       } catch (srm::Exception(ex)) {
          std::cout << "Error SRF creation: ORM/RT not supported=> " << gdCoord[i].datum_name_out << std::endl;
+         std::cout << "2 - here... i: " << i << "\n";
+         std::exit(0);
       }
 
+      srm::Coord3D* srcCoordHandle{};
       createCoord(srcSrfHandle, &srcCoordHandle);
+      srm::Coord3D* tgtCoordHandle{};
       createCoord(tgtSrfHandle, &tgtCoordHandle);
 
+      SRM_Vector_3D coord{};
       coord[0] = gdCoord[i].gd_coord_in[0] * toRad;
       coord[1] = gdCoord[i].gd_coord_in[1] * toRad;
       coord[2] = gdCoord[i].gd_coord_in[2];
 
       srcCoordHandle->setValues(coord);
 
+      SRM_Coordinate_Valid_Region vRegion{};
       try {
          vRegion = tgtSrfHandle->changeCoordinate3DSRF(*srcCoordHandle, *tgtCoordHandle);
 
@@ -553,72 +559,74 @@ int testConversion(std::vector<gdDatumCoord>& gdCoord)
          gdCoord[i].diff = 0.0;
       }
 
-      // free the memory
+      // free memory
       srcSrfHandle->freeCoordinate(srcCoordHandle);
-      tgtSrfHandle->freeCoordinate(tgtCoordHandle);
       srcSrfHandle->release();
+      tgtSrfHandle->freeCoordinate(tgtCoordHandle);
       tgtSrfHandle->release();
    }
-
-   return 1;
 }
 
-int testConversion(srfParams& srcSrf,
+void testConversion(srfParams& srcSrf,
    srfParams& tgtSrf,
    const std::vector<doubleArray3>& srcCoordVal,
    const std::vector<doubleArray3>& tgtCoordVal,
    std::vector<doubleArray3>& compCoordVal,
-   statInfo& results,
+   statInfo* results,
    std::vector<bool>& exceeded,
    const std::string& srfName)
 {
    srm::BaseSRF_3D* srcSrfHandle{};
+   if (!createSRF(srcSrf, &srcSrfHandle, *results))
+      return;
+
    srm::BaseSRF_3D* tgtSrfHandle{};
-   srm::Coord3D* srcCoordHandle{};
-   srm::Coord3D* tgtCoordHandle{};
-   srm::Coord3D* goldCoordHandle{};
-   bool isCD{};
-   std::vector<diffInfo> diffs{};
-   SRM_Vector_3D coordVal{};
-   double toRadConv{1.0};
-   SRM_Coordinate_Valid_Region vRegion{};
-   doubleArray3 compOut{};
-   SRM_ORM_Transformation_3D_Parameters ident_hst = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
-   double radFactor{1.0};
-
-   results.message[0] = '\0';
-
-   if (!createSRF(srcSrf, &srcSrfHandle, results))
-      return 0;
-
-   if (!createSRF(tgtSrf, &tgtSrfHandle, results)) {
+   if (!createSRF(tgtSrf, &tgtSrfHandle, *results)) {
       srcSrfHandle->release();
-      return 0;
+      return;
    }
 
+   srm::Coord3D* srcCoordHandle{};
    createCoord(srcSrfHandle, &srcCoordHandle);
+
+   srm::Coord3D* tgtCoordHandle{};
    createCoord(tgtSrfHandle, &tgtCoordHandle);
+
+   srm::Coord3D* goldCoordHandle{};
    createCoord(tgtSrfHandle, &goldCoordHandle);
 
-   if (srfTypeMap[srcSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL)
+   double toRadConv{1.0};
+   if (srfTypeMap[srcSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL) {
       toRadConv = toRad;
+   }
 
-   if (srfTypeMap[tgtSrf.type] == GEODETIC)
+   double radFactor{1.0};
+   if (srfTypeMap[tgtSrf.type] == GEODETIC) {
       radFactor = toRad;
+   }
 
-   if (srfTypeMap[tgtSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL)
+   bool isCD{};
+   if (srfTypeMap[tgtSrf.type] == GEODETIC || srfTypeMap[srcSrf.type] == SPHERICAL) {
       isCD = true;
+   }
 
+   std::vector<diffInfo> diffs{};
    for (int i = 0; i<srcCoordVal.size(); i++) {
+
+      SRM_Vector_3D coordVal{};
       coordVal[0] = srcCoordVal[i].var[0] * toRadConv; // correct if lon
       coordVal[1] = srcCoordVal[i].var[1] * toRadConv; // correct if lat
       coordVal[2] = srcCoordVal[i].var[2];
 
       srcCoordHandle->setValues(coordVal);
 
+      doubleArray3 compOut{};
       try {
+
+         SRM_Coordinate_Valid_Region vRegion{};
          if (srcCoordHandle->getClassType() == srm::Coord::COORD_TYP_EI ||
             tgtCoordHandle->getClassType() == srm::Coord::COORD_TYP_EI) {
+            SRM_ORM_Transformation_3D_Parameters ident_hst = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
             vRegion = tgtSrfHandle->changeCoordinate3DSRFObject
                (*srcCoordHandle, ident_hst, *tgtCoordHandle);
          } else {
@@ -669,19 +677,18 @@ int testConversion(srfParams& srcSrf,
 
    //	  printData( diffs );
 
+   results->message[0] = '\0';
    computeStat(diffs, exceeded, isCD, results);
 
-   srfs << srfName << std::endl;
-   srfs << srcSrfHandle->toString() << std::endl;
-   srfs << "#######################################################" << std::endl;
+   //std::cout << srfName << std::endl;
+   //std::cout << srcSrfHandle->toString() << std::endl;
+   //std::cout << "#######################################################" << std::endl;
 
    // free the memory
    srcSrfHandle->freeCoordinate(srcCoordHandle);
    tgtSrfHandle->freeCoordinate(tgtCoordHandle);
    srcSrfHandle->release();
    tgtSrfHandle->release();
-
-   return 1;
 }
 
 int main(int argc, char* argv[])
@@ -706,7 +713,7 @@ int main(int argc, char* argv[])
    // load and print configuration file
    std::vector<configInfo> config;
    load_configuration_file(config_file_name, &config);
-   print_configuration_data(config);
+   //print_configuration_data(config);
 
    initialize_map_data();
 
@@ -738,21 +745,26 @@ int main(int argc, char* argv[])
       std::string full_file_name_1 = config[test_case].path + config[test_case].file_name_1;
       std::string full_file_name_2 = config[test_case].path + config[test_case].file_name_2;
 
-      if (std::strstr(full_file_name_1.c_str(), "NGA_3parDT")) {
-            std::vector<gdDatumCoord> gdCoord{};
-            std::vector<gdDatumStat> datumStat{};
+      //std::cout << "f1:" << full_file_name_1 << " f2:" << full_file_name_2 << std::endl;
 
+      if (full_file_name_1.find("NGA_3parDT") != std::string::npos) {
+
+            std::vector<gdDatumCoord> gdCoord;
             load_gdDatumCoords(full_file_name_1, full_file_name_2, &gdCoord);
 
             testConversion(gdCoord);
+
+            std::vector<gdDatumStat> datumStat;
             computeStat(gdCoord, datumStat);
+
             printData(datumResStr, datumStat, more);
+
       } else { // this is not the datum shift case
 
-         std::vector<doubleArray3> srcDoubleParam{};
-         std::vector<doubleArray3> tgtDoubleParam{};
-         srfParams srcSrf{};
-         srfParams tgtSrf{};
+         std::vector<doubleArray3> srcDoubleParam;
+         std::vector<doubleArray3> tgtDoubleParam;
+         srfParams srcSrf;
+         srfParams tgtSrf;
 
          // fill in the magic numbers to detect a SRF parameter was set
          for (int i = 0; i < DATUM; i++) {
@@ -764,16 +776,18 @@ int main(int argc, char* argv[])
          load_file(full_file_name_2, &tgtSrf, &tgtDoubleParam);
 
          {
-            statInfo results{};
+            statInfo results;
             std::vector<bool> exceeded{};
             std::vector<doubleArray3> compDoubleParamSt{};
 
             testConversion(srcSrf, tgtSrf, srcDoubleParam, tgtDoubleParam, compDoubleParamSt,
-              results, exceeded, config[test_case].file_name_1);
+              &results, exceeded, config[test_case].file_name_1);
+
             printData(convResStr, srcDoubleParam, tgtDoubleParam, compDoubleParamSt, srcSrf.datum_name,
               exceeded, config[test_case].file_name_1, config[test_case].file_name_2,
               results, more);
          }
+
  
          {
             statInfo results;
@@ -781,7 +795,8 @@ int main(int argc, char* argv[])
             std::vector<doubleArray3> compDoubleParamTs;
 
             testConversion(tgtSrf, srcSrf, tgtDoubleParam, srcDoubleParam, compDoubleParamTs,
-              results, exceeded, config[test_case].file_name_2);
+              &results, exceeded, config[test_case].file_name_2);
+            
             printData(convResStr, tgtDoubleParam, srcDoubleParam, compDoubleParamTs, tgtSrf.datum_name,
               exceeded, config[test_case].file_name_2, config[test_case].file_name_1,
               results, more);

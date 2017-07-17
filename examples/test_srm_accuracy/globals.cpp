@@ -32,4 +32,3 @@ const char* srfName[] = { "Transverse Mercator",
 "Spherical",
 "Ellipsoidal" };
 
-std::ofstream srfs;

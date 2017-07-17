@@ -15,28 +15,40 @@
 #include "map_data.hpp"
 #include "globals.hpp"
 
-void read_gdDatumCoord_CSV(std::FILE* infileSrc, std::FILE* infileTgt, std::vector<gdDatumCoord>* gdCoord)
+void load_gdDatumCoords(const std::string& src_file_name, const std::string& tgt_file_name, std::vector<gdDatumCoord>* gdCoord)
 {
-   if (std::feof(infileSrc))
-      return;
-   if (std::feof(infileTgt))
+   std::FILE* inFile = std::fopen(src_file_name.c_str(), "r");
+   if (!inFile) {
+      std::cout << "Unable to open " << src_file_name << " file";
+      std::exit(0);
+   }
+
+   std::FILE* outFile = std::fopen(tgt_file_name.c_str(), "r");
+   if (!outFile) {
+      std::cout << "Unable to open " << tgt_file_name << " file";
+      std::exit(0);
+   }
+
+   if (std::feof(inFile))
       return;
 
-   //	declare string buffer
+   if (std::feof(outFile))
+      return;
+
    char srcBuffer[500]{};
-   char tgtBuffer[500]{};
+   std::fgets(srcBuffer, 500, inFile);
+   std::fgets(srcBuffer, 500, inFile);
+   std::fgets(srcBuffer, 500, inFile);
+   std::fgets(srcBuffer, 500, inFile);
 
-   std::fgets(srcBuffer, 500, infileSrc);
-   std::fgets(srcBuffer, 500, infileSrc);
-   std::fgets(srcBuffer, 500, infileSrc);
-   std::fgets(srcBuffer, 500, infileSrc);
-   std::fgets(tgtBuffer, 500, infileTgt);
-   std::fgets(tgtBuffer, 500, infileTgt);
-   std::fgets(tgtBuffer, 500, infileTgt);
-   std::fgets(tgtBuffer, 500, infileTgt);
+   char tgtBuffer[500]{};
+   std::fgets(tgtBuffer, 500, outFile);
+   std::fgets(tgtBuffer, 500, outFile);
+   std::fgets(tgtBuffer, 500, outFile);
+   std::fgets(tgtBuffer, 500, outFile);
 
    gdDatumCoord gd;
-   while (!std::feof(infileSrc) && !std::feof(infileTgt)) {
+   while (!std::feof(inFile) && !std::feof(outFile)) {
       std::strtok(srcBuffer, " ,");
       gd.datum_name_in = std::strtok(NULL, " ,");
       gd.gd_coord_in[0] = std::atof(std::strtok(NULL, " ,"));
@@ -51,99 +63,86 @@ void read_gdDatumCoord_CSV(std::FILE* infileSrc, std::FILE* infileTgt, std::vect
 
       gdCoord->push_back(gd);
 
-      std::fgets(srcBuffer, 500, infileSrc);
-      std::fgets(tgtBuffer, 500, infileTgt);
+      std::fgets(srcBuffer, 500, inFile);
+      std::fgets(tgtBuffer, 500, outFile);
    }
-}
-
-void load_gdDatumCoords(const std::string& src_file_name, const std::string& tgt_file_name, std::vector<gdDatumCoord>* gdCoord)
-{
-   std::FILE* inFile = std::fopen(src_file_name.c_str(), "r");
-   std::FILE* outFile = std::fopen(tgt_file_name.c_str(), "r");
-
-   if (!inFile) {
-      std::cout << "Unable to open " << src_file_name << " file";
-      std::exit(0);
-   }
-
-   if (!outFile) {
-      std::cout << "Unable to open " << tgt_file_name << " file";
-      std::exit(0);
-   }
-
-   read_gdDatumCoord_CSV(inFile, outFile, gdCoord);
-
    std::fclose(inFile);
    std::fclose(outFile);
 }
 
-void read_CSV(std::FILE* infile, srfParams* srf, std::vector<doubleArray3>* inDoubleParam)
+void load_file(const std::string& file_name, srfParams* srf, std::vector<doubleArray3>* doubleParam)
 {
-   if (std::feof(infile))
+   //std::cout << "filename to parse: " << file_name << std::endl;
+
+   std::FILE* file = std::fopen(file_name.c_str(), "r");
+
+   if (!file) {
+      std::cout << "Unable to open " << file_name << " file";
+      std::exit(0);
+   }
+
+   if (std::feof(file))
       return;
 
-   //	declare string buffer
    char buffer[500]{};
-   std::fgets(buffer, 500, infile);
+   std::fgets(buffer, 500, file);
 
-   doubleArray3 data{};
-   char* pch{};
-   while (!std::feof(infile) && std::strstr(buffer, "END OF HEADER") == NULL) {
+   // read header section
+   while (!std::feof(file) && std::strstr(buffer, "END OF HEADER") == NULL) {
       if (buffer[0] != '#' && buffer[0] != '\n') {
-         pch = std::strtok(buffer, ":");
+         const char* const pch = std::strtok(buffer, ":");
          if (std::strstr(pch, srfParamName[NO_HEIGHT]) != NULL) {
             srf->floatParam[NO_HEIGHT] = 1.0;
          } else if (std::strstr(pch, srfParamName[ELLIPSOID_HEIGHT]) != NULL) {
             srf->floatParam[ELLIPSOID_HEIGHT] = 1.0;
          } else {
             switch (srfParamMap[pch]) {
-            case COORDINATES:
-            case PROJECTION:
-               srf->type = std::strtok(NULL, ", '\n'");
-               break;
+               case COORDINATES:
+               case PROJECTION:
+                  srf->type = std::strtok(NULL, ", '\n'");
+                  break;
 
-            case DATUM:
-            {
-               srf->datum_name = std::strtok(NULL, ", '\n'");
+               case DATUM:
+                  srf->datum_name = std::strtok(NULL, ", '\n'");
+                  srf->orm = ormMap[srf->datum_name];
+                  srf->rt = rtMap[srf->datum_name];
+                  break;
 
-               srf->orm = ormMap[srf->datum_name];
-               srf->rt = rtMap[srf->datum_name];
+               case CENTRAL_MERIDIAN:
+               case ORIGIN_LATITUDE:
+               case SCALE_FACTOR:
+               case STANDARD_PARALLEL_ONE:
+               case STANDARD_PARALLEL_TWO:
+               case LONGITUDE_DOWN_FROM_POLE:
+               case LATITUDE_OF_TRUE_SCALE:
+               case FALSE_EASTING:
+               case FALSE_NORTHING:
+                  srf->floatParam[srfParamMap[pch]] = std::atof(std::strtok(NULL, " "));
+                  break;
 
-               break;
-            }
-
-            case CENTRAL_MERIDIAN:
-            case ORIGIN_LATITUDE:
-            case SCALE_FACTOR:
-            case STANDARD_PARALLEL_ONE:
-            case STANDARD_PARALLEL_TWO:
-            case LONGITUDE_DOWN_FROM_POLE:
-            case LATITUDE_OF_TRUE_SCALE:
-            case FALSE_EASTING:
-            case FALSE_NORTHING:
-               srf->floatParam[srfParamMap[pch]] = std::atof(std::strtok(NULL, " "));
-               break;
-
-            default:
-               std::cout << "ERROR: SRF parameter not supported" << std::endl;
-               break;
+               default:
+                  std::cout << "ERROR: SRF parameter not supported" << std::endl;
+                  break;
             }
          }
       }
 
-      std::fgets(buffer, 500, infile);
+      std::fgets(buffer, 500, file);
    }
 
-   std::fgets(buffer, 500, infile);
+   std::fgets(buffer, 500, file);
 
+   // read past any blank or comment lines
    while (buffer[0] == '\n' || buffer[0] == '#') {
-      std::fgets(buffer, 500, infile);
+      std::fgets(buffer, 500, file);
    }
 
-   while (!std::feof(infile)) {
-      pch = std::strtok(buffer, " ,");
+   // read main data section
+   while (!std::feof(file)) {
+      doubleArray3 data{};
+      const char* pch = std::strtok(buffer, " ,");
 
-      int i = 0;
+      int i{};
       while (pch != NULL) {
          data.var[i++] = std::atof(pch);
          pch = std::strtok(NULL, " ,");
@@ -153,24 +152,12 @@ void read_CSV(std::FILE* infile, srfParams* srf, std::vector<doubleArray3>* inDo
       if (i == 2)
          data.var[i] = 0.0;
 
-      inDoubleParam->push_back(data);
+      doubleParam->push_back(data);
 
-      std::fgets(buffer, 500, infile);
-   }
-}
-
-void load_file(const std::string& file_name, srfParams* srf, std::vector<doubleArray3>* doubleParam)
-{
-   std::FILE* inFile = std::fopen(file_name.c_str(), "r");
-
-   if (!inFile) {
-      std::cout << "Unable to open " << file_name << " file";
-      std::exit(0);
+      std::fgets(buffer, 500, file);
    }
 
-   read_CSV(inFile, srf, doubleParam);
-
-   std::fclose(inFile);
+   std::fclose(file);
 }
 
 void load_configuration_file(const std::string& file_name, std::vector<configInfo>* config)

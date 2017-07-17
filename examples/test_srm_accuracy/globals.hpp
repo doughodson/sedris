@@ -8,6 +8,4 @@ extern const char* datum[];
 extern const char* srfParamName[];
 extern const char* srfName[];
 
-extern std::ofstream srfs;
-
 #endif
