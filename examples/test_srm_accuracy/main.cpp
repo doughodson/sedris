@@ -519,7 +519,9 @@ void testConversion(std::vector<gdDatumCoord>& gdCoord)
             rtMap[gdCoord[i].datum_name_out]));
       } catch (srm::Exception(ex)) {
          std::cout << "Error SRF creation: ORM/RT not supported=> " << gdCoord[i].datum_name_out << std::endl;
-         std::cout << "2 - here... i: " << i << "\n";
+         std::cout << "i: " << i << "\n";
+         std::cout << "ormMap : " << ormMap[gdCoord[i].datum_name_in] << std::endl;
+         std::cout << "rtMap : " << rtMap[gdCoord[i].datum_name_in] << std::endl;
          std::exit(0);
       }
 
