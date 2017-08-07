@@ -13,7 +13,7 @@ del ..\..\lib\*.lib
 rem
 rem create new build files files
 rem
-premake5-alpha11.exe --os=windows --file=premake5.lua vs2013
-premake5-alpha11.exe --os=windows --file=premake5.lua vs2015
-premake5-alpha11.exe --os=windows --file=premake5.lua vs2017
+premake5_v2017_0807.exe --os=windows --file=premake5.lua vs2013
+premake5_v2017_0807.exe --os=windows --file=premake5.lua vs2015
+premake5_v2017_0807.exe --os=windows --file=premake5.lua vs2017
 

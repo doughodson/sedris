@@ -47,7 +47,7 @@ workspace "sedris"
 
    -- common release configuration flags and symbols
    filter { "Release" }
-      flags { "Optimize" }
+      optimize "On"
       if _ACTION ~= "gmake" then
          -- favor speed over size
          buildoptions { "/Ot" }
