@@ -13,5 +13,5 @@ rm -rf ..\..\lib\*.lib
 #
 # create new build files files
 #
-./premake5-alpha11 --os=linux --file=premake5.lua gmake
+./premake5_v2017_0807 --os=linux --file=premake5.lua gmake
 
