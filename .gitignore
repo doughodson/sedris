@@ -1,11 +1,7 @@
 # generated build files
 build/obj/
 gmake/
-vs2013/
-vs2015/
 vs2017/
-codeblocks/
-codelite/
 .vscode/
 
 # Prerequisites

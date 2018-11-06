@@ -3,8 +3,6 @@
 -- If premake command is not supplied an action (target compiler), exit!
 --
 -- Targets of interest:
---     vs2013     (Visual Studio 2013)
---     vs2015     (Visual Studio 2015)
 --     vs2017     (Visual Studio 2017)
 --     gmake      (Linux make)
 --
