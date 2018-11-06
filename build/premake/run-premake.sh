@@ -2,8 +2,6 @@
 # remove any generated build files
 #
 rm -rf ..\gmake
-rm -rf ..\vs2013
-rm -rf ..\vs2015
 rm -rf ..\vs2017
 rm -rf ..\obj
 #
@@ -13,5 +11,4 @@ rm -rf ..\..\lib\*.lib
 #
 # create new build files files
 #
-./premake5_v2017_0807 --os=linux --file=premake5.lua gmake
-
+./premake5-alpha13 --os=linux --file=premake5.lua gmake
