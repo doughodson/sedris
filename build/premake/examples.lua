@@ -43,3 +43,29 @@ project "sample_srm_access_c"
       "../../examples/sample_srm_access_c/**.c*"
    }
 
+-- accessing SRM functionality from Lua
+project "sample_srm_access_lua"
+   targetname "sample_srm_access_lua"
+   targetdir "../../examples/sample_srm_access_lua"
+   debugdir "../../examples/sample_srm_access_lua"
+   kind "ConsoleApp"
+   language "C++"
+   if os.ishost("linux") then
+      links { "dl", "readline" }
+   else
+      defines { "_CONSOLE" }
+      links {"Ws2_32", "Winmm", "comctl32", "gdi32"}
+   end
+   if _ACTION ~= "gmake" then
+      defines { "_CONSOLE" }
+   end
+   if _ACTION == "gmake" then
+      buildoptions { "-std=c++14" }
+   end
+   includedirs { IncPathSRM, IncPathSol2, IncPathLua }
+   libdirs { LibPathSEDRIS, LibPathDeps }
+   links { "libsrm", "liblua" }
+   files {
+      "../../examples/sample_srm_access_lua/**.h*",
+      "../../examples/sample_srm_access_lua/**.cpp"
+   }
