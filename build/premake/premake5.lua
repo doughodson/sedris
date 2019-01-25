@@ -16,9 +16,9 @@ end
 --
 
 -- paths for sedris code
-IncPathSRM          = "../../src/srm"
-IncPathSRM_wrapper  = "../../src/srm_wrapper"
-LibPathSEDRIS       = "../../lib"
+IncPathSRM            = "../../src/srm"
+IncPathSRM_c_wrapper  = "../../src/srm_c_wrapper"
+LibPathSEDRIS         = "../../lib"
 -- paths for dependencies
 IncPathSol2 = "../../deps/src/sol2"
 IncPathLua  = "../../deps/src/lua-5.3.5/src"

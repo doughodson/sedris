@@ -3,7 +3,7 @@
 -- examples
 --
 
--- sample_srm_access
+-- accessing SRM native functionality from using C++
 project "sample_srm_access"
    targetname "sample_srm_access"
    targetdir "../../examples/sample_srm_access"
@@ -24,7 +24,7 @@ project "sample_srm_access"
       "../../examples/sample_srm_access/**.cpp"
    }
 
--- sample_srm_access_c
+-- accessing SRM functionality from C
 project "sample_srm_access_c"
    targetname "sample_srm_access_c"
    targetdir "../../examples/sample_srm_access_c"
@@ -35,9 +35,9 @@ project "sample_srm_access_c"
       defines { "_CONSOLE" }
    end
    --buildoptions { "-lm", "-lstdc++"}
-   includedirs { IncPathSRM_wrapper, IncPathSRM }
+   includedirs { IncPathSRM_c_wrapper, IncPathSRM }
    libdirs { LibPathSEDRIS }
-   links { "libsrm_wrapper", "libsrm" }
+   links { "libsrm_c_wrapper", "libsrm" }
    files {
       "../../examples/sample_srm_access_c/**.h*",
       "../../examples/sample_srm_access_c/**.c*"

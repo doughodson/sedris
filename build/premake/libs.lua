@@ -22,8 +22,8 @@ project "libsrm"
    }
 
 -- SRM C wrapper library
-project "libsrm_wrapper"
-   targetname "srm_wrapper"
+project "libsrm_c_wrapper"
+   targetname "srm_c_wrapper"
    targetdir(LibPathSEDRIS)
    kind "StaticLib"
    language "C++"
@@ -35,8 +35,8 @@ project "libsrm_wrapper"
    end
    includedirs { IncPathSRM }
    files {
-      "../../src/srm_wrapper/**.h*",
-      "../../src/srm_wrapper/**.cpp"
+      "../../src/srm_c_wrapper/**.h*",
+      "../../src/srm_c_wrapper/**.cpp"
    }
 
 -- lua library

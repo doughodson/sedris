@@ -10,13 +10,15 @@ Libraries
 ---------
 
 * Spatial Reference Model (SRM) C++
-* Spatial Reference Model (SRM) C Wrapper for C++ (new)
+* Spatial Reference Model (SRM) C Wrapper for C++
 
 Examples
 --------
 
-* sample_srm_access (uses C++ SRM)
+* sample_srm_access (uses native C++-based SRM functionality directly)
 * sample_srm_access_c (uses C wrapper interface functions)
+* test_srm_accuracy
+* test_srm_timing
 
 Compiling Codebase
 ------------------
