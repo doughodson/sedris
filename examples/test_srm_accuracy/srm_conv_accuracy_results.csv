@@ -1,7 +1,7 @@
 Coordinate conversion accuracy assessment for SRM C++
 (The results are given as the Euclidean distance (in meters) between the computed coordinate and the golden data)
 
-Test conducted: Mon Jul 17 17:24:20 2017
+Test conducted: Thu Jan 24 19:27:48 2019
 
 ORM/RT, Conversion, Count, MIN (m), MAX (m)
 
@@ -23,26 +23,26 @@ WGE, Lon_Lat.csv to LCC_19.csv, 300, 7.36706657881122e-08, 2.92203363655419e-06
 WGE, LCC_19.csv to Lon_Lat.csv, 300, 5.66966403513896e-09, 1.29185181927641e-05
 WGE, Lon_Lat.csv to LCC_20.csv, 300, 1.15198240399854e-07, 0.000301474791460471
 WGE, LCC_20.csv to Lon_Lat.csv, 300, 3.82382345781994e-08, 1.20297991798806e-05
-WGE, Lon_Lat.csv to LCC_21.csv, Exception: Incompatible SRF Parameter Set
-WGE, LCC_21.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+WGE, Lon_Lat.csv to LCC_21.csv, 300, 2.12803073327379e-06, 0.00336220755885045
+WGE, LCC_21.csv to Lon_Lat.csv, 300, 2.15531021290923e-06, 8.49560489754398e-05
 WGE, Lon_Lat.csv to LCC_22.csv, 300, 0.00712329229267342, 0.0223092550684476
 WGE, LCC_22.csv to Lon_Lat.csv, 300, 1.27726930452513e-07, 0.000217996382087533
 WGE, Lon_Lat.csv to LCC_23.csv, Exception: Incompatible SRF Parameter Set
 WGE, LCC_23.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-WGE, Lon_Lat.csv to Mercator_5.csv, 300, 5.84963709115982e-06, 0.000889838769685864
-WGE, Mercator_5.csv to Lon_Lat.csv, 300, 0, 1.21723537268119e-05
-WGE, Lon_Lat.csv to Mercator_5a.csv, 300, 5.84870576858521e-06, 0.000889841563220014
-WGE, Mercator_5a.csv to Lon_Lat.csv, 300, 0, 1.21723083327883e-05
-WGE, Lon_Lat.csv to Mercator_6.csv, 300, 4.48152422904968e-06, 0.000771478778523631
-WGE, Mercator_6.csv to Lon_Lat.csv, 300, 0, 1.20151181231447e-05
+WGE, Lon_Lat.csv to Mercator_5.csv, Exception: create: Invalid SRF
+WGE, Mercator_5.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_5a.csv, Exception: create: Invalid SRF
+WGE, Mercator_5a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_6.csv, Exception: create: Invalid SRF
+WGE, Mercator_6.csv to Lon_Lat.csv, Exception: create: Invalid SRF
 WGE, Lon_Lat.csv to Mercator_7.csv, 300, 4.1937455534935e-06, 0.000623286427856643
 WGE, Mercator_7.csv to Lon_Lat.csv, 300, 0, 1.23203173273583e-05
-WGE, Lon_Lat.csv to Mercator_8.csv, 300, 5.84992207100176e-06, 0.000889838798205425
-WGE, Mercator_8.csv to Lon_Lat.csv, 300, 0, 1.21742965875402e-05
-WGE, Lon_Lat.csv to Mercator_8a.csv, 300, 4.48206853197667e-06, 0.000771478762629057
-WGE, Mercator_8a.csv to Lon_Lat.csv, 300, 0, 1.20138140374864e-05
-WGE, Lon_Lat.csv to Mercator_8b.csv, 300, 4.48206853197667e-06, 0.000771481556767063
-WGE, Mercator_8b.csv to Lon_Lat.csv, 300, 0, 1.20124245861344e-05
+WGE, Lon_Lat.csv to Mercator_8.csv, Exception: create: Invalid SRF
+WGE, Mercator_8.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_8a.csv, Exception: create: Invalid SRF
+WGE, Mercator_8a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+WGE, Lon_Lat.csv to Mercator_8b.csv, Exception: create: Invalid SRF
+WGE, Mercator_8b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
 WGE, Lon_Lat.csv to Ney_24.csv, Ney SRF not supported
 WGE, Ney_24.csv to Lon_Lat.csv, Ney SRF not supported
 WGE, Lon_Lat.csv to Ney_25.csv, Ney SRF not supported
@@ -93,26 +93,26 @@ Test_SRMmax, Lon_Lat.csv to LCC_42.csv, 300, 6.63392251099685e-08, 2.95081619911
 Test_SRMmax, LCC_42.csv to Lon_Lat.csv, 300, 3.55271367732818e-08, 0.00038197005458941
 Test_SRMmax, Lon_Lat.csv to LCC_43.csv, 300, 8.91932837204105e-08, 0.000300670143941091
 Test_SRMmax, LCC_43.csv to Lon_Lat.csv, 300, 8.52651282558762e-09, 0.000381102776304334
-Test_SRMmax, Lon_Lat.csv to LCC_44.csv, Exception: Incompatible SRF Parameter Set
-Test_SRMmax, LCC_44.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_SRMmax, Lon_Lat.csv to LCC_44.csv, 300, 2.94819162876328e-06, 0.00334072311331924
+Test_SRMmax, LCC_44.csv to Lon_Lat.csv, 300, 3.88404576230612e-06, 0.000453441338303226
 Test_SRMmax, Lon_Lat.csv to LCC_45.csv, 300, 0.00713659264489731, 0.022432026154555
 Test_SRMmax, LCC_45.csv to Lon_Lat.csv, 300, 6.25378694677068e-07, 0.000477747507327764
 Test_SRMmax, Lon_Lat.csv to LCC_46.csv, Exception: Incompatible SRF Parameter Set
 Test_SRMmax, LCC_46.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-Test_SRMmax, Lon_Lat.csv to Mercator_28.csv, 300, 0.000211504413986261, 0.052903074771642
-Test_SRMmax, Mercator_28.csv to Lon_Lat.csv, 300, 0, 0.000380789434284383
-Test_SRMmax, Lon_Lat.csv to Mercator_28a.csv, 300, 0.000211503356695175, 0.0529030710463556
-Test_SRMmax, Mercator_28a.csv to Lon_Lat.csv, 300, 0, 0.000380789434284383
-Test_SRMmax, Lon_Lat.csv to Mercator_29.csv, 300, 0.000183473218475712, 0.0458918958926174
-Test_SRMmax, Mercator_29.csv to Lon_Lat.csv, 300, 0, 0.000381102259990742
+Test_SRMmax, Lon_Lat.csv to Mercator_28.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_28.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_28a.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_28a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_29.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_29.csv to Lon_Lat.csv, Exception: create: Invalid SRF
 Test_SRMmax, Lon_Lat.csv to Mercator_30.csv, 300, 0.000148053089790383, 0.037032753229939
 Test_SRMmax, Mercator_30.csv to Lon_Lat.csv, 300, 0, 0.000381204180444213
-Test_SRMmax, Lon_Lat.csv to Mercator_31.csv, 300, 0.000211504413986261, 0.0529030747733655
-Test_SRMmax, Mercator_31.csv to Lon_Lat.csv, 300, 0, 0.000380789660734346
-Test_SRMmax, Lon_Lat.csv to Mercator_31a.csv, 300, 0.000183473218475712, 0.0458918958912901
-Test_SRMmax, Mercator_31a.csv to Lon_Lat.csv, 300, 0, 0.000381102061196978
-Test_SRMmax, Lon_Lat.csv to Mercator_31b.csv, 300, 0.000183474272489548, 0.0458918958912901
-Test_SRMmax, Mercator_31b.csv to Lon_Lat.csv, 300, 0, 0.000381100481879604
+Test_SRMmax, Lon_Lat.csv to Mercator_31.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_31.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_31a.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_31a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_SRMmax, Lon_Lat.csv to Mercator_31b.csv, Exception: create: Invalid SRF
+Test_SRMmax, Mercator_31b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
 Test_SRMmax, Lon_Lat.csv to Ney_48.csv, Ney SRF not supported
 Test_SRMmax, Ney_48.csv to Lon_Lat.csv, Ney SRF not supported
 Test_SRMmax, Lon_Lat.csv to Ney_47.csv, Ney SRF not supported
@@ -163,26 +163,26 @@ Test_sphere, Lon_Lat.csv to LCC_65.csv, 300, 1.66778428175798e-07, 2.89731201332
 Test_sphere, LCC_65.csv to Lon_Lat.csv, 300, 6.36110936292703e-09, 2.88245995764459e-06
 Test_sphere, Lon_Lat.csv to LCC_66.csv, 300, 2.06787170015038e-08, 0.000301961934077077
 Test_sphere, LCC_66.csv to Lon_Lat.csv, 300, 2.12036978764234e-08, 1.15954760345443e-06
-Test_sphere, Lon_Lat.csv to LCC_67.csv, Exception: Incompatible SRF Parameter Set
-Test_sphere, LCC_67.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
+Test_sphere, Lon_Lat.csv to LCC_67.csv, 300, 2.14397891770456e-06, 0.00339001974456455
+Test_sphere, LCC_67.csv to Lon_Lat.csv, 300, 2.14199370748724e-06, 7.43402155867485e-05
 Test_sphere, Lon_Lat.csv to LCC_68.csv, 300, 0.0070968184314018, 0.0223665487693742
 Test_sphere, LCC_68.csv to Lon_Lat.csv, 300, 8.36485881224905e-07, 0.000212723598495499
 Test_sphere, Lon_Lat.csv to LCC_69.csv, Exception: Incompatible SRF Parameter Set
 Test_sphere, LCC_69.csv to Lon_Lat.csv, Exception: Incompatible SRF Parameter Set
-Test_sphere, Lon_Lat.csv to Mercator_51.csv, 300, 8.38190317153931e-09, 1.43872312857315e-05
-Test_sphere, Mercator_51.csv to Lon_Lat.csv, 300, 0, 5.88665231080862e-07
-Test_sphere, Lon_Lat.csv to Mercator_51a.csv, 300, 7.45058059692383e-09, 1.43909339629506e-05
-Test_sphere, Mercator_51a.csv to Lon_Lat.csv, 300, 0, 5.86704275972557e-07
-Test_sphere, Lon_Lat.csv to Mercator_52.csv, 300, 8.38190317153931e-09, 1.31788769695393e-05
-Test_sphere, Mercator_52.csv to Lon_Lat.csv, 300, 0, 6.09661764990871e-07
+Test_sphere, Lon_Lat.csv to Mercator_51.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_51.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_51a.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_51a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_52.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_52.csv to Lon_Lat.csv, Exception: create: Invalid SRF
 Test_sphere, Lon_Lat.csv to Mercator_53.csv, 300, 7.45058059692383e-09, 1.05739358418097e-05
 Test_sphere, Mercator_53.csv to Lon_Lat.csv, 300, 0, 8.09910131511116e-07
-Test_sphere, Lon_Lat.csv to Mercator_54.csv, 300, 1.13086388674259e-07, 1.4390175849312e-05
-Test_sphere, Mercator_54.csv to Lon_Lat.csv, 300, 0, 6.56032335135805e-07
-Test_sphere, Lon_Lat.csv to Mercator_54a.csv, 300, 5.72763383388519e-08, 1.3185663827354e-05
-Test_sphere, Mercator_54a.csv to Lon_Lat.csv, 300, 0, 7.81684523643472e-07
-Test_sphere, Lon_Lat.csv to Mercator_54b.csv, 300, 5.58793544769287e-08, 1.31893864875032e-05
-Test_sphere, Mercator_54b.csv to Lon_Lat.csv, 300, 0, 7.8264836762106e-07
+Test_sphere, Lon_Lat.csv to Mercator_54.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_54.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_54a.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_54a.csv to Lon_Lat.csv, Exception: create: Invalid SRF
+Test_sphere, Lon_Lat.csv to Mercator_54b.csv, Exception: create: Invalid SRF
+Test_sphere, Mercator_54b.csv to Lon_Lat.csv, Exception: create: Invalid SRF
 Test_sphere, Lon_Lat.csv to Ney_71.csv, Ney SRF not supported
 Test_sphere, Ney_71.csv to Lon_Lat.csv, Ney SRF not supported
 Test_sphere, Lon_Lat.csv to Ney_70.csv, Ney SRF not supported
