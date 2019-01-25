@@ -16,9 +16,9 @@
       if _ACTION == "gmake" then
          buildoptions { "-std=c++11" }
       end
-      includedirs { SRM_IncPath }
-      libdirs { SEDRIS_LibPath }
-      links { "lib_srm" }
+      includedirs { IncPathSRM }
+      libdirs { LibPathSEDRIS }
+      links { "libsrm" }
       files {
          "../../examples/test_srm_accuracy/**.h*",
          "../../examples/test_srm_accuracy/**.c*"
@@ -37,9 +37,9 @@
       if _ACTION == "gmake" then
          buildoptions { "-std=c++11" }
       end
-      includedirs { SRM_IncPath }
-      libdirs { SEDRIS_LibPath }
-      links { "lib_srm" }
+      includedirs { IncPathSRM }
+      libdirs { LibPathSEDRIS }
+      links { "libsrm" }
       files {
          "../../examples/test_srm_timing/**.h*",
          "../../examples/test_srm_timing/**.cpp"

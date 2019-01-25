@@ -15,13 +15,14 @@ end
 -- make verbose=1
 --
 
---
--- set include and library paths
---
-SRM_IncPath            = "../../include/sedris/srm"
-SRM_c_wrapper_IncPath  = "../../include/sedris/srm-c-wrapper"
-EDCS_IncPath           = "../../include/sedris/edcs"
-SEDRIS_LibPath         = "../../lib"
+-- paths for sedris code
+IncPathSRM          = "../../src/srm"
+IncPathSRM_wrapper  = "../../src/srm_wrapper"
+LibPathSEDRIS       = "../../lib"
+-- paths for dependencies
+IncPathSol2 = "../../deps/src/sol2"
+IncPathLua  = "../../deps/src/lua-5.3.5/src"
+LibPathDeps = "../../deps/lib"
 
 workspace "sedris"
 

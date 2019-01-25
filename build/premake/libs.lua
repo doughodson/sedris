@@ -1,78 +1,60 @@
 
-   --
-   -- libraries
-   --
+--
+-- libraries
+--
 
-   -- drm
-   project "lib_drm"
-      targetname "sedris_drm"
-      targetdir ("../../lib/")
-      kind "StaticLib"
-      language "C"
-      if _ACTION ~= "gmake" then
-         defines { "_LIB" }
-      end
-      if _ACTION == "gmake" then
-         defines { "gnu" }
-      end
-      includedirs { SRM_c_wrapper_IncPath, SRM_IncPath, EDCS_IncPath }
-      files {
-         "../../include/sedris/drm/**.h*",
-         "../../src/drm/**.c*"
-      }
+-- SRM library
+project "libsrm"
+   targetname "srm"
+   targetdir(LibPathSEDRIS)
+   kind "StaticLib"
+   language "C++"
+   if _ACTION == "gmake" then
+      buildoptions { "-std=c++11" }
+   end
+   if _ACTION ~= "gmake" then
+      defines { "_LIB" }
+   end
+   includedirs { IncPathSRM }
+   files {
+      "../../src/srm/**.h*",
+      "../../src/srm/**.cpp"
+   }
 
-   -- edcs
-   project "lib_edcs"
-      targetname "sedris_edcs"
-      targetdir ("../../lib/")
-      kind "StaticLib"
-      language "C"
-      if _ACTION ~= "gmake" then
-        defines { "_LIB" }
-      end
-      if _ACTION == "gmake" then
-         defines { "gnu" }
-      end
-      includedirs { EDCS_IncPath }
-      files {
-         "../../include/sedris/edcs/**.h*",
-         "../../src/edcs/**.c*"
-      }
+-- SRM C wrapper library
+project "libsrm_wrapper"
+   targetname "srm_wrapper"
+   targetdir(LibPathSEDRIS)
+   kind "StaticLib"
+   language "C++"
+   if _ACTION == "gmake" then
+      buildoptions { "-std=c++11" }
+   end
+   if _ACTION ~= "gmake" then
+      defines { "_LIB" }
+   end
+   includedirs { IncPathSRM }
+   files {
+      "../../src/srm_wrapper/**.h*",
+      "../../src/srm_wrapper/**.cpp"
+   }
 
-   -- srm
-   project "lib_srm"
-      targetname "sedris_srm"
-      targetdir ("../../lib/")
-      kind "StaticLib"
-      language "C++"
-      if _ACTION == "gmake" then
-         buildoptions { "-std=c++11" }
-      end
-      if _ACTION ~= "gmake" then
-         defines { "_LIB" }
-      end
-      includedirs { SRM_IncPath }
-      files {
-         "../../include/sedris/srm/**.h*",
-         "../../src/srm/**.h*",
-         "../../src/srm/**.cpp"
-      }
+-- lua library
+project "liblua"
+   targetname "lua"
+   targetdir(LibPathDeps)
+   kind "StaticLib"
+   language "C"
+   files {
+      "../../deps/src/lua-5.3.5/src/**.h",
+      "../../deps/src/lua-5.3.5/src/**.hpp",
+      "../../deps/src/lua-5.3.5/src/**.c"
+   }
+   excludes {
+      "../../deps/src/lua-5.3.5/src/lua.c",
+      "../../deps/src/lua-5.3.5/src/luac.c"
+   }
+   if os.ishost("linux") then
+      defines { "LUA_COMPAT_MODULE_5_2", "LUA_USE_LINUX" }
+   end
 
-   -- srm-c-wrapper
-   project "lib_srm_c_wrapper"
-      targetname "sedris_srm_c_wrapper"
-      targetdir ("../../lib/")
-      kind "StaticLib"
-      language "C++"
-      if _ACTION == "gmake" then
-         buildoptions { "-std=c++11" }
-      end
-      if _ACTION ~= "gmake" then
-         defines { "_LIB" }
-      end
-      includedirs { SRM_c_wrapper_IncPath, SRM_IncPath }
-      files {
-         "../../include/sedris/srm-c-wrapper/**.h*",
-         "../../src/srm-c-wrapper/**.h*",
-         "../../src/srm-c-wrapper/**.cpp"
-      }
