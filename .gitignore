@@ -42,6 +42,7 @@ vs2017/
 
 # linux exes
 examples/sample_srm_access/sample_srm_access
+examples/sample_srm_access_lua/sample_srm_access_lua
 examples/sample_srm_access_c/sample_srm_access_c
 examples/test_creation/test_creation
 examples/test_srm_accuracy/test_srm_accuracy
