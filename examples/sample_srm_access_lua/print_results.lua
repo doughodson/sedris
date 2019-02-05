@@ -4,7 +4,6 @@ function to_degrees(rad) return rad*(180/PI) end
 
 print("UTM (Zone N12) "
          .. "[ " .. utm_coord:get_easting()
-         .. ", " .. utm_coord:get_easting()
          .. ", " .. utm_coord:get_northing()
          .. ", " .. utm_coord:get_ellipsoidal_height() .. " ]"
       )
