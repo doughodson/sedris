@@ -52,7 +52,10 @@ void register_types(sol::state* lua)
 	lua->new_usertype<srm::Coord3D_TransverseMercator>("Coord3D_TransverseMercator",
       "new", sol::factories(
          [](){ return std::unique_ptr<srm::Coord3D_TransverseMercator>(); }
-      )
+      ),
+      "get_easting", &srm::Coord3D_TransverseMercator::get_easting,
+      "get_northing", &srm::Coord3D_TransverseMercator::get_northing,
+		"get_ellipsoidal_height", &srm::Coord3D_TransverseMercator::get_ellipsoidal_height
    );
 
 	//-----------------------------------
@@ -61,7 +64,10 @@ void register_types(sol::state* lua)
 	lua->new_usertype<srm::Coord3D_Celestiodetic>("Coord3D_Celestiodetic",
       "new", sol::factories(
          [](){ return std::unique_ptr<srm::Coord3D_Celestiodetic>(); }
-      )
+      ),
+		"get_longitude", &srm::Coord3D_Celestiodetic::get_longitude,
+      "get_latitude", &srm::Coord3D_Celestiodetic::get_latitude,
+		"get_ellipsoidal_height", &srm::Coord3D_Celestiodetic::get_ellipsoidal_height
    );
 
 	//-----------------------------------
@@ -70,6 +76,9 @@ void register_types(sol::state* lua)
 	lua->new_usertype<srm::Coord3D_Celestiocentric>("Coord3D_Celestiocentric",
       "new", sol::factories(
          [](){ return std::unique_ptr<srm::Coord3D_Celestiocentric>(); }
-      )
+      ),
+		"get_u", &srm::Coord3D_Celestiocentric::get_u,
+      "get_v", &srm::Coord3D_Celestiocentric::get_v,
+		"get_w", &srm::Coord3D_Celestiocentric::get_w
    );
 }
