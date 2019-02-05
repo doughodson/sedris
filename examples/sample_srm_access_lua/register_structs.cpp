@@ -5,6 +5,13 @@
 void register_structs(sol::state* lua)
 {
 	//-----------------------------------
+   // SRM_SRFS_Code_Info
+	//-----------------------------------
+	lua->new_usertype<SRM_SRFS_Code_Info>("SRM_SRFS_Code_Info",
+		"srfs_code", &SRM_SRFS_Code_Info::srfs_code
+   );
+
+	//-----------------------------------
    // SRM_SRFS_Info
 	//-----------------------------------
 	lua->new_usertype<SRM_SRFS_Info>("SRM_SRFS_Info",
